@@ -39,8 +39,18 @@ nav ul li a:hover {
   color: #a8dfff;
 }
 main {
+  display: flex;
   flex: 1 0 auto;
   background-color: #a4a8c2;
+}
+main #principal {
+  flex: 1 0 auto;
+  min-width: 50vw;
+}
+main aside {
+  background-color: white;
+  flex: 0 1 20vw;
+  border: solid #003858 2px;
 }
 footer {
   background-color: #003858;

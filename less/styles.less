@@ -59,8 +59,18 @@ nav{
 }
 // Gestion de la section principale
 main{
+    display: flex;
     flex:1 0 auto;
     background-color: @couleurBase;
+    & #principal{
+        flex: 1 0 auto;
+        min-width: 50vw;
+    }
+    & aside{
+        background-color: white;
+        flex: 0 1 20vw;
+        border: solid @couleurAccent 2px;
+    }
 
 }
 
