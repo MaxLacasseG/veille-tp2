@@ -1,6 +1,7 @@
 @import 'normalize.css';
 body {
   font-family: 'Ubuntu', sans-serif;
+  color: #a4a8c2;
 }
 #wrapper {
   display: flex;
