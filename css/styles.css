@@ -6,6 +6,24 @@ body {
 #wrapper {
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
+}
+nav {
+  display: flex;
+  flex-direction: row;
+}
+nav ul {
+  list-style-type: none;
+}
+nav ul li {
+  color: #a4a8c2;
+}
+nav ul li a {
+  text-decoration: none;
+  color: #064cb4;
+}
+nav ul li a:hover {
+  color: #a8dfff;
 }
 header {
   background-color: #003858;

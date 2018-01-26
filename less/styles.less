@@ -2,6 +2,8 @@
 
 @couleurBase : #a4a8c2;
 @couleurAccent : #003858;
+@coulNav: #064cb4;
+@coulNavSurvol: #a8dfff;
 @fontBase:'Ubuntu', sans-serif;
 
 body{
@@ -12,7 +14,25 @@ body{
 #wrapper{
     display:flex;
     flex-direction: column;
+    min-height: 100vh;
 
+}
+nav{
+    display: flex;
+    flex-direction: row;
+    & ul{
+        list-style-type: none;
+        & li {
+            color: @couleurBase;
+            & a{
+                text-decoration: none;
+                color: @coulNav;
+                &:hover{
+                    color: @coulNavSurvol;
+                }
+            }
+        }
+    }
 }
 
 // Gestion de l'entête
