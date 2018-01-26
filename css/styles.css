@@ -9,13 +9,12 @@ body {
   min-height: 100vh;
 }
 header {
-  padding: 2%;
+  padding: 0 5%;
   padding-right: 10em;
   flex: 0 1 auto;
-  background-color: #041535;
+  background: url(../medias/img/motifFond.png);
   display: flex;
   align-items: flex-end;
-  min-height: 15vh;
 }
 header #groupeEntete {
   display: flex;
@@ -25,7 +24,7 @@ header #groupeEntete {
 header #groupeEntete h1 {
   font-family: 'Oswald', cursive;
   font-size: 3em;
-  color: White;
+  color: #1b2346;
 }
 header #groupeEntete h2 {
   font-family: 'Ubuntu', sans-serif;
@@ -58,7 +57,7 @@ nav ul li a:hover {
 }
 main {
   display: flex;
-  flex: 1 0 auto;
+  flex: 1 0 80%;
   background-color: #ffffff;
 }
 main #principal {
