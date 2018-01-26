@@ -1,7 +1,7 @@
 @import 'normalize.css';
 @couleurBase : #ffffff;
 @couleurAccent : #041535;
-@coulNav: #00a2ff;
+@coulNav: #0069a7;
 @coulNavSurvol: #a8dfff;
 @coulTitre: rgb(27, 35, 70);
 @fontBase: 'Ubuntu',
@@ -29,6 +29,7 @@ header {
 
     display: flex;
     align-items: flex-end;
+    border-bottom: @coulTitre 4px solid;
     #groupeEntete {
         display: flex;
         flex-direction: column;
@@ -45,8 +46,16 @@ header {
         }
     }
 }
+//Gestion de la navigation et des listes
+ul{
+    list-style-type: none;
+    & li{
+        & a{
+            text-decoration: none;
+        }
+    }
+}
 
-//Gestion de la navigation
 nav {
     flex: 1 0 auto;
     padding: 1em;
@@ -54,14 +63,12 @@ nav {
     justify-content: flex-end;
     flex-direction: row;
     & ul {
-        list-style-type: none;
         display: flex;
         justify-content: space-between;
         min-width: 20vw;
         & li {
             color: @couleurBase;
             & a {
-                text-decoration: none;
                 color: @coulNav;
                 font-size: @fontTaille * 1.5;
                 &:hover {
@@ -97,17 +104,23 @@ main {
             & .chatBoiteRep {
                 margin: 0;
                 flex: 1 0 auto;
-                background-color: @couleurBase;
+                background-color: white;
+                padding:5%;
+                color: grey;
+                font-family: @fontAccent;
+                text-align: justify;
+
             }
             & .btnGroupe {
                 display: flex;
                 & .chatBoiteMsg {
+                    background-color: white;
                     flex-basis: 15%;
                 }
                 & input {
                     background-color: @couleurAccent;
                     border: none;
-                    color: @couleurBase;
+                    color: white;
                     text-align: center;
                     font-family: @fontAccent;
                     font-size: @fontTaille;
@@ -134,5 +147,7 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    
+    font-family: @fontAccent;
+    font-size: @fontTaille*0.9;
+    color: @coulNav;
 }

@@ -15,6 +15,7 @@ header {
   background: url(../medias/img/motifFond.png);
   display: flex;
   align-items: flex-end;
+  border-bottom: #1b2346 4px solid;
 }
 header #groupeEntete {
   display: flex;
@@ -29,7 +30,13 @@ header #groupeEntete h1 {
 header #groupeEntete h2 {
   font-family: 'Ubuntu', sans-serif;
   font-size: 1.5em;
-  color: #00a2ff;
+  color: #0069a7;
+}
+ul {
+  list-style-type: none;
+}
+ul li a {
+  text-decoration: none;
 }
 nav {
   flex: 1 0 auto;
@@ -39,7 +46,6 @@ nav {
   flex-direction: row;
 }
 nav ul {
-  list-style-type: none;
   display: flex;
   justify-content: space-between;
   min-width: 20vw;
@@ -48,8 +54,7 @@ nav ul li {
   color: #ffffff;
 }
 nav ul li a {
-  text-decoration: none;
-  color: #00a2ff;
+  color: #0069a7;
   font-size: 1.5em;
 }
 nav ul li a:hover {
@@ -65,7 +70,7 @@ main #principal {
   min-width: 50vw;
 }
 main aside {
-  background-color: #00a2ff;
+  background-color: #0069a7;
   flex: 0 1 20vw;
   padding: 0;
   margin: 0;
@@ -77,23 +82,28 @@ main aside form {
   flex-direction: column;
   height: 100%;
   justify-content: space-between;
-  border-left: #00a2ff solid 2px;
+  border-left: #0069a7 solid 2px;
 }
 main aside form .chatBoiteRep {
   margin: 0;
   flex: 1 0 auto;
-  background-color: #ffffff;
+  background-color: white;
+  padding: 5%;
+  color: grey;
+  font-family: 'Oswald', cursive;
+  text-align: justify;
 }
 main aside form .btnGroupe {
   display: flex;
 }
 main aside form .btnGroupe .chatBoiteMsg {
+  background-color: white;
   flex-basis: 15%;
 }
 main aside form .btnGroupe input {
   background-color: #041535;
   border: none;
-  color: #ffffff;
+  color: white;
   text-align: center;
   font-family: 'Oswald', cursive;
   font-size: 1em;
@@ -104,7 +114,7 @@ main aside form .btnGroupe input.chatBtnEnvoyer {
   flex: 1 0 60%;
 }
 main aside form .btnGroupe input.chatPoke {
-  background-color: #00a2ff;
+  background-color: #0069a7;
   flex: 1 0 40%;
 }
 footer {
@@ -113,4 +123,7 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: 'Oswald', cursive;
+  font-size: 0.9em;
+  color: #0069a7;
 }
