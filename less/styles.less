@@ -1,81 +1,137 @@
 @import 'normalize.css';
 
-@couleurBase : #a4a8c2;
-@couleurAccent : #003858;
-@coulNav: #064cb4;
+@couleurBase : #ffffff;
+@couleurAccent : #041535;
+@coulNav: #00a2ff;
 @coulNavSurvol: #a8dfff;
-@fontBase:'Ubuntu', sans-serif;
-@fontTaille:2em;
-
-body{
+@coulTitre: White;
+@fontBase: 'Ubuntu',
+sans-serif;
+@fontAccent: 'Oswald',
+cursive;
+@fontTaille: 1em;
+body {
     font-family: @fontBase;
     color: @couleurBase;
 }
 
-#wrapper{
-    display:flex;
+#wrapper {
+    display: flex;
     flex-direction: column;
     min-height: 100vh;
 }
 
-
-
 // Gestion de l'entête
-header{
+header {
+    padding: 2%;
+    padding-right: 10em;
     flex: 0 1 auto;
     background-color: @couleurAccent;
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     min-height: 15vh;
+    #groupeEntete {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        & h1 {
+            font-family: @fontAccent;
+            font-size: @fontTaille*3;
+            color: @coulTitre;
+        }
+        & h2 {
+            font-family: @fontBase;
+            font-size: @fontTaille*1.5;
+            color: @coulNav;
+        }
+    }
 }
 
 //Gestion de la navigation
-nav{
+nav {
     flex: 1 0 auto;
     padding: 1em;
     display: flex;
     justify-content: flex-end;
     flex-direction: row;
-
-    & ul{
+    & ul {
         list-style-type: none;
         display: flex;
-        justify-content: flex-end;
-
+        justify-content: space-between;
+        min-width: 20vw;
         & li {
             color: @couleurBase;
-        
-            & a{
+            & a {
                 text-decoration: none;
                 color: @coulNav;
-                font-size:@fontTaille;
-
-                &:hover{
+                font-size: @fontTaille * 1.5;
+                &:hover {
                     color: @coulNavSurvol;
                 }
             }
         }
     }
 }
+
 // Gestion de la section principale
-main{
+main {
     display: flex;
-    flex:1 0 auto;
+    flex: 1 0 auto;
     background-color: @couleurBase;
-    & #principal{
+    & #principal {
         flex: 1 0 auto;
         min-width: 50vw;
     }
-    & aside{
-        background-color: white;
+    & aside {
+        background-color: @coulNav;
         flex: 0 1 20vw;
-        border: solid @couleurAccent 2px;
+        padding:0;
+        margin: 0;
+        & form {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            justify-content: space-between;
+            border-left: @coulNav solid 2px;
+            & .chatBoiteRep {
+                margin: 0;
+                flex: 1 0 auto;
+                background-color: @couleurBase;
+            }
+            & .btnGroupe{
+                display: flex;
+                & .chatBoiteMsg{
+                    flex-basis: 15%;
+                }
+                & input{
+                    background-color:@couleurAccent;
+                    border: none;
+                    color: @couleurBase;
+                    text-align: center;
+                    font-family: @fontAccent;
+                    font-size: @fontTaille;
+                    padding: 1em;
+                    &.chatBtnEnvoyer{
+                        flex: 1 0 60%;;
+                    }
+                    &.chatPoke{
+                        background-color: @coulNav;
+                        flex: 1 0 40%;
+                    }
+                    margin: 0;
+                }
+            }
+        }
     }
-
 }
 
 // Gestion du pied de page
-footer{
+footer {
     background-color: @couleurAccent;
-    min-height: 15vh;
+    min-height: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

@@ -1,7 +1,7 @@
 @import 'normalize.css';
 body {
   font-family: 'Ubuntu', sans-serif;
-  color: #a4a8c2;
+  color: #ffffff;
 }
 #wrapper {
   display: flex;
@@ -9,11 +9,28 @@ body {
   min-height: 100vh;
 }
 header {
+  padding: 2%;
+  padding-right: 10em;
   flex: 0 1 auto;
-  background-color: #003858;
+  background-color: #041535;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   min-height: 15vh;
+}
+header #groupeEntete {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+header #groupeEntete h1 {
+  font-family: 'Oswald', cursive;
+  font-size: 3em;
+  color: White;
+}
+header #groupeEntete h2 {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 1.5em;
+  color: #00a2ff;
 }
 nav {
   flex: 1 0 auto;
@@ -25,15 +42,16 @@ nav {
 nav ul {
   list-style-type: none;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  min-width: 20vw;
 }
 nav ul li {
-  color: #a4a8c2;
+  color: #ffffff;
 }
 nav ul li a {
   text-decoration: none;
-  color: #064cb4;
-  font-size: 2em;
+  color: #00a2ff;
+  font-size: 1.5em;
 }
 nav ul li a:hover {
   color: #a8dfff;
@@ -41,18 +59,59 @@ nav ul li a:hover {
 main {
   display: flex;
   flex: 1 0 auto;
-  background-color: #a4a8c2;
+  background-color: #ffffff;
 }
 main #principal {
   flex: 1 0 auto;
   min-width: 50vw;
 }
 main aside {
-  background-color: white;
+  background-color: #00a2ff;
   flex: 0 1 20vw;
-  border: solid #003858 2px;
+  padding: 0;
+  margin: 0;
+}
+main aside form {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+  border-left: #00a2ff solid 2px;
+}
+main aside form .chatBoiteRep {
+  margin: 0;
+  flex: 1 0 auto;
+  background-color: #ffffff;
+}
+main aside form .btnGroupe {
+  display: flex;
+}
+main aside form .btnGroupe .chatBoiteMsg {
+  flex-basis: 15%;
+}
+main aside form .btnGroupe input {
+  background-color: #041535;
+  border: none;
+  color: #ffffff;
+  text-align: center;
+  font-family: 'Oswald', cursive;
+  font-size: 1em;
+  padding: 1em;
+  margin: 0;
+}
+main aside form .btnGroupe input.chatBtnEnvoyer {
+  flex: 1 0 60%;
+}
+main aside form .btnGroupe input.chatPoke {
+  background-color: #00a2ff;
+  flex: 1 0 40%;
 }
 footer {
-  background-color: #003858;
-  min-height: 15vh;
+  background-color: #041535;
+  min-height: 5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
