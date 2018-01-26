@@ -5,6 +5,7 @@
 @coulNav: #064cb4;
 @coulNavSurvol: #a8dfff;
 @fontBase:'Ubuntu', sans-serif;
+@fontTaille:2em;
 
 body{
     font-family: @fontBase;
@@ -15,18 +16,40 @@ body{
     display:flex;
     flex-direction: column;
     min-height: 100vh;
-
 }
-nav{
+
+
+
+// Gestion de l'entête
+header{
+    flex: 0 1 auto;
+    background-color: @couleurAccent;
     display: flex;
+    align-items: center;
+    min-height: 15vh;
+}
+
+//Gestion de la navigation
+nav{
+    flex: 1 0 auto;
+    padding: 1em;
+    display: flex;
+    justify-content: flex-end;
     flex-direction: row;
+
     & ul{
         list-style-type: none;
+        display: flex;
+        justify-content: flex-end;
+
         & li {
             color: @couleurBase;
+        
             & a{
                 text-decoration: none;
                 color: @coulNav;
+                font-size:@fontTaille;
+
                 &:hover{
                     color: @coulNavSurvol;
                 }
@@ -34,14 +57,6 @@ nav{
         }
     }
 }
-
-// Gestion de l'entête
-header{
-    background-color: @couleurAccent;
-    min-height: 15vh;
-}
-
-
 // Gestion de la section principale
 main{
     flex:1 0 auto;

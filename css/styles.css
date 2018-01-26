@@ -8,12 +8,24 @@ body {
   flex-direction: column;
   min-height: 100vh;
 }
-nav {
+header {
+  flex: 0 1 auto;
+  background-color: #003858;
   display: flex;
+  align-items: center;
+  min-height: 15vh;
+}
+nav {
+  flex: 1 0 auto;
+  padding: 1em;
+  display: flex;
+  justify-content: flex-end;
   flex-direction: row;
 }
 nav ul {
   list-style-type: none;
+  display: flex;
+  justify-content: flex-end;
 }
 nav ul li {
   color: #a4a8c2;
@@ -21,13 +33,10 @@ nav ul li {
 nav ul li a {
   text-decoration: none;
   color: #064cb4;
+  font-size: 2em;
 }
 nav ul li a:hover {
   color: #a8dfff;
-}
-header {
-  background-color: #003858;
-  min-height: 15vh;
 }
 main {
   flex: 1 0 auto;
