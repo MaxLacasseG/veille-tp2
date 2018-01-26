@@ -1,0 +1,53 @@
+Configure le compte
+========================
+git config --list
+
+git remote add origin <repo>
+git push -u origin master
+
+Cmd de base
+================================================================
+$ git init —> crée un fichier de suivi dans dossier local
+$ git add <file name> —> ajoute des fichiers au dossier
+        $ git add *.html —> ajoute tous les fichiers html
+        $ git add . —> ajoute tous les fichiers
+        $ git rm —cached <file> enlève la surveillance
+        fichier .gitignore —> pour ignorer les fichier à ajouter
+$ git status —> donne de l’info sur le dossier en cours
+$ git status -s ->indique l'info abrégée
+
+$ git log —> Montre les logs
+
+===============================================================
+$ git commit —> ajoute les modifications au dossier
+
+ouvre vim editor
+    i —> pour écrire
+    escape —> pour quitter écriture
+    :wq —> pour quitter vim cmd line
+
+===================================================================
+Branches
+Pour développer un module sans modifier le master. Change le contenu du dossier de travail
+
+git branch <‘nom de la branche’>
+
+pour changer de branche
+git checkout ‘nom branche'
+
+pour fusionner une branche
+aller sur la branche maitresse
+git merge <nom de la branche à fusionner>
+
+ouvre vim editor
+    i —> pour écrire un commentaire
+    escape —> pour quitter écriture
+    :wq —> pour quitter vim cmd line
+
+==============================================================
+Commandes au serveur
+$ git push —> envoie au serveur partagé
+$ git pull —> récupère la dernière version sur le serveur partagé
+$ git clone —> fait une copie à partir du serveur partagé
+
+** afficher les fichiers cachés
