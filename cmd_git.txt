@@ -15,7 +15,7 @@ $ git add <file name> —> ajoute des fichiers au dossier
         fichier .gitignore —> pour ignorer les fichier à ajouter
 $ git status —> donne de l’info sur le dossier en cours
 $ git status -s ->indique l'info abrégée
-
+$ git diff -> affiche les changements
 $ git log —> Montre les logs
 
 ===============================================================
