@@ -52,6 +52,7 @@ ul{
     & li{
         & a{
             text-decoration: none;
+            color: @coulNav;
         }
     }
 }
@@ -69,7 +70,6 @@ nav {
         & li {
             color: @couleurBase;
             & a {
-                color: @coulNav;
                 font-size: @fontTaille * 1.5;
                 &:hover {
                     color: @coulNavSurvol;
@@ -87,6 +87,10 @@ main {
     & #principal {
         flex: 1 0 auto;
         min-width: 50vw;
+        padding: 2%;
+        & a{
+            font-size: @fontTaille * 2;
+        }
     }
     & aside {
         background-color: @coulNav;

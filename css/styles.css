@@ -37,6 +37,7 @@ ul {
 }
 ul li a {
   text-decoration: none;
+  color: #0069a7;
 }
 nav {
   flex: 1 0 auto;
@@ -54,7 +55,6 @@ nav ul li {
   color: #ffffff;
 }
 nav ul li a {
-  color: #0069a7;
   font-size: 1.5em;
 }
 nav ul li a:hover {
@@ -68,6 +68,10 @@ main {
 main #principal {
   flex: 1 0 auto;
   min-width: 50vw;
+  padding: 2%;
+}
+main #principal a {
+  font-size: 2em;
 }
 main aside {
   background-color: #0069a7;
