@@ -20,7 +20,7 @@ $ git log —> Montre les logs
 
 ===============================================================
 $ git commit —> ajoute les modifications au dossier
-
+$ commit --ammend -> modifie le dernier commit
 ouvre vim editor
     i —> pour écrire
     escape —> pour quitter écriture

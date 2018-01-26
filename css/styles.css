@@ -1,12 +1,19 @@
 body {
   font-family: 'Ubuntu', sans-serif;
 }
+#wrapper {
+  display: flex;
+  flex-direction: column;
+}
 header {
   background-color: #003858;
+  min-height: 15vh;
 }
 main {
+  flex: 1 0 auto;
   background-color: #a4a8c2;
 }
 footer {
   background-color: #003858;
+  min-height: 15vh;
 }

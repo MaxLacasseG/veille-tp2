@@ -5,14 +5,23 @@
 body{
     font-family: @fontBase;
 }
+#wrapper{
+    display:flex;
+    flex-direction: column;
+    
+}
 
 header{
     background-color: @couleurAccent;
+    min-height: 15vh;
 }
 main{
+    flex:1 0 auto;
     background-color: @couleurBase;
+
 }
 
 footer{
     background-color: @couleurAccent;
+    min-height: 15vh;
 }
