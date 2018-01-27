@@ -1,6 +1,5 @@
 @import 'reset.css';
 * {
-  border: cyan 1px solid;
   box-sizing: border-box;
 }
 html {
@@ -94,6 +93,28 @@ h6 {
 }
 #conteneurPrinc main {
   flex: 1 1 auto;
+  display: flex;
+}
+#conteneurPrinc main > * {
+  border: #52346b 1px solid;
+}
+#conteneurPrinc main section#principale {
+  flex: 1 1 70%;
+}
+#conteneurPrinc main aside {
+  flex: 1 1 30%;
+  padding: 2rem;
+  background-color: #f38e54;
+  display: flex;
+  flex-direction: column;
+}
+#conteneurPrinc main aside .chatLabel {
+  flex: 1 1 10%;
+  color: #f7d6ac;
+  text-transform: uppercase;
+  font-size: 15px;
+  font-size: 1.5rem;
+  font-family: 'Oswald', cursive;
 }
 #conteneurPrinc footer {
   flex: 1 0 content;

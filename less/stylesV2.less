@@ -1,5 +1,5 @@
 @import 'reset.css';
-*{border:cyan 1px solid; box-sizing: border-box;}
+*{box-sizing: border-box;}
 @coulBase :#fdf9d0;
 @coulAccent1: #f3d369;
 @coulAccent2: #f38e54;
@@ -88,6 +88,30 @@ h6{.tailleFont(0.7)}
     }
     & main {
         flex: 1 1 auto;
+        &>*{
+            border: #52346b 1px solid;
+        }
+        display: flex;
+        & section#principale{
+            flex: 1 1 70%;
+        }
+        //Section contenant la boite de chat
+        & aside{
+            flex: 1 1 30%;
+            padding: 2rem;
+            background-color: @coulAccent2;
+            display: flex;
+            flex-direction: column;
+            & .chatLabel{
+                flex: 1 1 10%;
+
+                color: lighten(@coulTxtAcc1, 20%);
+                text-transform: uppercase;
+                .tailleFont(1.5);
+                font-family: @fontAccent;
+            }
+
+        }
     }
     & footer{
         flex: 1 0 content;
