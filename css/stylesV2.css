@@ -29,8 +29,12 @@ a {
   color: #eea94f;
 }
 h1 {
-  font-size: 80px;
-  font-size: 8rem;
+  font-size: 70px;
+  font-size: 7rem;
+  font-weight: 500;
+  letter-spacing: -0.15rem;
+  font-family: 'Anton', sans-serif;
+  color: #4b131a;
 }
 h2 {
   font-size: 50px;
@@ -63,7 +67,7 @@ h6 {
 #conteneurPrinc header {
   flex: 1 0 content;
   padding: 1rem;
-  background: linear-gradient(to right, #cf4154, #882230), #cf4154;
+  background: url(../medias/img/motifFond2.png), linear-gradient(to right, #cf4154, #882230), #cf4154;
   display: flex;
 }
 #conteneurPrinc header #groupeEntete {
@@ -95,7 +99,7 @@ h6 {
   flex: 1 0 content;
   min-height: 5vh;
   padding: 1rem;
-  background-color: #f3d369;
+  background: linear-gradient(to right, #882230, #5f1821), #cf4154;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -103,5 +107,5 @@ h6 {
 #conteneurPrinc footer p {
   font-size: 12px;
   font-size: 1.2rem;
-  color: #8b2800;
+  color: #be3700;
 }

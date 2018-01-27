@@ -14,7 +14,7 @@
 
 @fontBase: 'Ubuntu',sans-serif;
 @fontAccent: 'Oswald',cursive;
-
+@fontTitre:'Anton', sans-serif;
 .tailleFont(@taille){
     @remVal : @taille;
     @pxVal:(@taille * 10);
@@ -39,7 +39,7 @@ p, input, label, textarea, div, li, a{
     color: @coulTxtAcc1;
     //border: lightgoldenrodyellow 1px solid;
 }
-h1{.tailleFont(8);}
+h1{.tailleFont(7);font-weight: 500; letter-spacing: -0.15rem; font-family: @fontTitre; color: darken(@coulAccent3,35%)}
 h2{.tailleFont(5);font-weight: 100;color: @coulAccent1;}
 h3{.tailleFont(3)}
 h4{.tailleFont(1)}
@@ -56,7 +56,7 @@ h6{.tailleFont(0.7)}
     & header{
         flex: 1 0 content;
         padding: 1rem;
-        background:linear-gradient(to right, @coulAccent3, darken(@coulAccent3, 20%)), @coulAccent3;
+        background:url(../medias/img/motifFond2.png),linear-gradient(to right, @coulAccent3, darken(@coulAccent3, 20%)), @coulAccent3;
 
         display: flex;
         & #groupeEntete{
@@ -93,14 +93,14 @@ h6{.tailleFont(0.7)}
         flex: 1 0 content;
         min-height: 5vh;
         padding: 1rem;
-        background-color: @coulAccent1;
+        background:linear-gradient(to right, darken(@coulAccent3, 20%), darken(@coulAccent3, 30%)), @coulAccent3;
 
         display: flex;
         justify-content: flex-start;
         align-items: center;
         & p{
             .tailleFont(1.2);
-            color:@coulTxtAcc2;
+            color:lighten(@coulTxtAcc2, 10%);
         }
     }
 }
