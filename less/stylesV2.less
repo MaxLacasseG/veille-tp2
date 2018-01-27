@@ -1,5 +1,5 @@
 @import 'reset.css';
-
+*{border:cyan 1px solid}
 @coulBase :#fdf9d0;
 @coulAccent1: #f3d369;
 @coulAccent2: #f38e54;
@@ -7,10 +7,10 @@
 @coulAccent4: #52346b;
 
 @coulTxtBase: #756d61;
-@coulTxtAcc1: #645d52;
-@coulTxtAcc2: #6e685d;
-@coulTxtAcc3: #645d52;
-@coulTxtAcc4: #1a1715;
+@coulTxtAcc1: #eea94f;
+@coulTxtAcc2: #8b2800;
+@coulTxtAcc3: #440000;
+@coulTxtAcc4: #240016;
 
 @fontBase: 'Ubuntu',sans-serif;
 @fontAccent: 'Oswald',cursive;
@@ -30,14 +30,38 @@ html{
 
 h1,h2,h3,h4,h5,h6{
     font-family: @fontAccent;
+    color: @coulBase;
 }
 
-p, input, label,textarea,div{
+p, input, label, textarea, div, li, a, small{
     font-family: @fontBase;
+    color: @coulTxtAcc1;
 }
 h1{.tailleFont(8);}
-h2{.tailleFont(5);font-weight: 100;}
+h2{.tailleFont(5);font-weight: 100;color: @coulAccent1;}
 h3{.tailleFont(3)}
 h4{.tailleFont(1)}
 h5{.tailleFont(0.8)}
 h6{.tailleFont(0.7)}
+
+//Mise en page des sections
+//===========================================
+#conteneurPrinc{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    & header{
+        display: flex;
+        background-color: @coulAccent3;
+        
+    }
+    & main {
+        flex: 1 0 auto;
+    }
+    & footer{
+        display: flex;
+        background-color: @coulAccent4;
+    }
+}

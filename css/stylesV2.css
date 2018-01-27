@@ -1,4 +1,7 @@
 @import 'reset.css';
+* {
+  border: cyan 1px solid;
+}
 html {
   font-size: 62.5%;
   color: #fdf9d0;
@@ -10,13 +13,18 @@ h4,
 h5,
 h6 {
   font-family: 'Oswald', cursive;
+  color: #fdf9d0;
 }
 p,
 input,
 label,
 textarea,
-div {
+div,
+li,
+a,
+small {
   font-family: 'Ubuntu', sans-serif;
+  color: #eea94f;
 }
 h1 {
   font-size: 80px;
@@ -26,6 +34,7 @@ h2 {
   font-size: 50px;
   font-size: 5rem;
   font-weight: 100;
+  color: #f3d369;
 }
 h3 {
   font-size: 30px;
@@ -42,4 +51,21 @@ h5 {
 h6 {
   font-size: 7px;
   font-size: 0.7rem;
+}
+#conteneurPrinc {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+#conteneurPrinc header {
+  display: flex;
+  background-color: #cf4154;
+}
+#conteneurPrinc main {
+  flex: 1 0 auto;
+}
+#conteneurPrinc footer {
+  display: flex;
+  background-color: #52346b;
 }
