@@ -27,6 +27,7 @@ a {
   font-size: 1rem;
   font-family: 'Ubuntu', sans-serif;
   color: #eea94f;
+  border: lightgoldenrodyellow 1px solid;
 }
 h1 {
   font-size: 80px;
@@ -61,20 +62,41 @@ h6 {
   height: 100vh;
 }
 #conteneurPrinc header {
-  display: flex;
   flex: 1 0 content;
+  padding: 1rem;
   background-color: #cf4154;
+  display: flex;
+}
+#conteneurPrinc header #groupeEntete {
+  flex: 1 1 60%;
+}
+#conteneurPrinc header nav {
+  flex: 1 0 40%;
+  display: flex;
+}
+#conteneurPrinc header nav ul {
+  flex: 1 0 100%;
+  border: teal 2px solid;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+}
+#conteneurPrinc header nav ul li a {
+  font-size: 20px;
+  font-size: 2rem;
+  text-decoration: none;
 }
 #conteneurPrinc main {
   flex: 1 1 auto;
 }
 #conteneurPrinc footer {
+  flex: 1 0 content;
+  min-height: 10vh;
+  padding: 1rem;
+  background-color: #fdf9d0;
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  min-height: 10vh;
-  flex: 1 0 content;
-  background-color: #fdf9d0;
 }
 #conteneurPrinc footer p {
   color: #240016;

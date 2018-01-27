@@ -37,6 +37,7 @@ p, input, label, textarea, div, li, a{
     .tailleFont(1);
     font-family: @fontBase;
     color: @coulTxtAcc1;
+    border: lightgoldenrodyellow 1px solid;
 }
 h1{.tailleFont(8);}
 h2{.tailleFont(5);font-weight: 100;color: @coulAccent1;}
@@ -53,21 +54,47 @@ h6{.tailleFont(0.7)}
     justify-content: space-between;
     height: 100vh;
     & header{
-        display: flex;
         flex: 1 0 content;
+        padding: 1rem;
         background-color: @coulAccent3;
+
+        display: flex;
+        & #groupeEntete{
+            flex: 1 1 60%;
+        }
+        & nav{
+            flex: 1 0 40%;
+
+            display: flex;
+            & ul{
+                flex: 1 0 100%;
+                border: teal 2px solid;
+
+                display: flex;
+                justify-content: space-around;
+                align-items: flex-end;
+                & li{
+                    & a{
+                        .tailleFont(2);
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
         
     }
     & main {
         flex: 1 1 auto;
     }
     & footer{
+        flex: 1 0 content;
+        min-height: 10vh;
+        padding: 1rem;
+        background-color: @coulBase;
+
         display: flex;
         justify-content: flex-start;
         align-items: center;
-        min-height: 10vh;
-        flex: 1 0 content;
-        background-color: @coulBase;
         & p{
             color:@coulTxtAcc4;
         }
