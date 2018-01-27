@@ -1,0 +1,43 @@
+@import 'reset.css';
+
+@coulBase :#fdf9d0;
+@coulAccent1: #f3d369;
+@coulAccent2: #f38e54;
+@coulAccent3: #cf4154;
+@coulAccent4: #52346b;
+
+@coulTxtBase: #756d61;
+@coulTxtAcc1: #645d52;
+@coulTxtAcc2: #6e685d;
+@coulTxtAcc3: #645d52;
+@coulTxtAcc4: #1a1715;
+
+@fontBase: 'Ubuntu',sans-serif;
+@fontAccent: 'Oswald',cursive;
+
+.tailleFont(@taille){
+    @remVal : @taille;
+    @pxVal:(@taille * 10);
+    font-size: ~"@{pxVal}px";
+    font-size: ~"@{remVal}rem";
+}
+
+//Gestion de la typographie
+html{
+    font-size: 62.5%;
+    color: @coulBase;
+}
+
+h1,h2,h3,h4,h5,h6{
+    font-family: @fontAccent;
+}
+
+p, input, label,textarea,div{
+    font-family: @fontBase;
+}
+h1{.tailleFont(8);}
+h2{.tailleFont(5);font-weight: 100;}
+h3{.tailleFont(3)}
+h4{.tailleFont(1)}
+h5{.tailleFont(0.8)}
+h6{.tailleFont(0.7)}
