@@ -19,11 +19,11 @@ ul li a:hover {
   color: #cf4154;
 }
 header {
-  padding: 0 5%;
+  padding: 2em;
   flex: 0 1 auto;
   background-color: #fdf9d0;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
 }
 header #groupeEntete {
   flex: 1 0 auto;
