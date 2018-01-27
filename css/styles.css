@@ -80,13 +80,15 @@ main aside {
   flex: 0 1 20vw;
   padding: 2%;
   margin: 0;
+  display: flex;
+  flex-direction: column;
 }
 main aside form {
+  flex: 1 0 auto;
   margin: 0;
   padding: 0;
   display: flex;
   flex-direction: column;
-  height: 100%;
   justify-content: space-between;
 }
 main aside form .chatBoiteRep {
@@ -94,9 +96,17 @@ main aside form .chatBoiteRep {
   flex: 1 0 auto;
   background-color: white;
   padding: 5%;
-  color: grey;
+  overflow-y: scroll;
+}
+main aside form .chatBoiteRep .chatRep {
   font-family: 'Oswald', cursive;
   text-align: justify;
+  color: grey;
+  height: 100%;
+  background-color: none;
+}
+main aside form .chatBoiteRep .chatRep .auteur {
+  color: #52346b;
 }
 main aside form .btnGroupe {
   display: flex;
