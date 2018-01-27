@@ -1,4 +1,4 @@
-@import 'normalize.css';
+@import 'reset.css';
 @coulBase :#fdf9d0;
 @coulAccent1: #f3d369;
 @coulAccent2: #f38e54;
@@ -147,8 +147,15 @@ main {
                     }
                 }
             }
+            & .chatBoiteMsg{
+                flex: 1 1 auto;
+                min-height: 40px;
+            }
             & .btnGroupe {
                 display: flex;
+                flex: 1 1 auto;
+                justify-content: center;
+                align-items: center;
                 & .chatBoiteMsg {
                     background-color: @coulAccent2;
                     color: @coulTxtAcc2;

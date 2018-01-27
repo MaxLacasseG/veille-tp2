@@ -1,4 +1,4 @@
-@import 'normalize.css';
+@import 'reset.css';
 body {
   font-family: 'Ubuntu', sans-serif;
   color: #fdf9d0;
@@ -124,8 +124,15 @@ main aside form .chatBoiteRep .chatRep .ami + .msg {
   padding-right: 5%;
   padding-left: 0;
 }
+main aside form .chatBoiteMsg {
+  flex: 1 1 auto;
+  min-height: 40px;
+}
 main aside form .btnGroupe {
   display: flex;
+  flex: 1 1 auto;
+  justify-content: center;
+  align-items: center;
 }
 main aside form .btnGroupe .chatBoiteMsg {
   background-color: #f38e54;
