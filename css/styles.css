@@ -8,15 +8,25 @@ body {
   flex-direction: column;
   min-height: 100vh;
 }
+ul {
+  list-style-type: none;
+}
+ul li a {
+  text-decoration: none;
+  color: #f38e54;
+}
+ul li a:hover {
+  color: #cf4154;
+}
 header {
   padding: 0 5%;
-  padding-right: 10em;
   flex: 0 1 auto;
   background-color: #fdf9d0;
   display: flex;
   align-items: flex-end;
 }
 header #groupeEntete {
+  flex: 1 0 auto;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -24,40 +34,29 @@ header #groupeEntete {
 header #groupeEntete h1 {
   font-family: 'Oswald', cursive;
   font-size: 3em;
-  color: #f06f24;
+  color: #cf4154;
 }
 header #groupeEntete h2 {
   font-family: 'Ubuntu', sans-serif;
   font-size: 1.5em;
-  color: #f5e00c;
+  color: #f38e54;
 }
-ul {
-  list-style-type: none;
-}
-ul li a {
-  text-decoration: none;
-  color: #f06f24;
-}
-nav {
-  flex: 1 0 auto;
-  padding: 1em;
+header nav {
+  flex: 1 1 30%;
   display: flex;
-  justify-content: flex-end;
-  flex-direction: row;
+  justify-content: center;
 }
-nav ul {
+header nav ul {
   display: flex;
   justify-content: space-between;
-  min-width: 20vw;
+  width: 100%;
+  height: 100%;
 }
-nav ul li {
-  color: #f5e00c;
+header nav ul li {
+  padding: 0 2%;
 }
-nav ul li a {
+header nav ul li a {
   font-size: 1.5em;
-}
-nav ul li a:hover {
-  color: #c6b508;
 }
 main {
   display: flex;
@@ -86,7 +85,7 @@ main aside form {
   flex-direction: column;
   height: 100%;
   justify-content: space-between;
-  border-left: #b02d3e solid 2px;
+  border-left: #cf4154 solid 2px;
 }
 main aside form .chatBoiteRep {
   margin: 0;
@@ -102,7 +101,7 @@ main aside form .btnGroupe {
 }
 main aside form .btnGroupe .chatBoiteMsg {
   background-color: #f38e54;
-  color: #b02d3e;
+  color: #cf4154;
   flex-basis: 15%;
 }
 main aside form .btnGroupe input {
@@ -115,12 +114,12 @@ main aside form .btnGroupe input {
 }
 main aside form .btnGroupe input.chatBtnEnvoyer {
   background-color: #52346b;
-  color: #030204;
+  color: #000000;
   flex: 1 0 60%;
 }
 main aside form .btnGroupe input.chatPoke {
   background-color: #cf4154;
-  color: #382349;
+  color: #52346b;
   flex: 1 0 40%;
 }
 footer {
@@ -131,5 +130,5 @@ footer {
   align-items: center;
   font-family: 'Oswald', cursive;
   font-size: 0.9em;
-  color: #030204;
+  color: #000000;
 }
