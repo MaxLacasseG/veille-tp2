@@ -95,9 +95,6 @@ h6 {
   flex: 1 1 auto;
   display: flex;
 }
-#conteneurPrinc main > * {
-  border: #52346b 1px solid;
-}
 #conteneurPrinc main section#principale {
   flex: 1 1 70%;
   padding: 3rem;
@@ -137,7 +134,6 @@ h6 {
   font-family: 'Oswald', cursive;
 }
 #conteneurPrinc main aside form {
-  border: #756d61 1px solid;
   flex: 1 1 95%;
   display: flex;
   flex-direction: column;
@@ -146,7 +142,6 @@ h6 {
   flex: 1 0 70%;
   background-color: white;
   padding: 1rem;
-  box-shadow: #cf4154 0 0 3px inset;
   overflow-y: scroll;
 }
 #conteneurPrinc main aside form .chatBoiteRep::-webkit-scrollbar {
@@ -181,7 +176,6 @@ h6 {
 #conteneurPrinc main aside form .chatBoiteMsg {
   flex: 1 0 20%;
   background-color: white;
-  border: #cf4154 1px solid;
   padding: 1rem;
   font-size: 12px;
   font-size: 1.2rem;
