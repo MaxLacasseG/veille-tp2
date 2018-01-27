@@ -69,7 +69,7 @@ main {
 }
 main #principal {
   flex: 1 0 auto;
-  min-width: 50vw;
+  min-width: 65vw;
   padding: 2%;
 }
 main #principal a {
@@ -82,6 +82,11 @@ main aside {
   margin: 0;
   display: flex;
   flex-direction: column;
+}
+main aside .chatLabel {
+  flex: 1 1 auto;
+  padding-bottom: 5%;
+  margin: 0;
 }
 main aside form {
   flex: 1 1 auto;
@@ -105,12 +110,19 @@ main aside form .chatBoiteRep .chatRep {
   height: 100%;
   background-color: none;
 }
+main aside form .chatBoiteRep .chatRep .msg {
+  padding-left: 5%;
+}
 main aside form .chatBoiteRep .chatRep .auteur,
 main aside form .chatBoiteRep .chatRep .ami {
   color: #52346b;
 }
 main aside form .chatBoiteRep .chatRep .ami {
   text-align: right;
+}
+main aside form .chatBoiteRep .chatRep .ami + .msg {
+  padding-right: 5%;
+  padding-left: 0;
 }
 main aside form .btnGroupe {
   display: flex;
