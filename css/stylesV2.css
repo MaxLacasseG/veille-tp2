@@ -122,15 +122,80 @@ h6 {
   display: flex;
   flex-direction: column;
 }
-#conteneurPrinc main aside form > * {
-  border: #eea94f 1px solid;
-}
 #conteneurPrinc main aside form .chatBoiteRep {
-  flex: 1 0 60%;
-  background-color: #fdf9d0;
+  flex: 1 0 70%;
+  background-color: white;
+  padding: 1rem;
+  box-shadow: #cf4154 0 0 3px inset;
+  overflow-y: scroll;
+}
+#conteneurPrinc main aside form .chatBoiteRep::-webkit-scrollbar {
+  width: 1rem;
+  background-color: #240016;
+}
+#conteneurPrinc main aside form .chatBoiteRep .chatRep {
+  text-align: justify;
+  padding-bottom: 1rem;
+}
+#conteneurPrinc main aside form .chatBoiteRep .chatRep .auteur,
+#conteneurPrinc main aside form .chatBoiteRep .chatRep .ami {
+  margin-top: 0.5rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+}
+#conteneurPrinc main aside form .chatBoiteRep .chatRep .auteur {
+  color: #8b2800;
+  font-weight: 800;
+  text-align: right;
+}
+#conteneurPrinc main aside form .chatBoiteRep .chatRep .auteur + .msg {
+  padding-left: 1rem;
+}
+#conteneurPrinc main aside form .chatBoiteRep .chatRep .ami {
+  color: #cf4154;
+}
+#conteneurPrinc main aside form .chatBoiteRep .chatRep .ami + .msg {
+  padding-right: 1rem;
 }
 #conteneurPrinc main aside form .chatBoiteMsg {
-  background-color: #fdf9d0;
+  flex: 1 0 20%;
+  background-color: white;
+  border: #cf4154 1px solid;
+  padding: 1rem;
+  font-size: 12px;
+  font-size: 1.2rem;
+  font-family: 'Ubuntu', sans-serif;
+}
+#conteneurPrinc main aside form .btnGroupe {
+  flex: 1 0 10%;
+  display: flex;
+}
+#conteneurPrinc main aside form .btnGroupe input {
+  border: none;
+  color: #fdf9d0;
+  font-family: 'Oswald', cursive;
+  font-size: 15px;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  transition: 400ms background-color, 400ms color;
+}
+#conteneurPrinc main aside form .btnGroupe input:hover {
+  color: #98957d;
+}
+#conteneurPrinc main aside form .btnGroupe .chatPoke {
+  flex: 1 1 20%;
+  background-color: #882230;
+}
+#conteneurPrinc main aside form .btnGroupe .chatPoke:hover {
+  background-color: #7c2732;
+}
+#conteneurPrinc main aside form .btnGroupe .chatBtnEnvoyer {
+  flex: 1 1 80%;
+  background-color: #52346b;
+}
+#conteneurPrinc main aside form .btnGroupe .chatBtnEnvoyer:hover {
+  background-color: #422a56;
 }
 #conteneurPrinc footer {
   flex: 1 0 content;

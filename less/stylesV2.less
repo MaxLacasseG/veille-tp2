@@ -115,16 +115,85 @@ h6{.tailleFont(0.7)}
                 flex: 1 1 95%;
                 display: flex;
                 flex-direction: column;
-                &>*{
-                    border: #eea94f 1px solid;
-                }
+                // &>*{
+                //     border: #eea94f 1px solid;
+                // }
                 & .chatBoiteRep{
-                    flex: 1 0 60%;
-                    background-color: @coulBase;
+                    flex: 1 0 70%;
+                    background-color: white;
+                    padding: 1rem;
+                    box-shadow: #cf4154 0 0 3px inset;
+                    overflow-y: scroll;
+                    &::-webkit-scrollbar{
+                        width: 1rem;
+                        background-color: #240016;
+                    }
+                    & .chatRep{
+                        text-align: justify;
+                        padding-bottom: 1rem;
+                        
+                        & .auteur, & .ami{
+                            margin-top: 0.5rem;
+                            font-weight: 500;
+                            text-transform: uppercase;
+                            letter-spacing: 0.1rem;
+                        }
+                        & .auteur{
+                            color: @coulTxtAcc2;
+                            font-weight: 800;
+                            text-align: right;
+
+                            & + .msg{
+                                padding-left: 1rem;
+                            }
+                        }
+                        & .ami{
+                            color: @coulAccent3;
+                            & + .msg{
+                                padding-right: 1rem;
+                            }
+                        }
+                    }
 
                 }
                 & .chatBoiteMsg{
-                    background-color: @coulBase;
+                    flex: 1 0 20%;
+                    background-color:white;
+                    border: @coulAccent3 1px solid;
+                    padding: 1rem;
+                    .tailleFont(1.2);
+                    font-family: @fontBase;
+                }
+                & .btnGroupe{
+                    flex: 1 0 10%;
+
+                    display: flex;
+                    & input{
+                        border: none;
+                        color: @coulBase;
+                        font-family: @fontAccent;
+                        .tailleFont(1.5);
+                        text-transform: uppercase;
+                        transition: 400ms background-color, 400ms color;
+                       
+                        &:hover{
+                            color:shade(@coulBase, 40%);
+                        }
+                    }
+                    & .chatPoke{
+                        flex: 1 1 20%;
+                        background-color: darken(@coulAccent3,20%);
+                        &:hover{
+                            background-color: shade(@coulAccent3, 40%);
+                        }
+                    }
+                    & .chatBtnEnvoyer{
+                        flex: 1 1 80%;
+                        background-color: #52346b;
+                        &:hover{
+                            background-color: shade(@coulAccent4, 20%);
+                        }
+                    }
                 }
             }
 
