@@ -1,9 +1,14 @@
 @import 'normalize.css';
-@couleurBase : #ffffff;
-@couleurAccent : #041535;
-@coulNav: #0069a7;
-@coulNavSurvol: #a8dfff;
-@coulTitre: rgb(27, 35, 70);
+@coulBase :#fdf9d0;
+@coulAccent1: #f3d369;
+@coulAccent2: #f38e54;
+@coulAccent3: #cf4154;
+@coulAccent4: #52346b;
+@coulTxtBase: darken(@coulBase, 40%);
+@coulTxtAcc1: darken(@coulAccent2, 10%);
+@coulTxtAcc2: darken(@coulAccent3, 10%);
+@coulTxtAcc3: darken(@coulAccent4, 10%);
+@coulTxtAcc4: darken(@coulAccent4, 30%);
 @fontBase: 'Ubuntu',
 sans-serif;
 @fontAccent: 'Oswald',
@@ -11,7 +16,7 @@ cursive;
 @fontTaille: 1em;
 body {
     font-family: @fontBase;
-    color: @couleurBase;
+    color: @coulBase;
 }
 
 #wrapper {
@@ -22,14 +27,12 @@ body {
 
 // Gestion de l'entête
 header {
-    padding:0 5%;
+    padding: 0 5%;
     padding-right: 10em;
     flex: 0 1 auto;
-    background:url(../medias/img/motifFond.png);
-
+    background-color: @coulBase;
     display: flex;
     align-items: flex-end;
-    border-bottom: @coulTitre 4px solid;
     #groupeEntete {
         display: flex;
         flex-direction: column;
@@ -37,22 +40,23 @@ header {
         & h1 {
             font-family: @fontAccent;
             font-size: @fontTaille*3;
-            color: @coulTitre;
+            color: @coulTxtAcc1;
         }
         & h2 {
             font-family: @fontBase;
             font-size: @fontTaille*1.5;
-            color: @coulNav;
+            color: @coulTxtBase;
         }
     }
 }
+
 //Gestion de la navigation et des listes
-ul{
+ul {
     list-style-type: none;
-    & li{
-        & a{
+    & li {
+        & a {
             text-decoration: none;
-            color: @coulNav;
+            color: @coulTxtAcc1;
         }
     }
 }
@@ -68,11 +72,11 @@ nav {
         justify-content: space-between;
         min-width: 20vw;
         & li {
-            color: @couleurBase;
+            color: @coulTxtBase;
             & a {
                 font-size: @fontTaille * 1.5;
                 &:hover {
-                    color: @coulNavSurvol;
+                    color: darken(@coulTxtBase, 10%);
                 }
             }
         }
@@ -83,19 +87,20 @@ nav {
 main {
     display: flex;
     flex: 1 0 80%;
-    background-color: @couleurBase;
+    background-color: @coulAccent1;
+    box-shadow: -3px 2px 5px #f38e54 inset;
     & #principal {
         flex: 1 0 auto;
         min-width: 50vw;
         padding: 2%;
-        & a{
+        & a {
             font-size: @fontTaille * 2;
         }
     }
     & aside {
-        background-color: @coulNav;
+        background-color: @coulAccent2;
         flex: 0 1 20vw;
-        padding: 0;
+        padding: 2%;
         margin: 0;
         & form {
             margin: 0;
@@ -104,37 +109,37 @@ main {
             flex-direction: column;
             height: 100%;
             justify-content: space-between;
-            border-left: @coulNav solid 2px;
+            border-left: @coulTxtAcc2 solid 2px;
             & .chatBoiteRep {
                 margin: 0;
                 flex: 1 0 auto;
                 background-color: white;
-                padding:5%;
+                padding: 5%;
                 color: grey;
                 font-family: @fontAccent;
                 text-align: justify;
-
             }
             & .btnGroupe {
                 display: flex;
                 & .chatBoiteMsg {
-                    background-color: white;
+                    background-color: @coulAccent2;
+                    color: @coulTxtAcc2;
                     flex-basis: 15%;
                 }
                 & input {
-                    background-color: @couleurAccent;
                     border: none;
-                    color: white;
                     text-align: center;
                     font-family: @fontAccent;
                     font-size: @fontTaille;
                     padding: 1em;
                     &.chatBtnEnvoyer {
+                        background-color: @coulAccent4;
+                        color: @coulTxtAcc4;
                         flex: 1 0 60%;
-                        ;
                     }
                     &.chatPoke {
-                        background-color: @coulNav;
+                        background-color: @coulAccent3;
+                        color: @coulTxtAcc3;
                         flex: 1 0 40%;
                     }
                     margin: 0;
@@ -146,12 +151,12 @@ main {
 
 // Gestion du pied de page
 footer {
-    background-color: @couleurAccent;
+    background-color: @coulAccent4;
     min-height: 5vh;
     display: flex;
     justify-content: center;
     align-items: center;
     font-family: @fontAccent;
     font-size: @fontTaille*0.9;
-    color: @coulNav;
+    color: @coulTxtAcc4;
 }
