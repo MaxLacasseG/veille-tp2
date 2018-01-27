@@ -1,6 +1,7 @@
 @import 'reset.css';
 * {
   border: cyan 1px solid;
+  box-sizing: border-box;
 }
 html {
   font-size: 62.5%;
@@ -21,8 +22,9 @@ label,
 textarea,
 div,
 li,
-a,
-small {
+a {
+  font-size: 10px;
+  font-size: 1rem;
   font-family: 'Ubuntu', sans-serif;
   color: #eea94f;
 }
@@ -53,19 +55,27 @@ h6 {
   font-size: 0.7rem;
 }
 #conteneurPrinc {
-  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  height: 100vh;
 }
 #conteneurPrinc header {
   display: flex;
+  flex: 1 0 content;
   background-color: #cf4154;
 }
 #conteneurPrinc main {
-  flex: 1 0 auto;
+  flex: 1 1 auto;
 }
 #conteneurPrinc footer {
   display: flex;
-  background-color: #52346b;
+  justify-content: flex-start;
+  align-items: center;
+  min-height: 10vh;
+  flex: 1 0 content;
+  background-color: #fdf9d0;
+}
+#conteneurPrinc footer p {
+  color: #240016;
 }

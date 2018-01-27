@@ -1,5 +1,5 @@
 @import 'reset.css';
-*{border:cyan 1px solid}
+*{border:cyan 1px solid; box-sizing: border-box;}
 @coulBase :#fdf9d0;
 @coulAccent1: #f3d369;
 @coulAccent2: #f38e54;
@@ -33,7 +33,8 @@ h1,h2,h3,h4,h5,h6{
     color: @coulBase;
 }
 
-p, input, label, textarea, div, li, a, small{
+p, input, label, textarea, div, li, a{
+    .tailleFont(1);
     font-family: @fontBase;
     color: @coulTxtAcc1;
 }
@@ -47,21 +48,28 @@ h6{.tailleFont(0.7)}
 //Mise en page des sections
 //===========================================
 #conteneurPrinc{
-    height: 100vh;
-    display: flex;
+    display: flex; 
     flex-direction: column;
     justify-content: space-between;
-
+    height: 100vh;
     & header{
         display: flex;
+        flex: 1 0 content;
         background-color: @coulAccent3;
         
     }
     & main {
-        flex: 1 0 auto;
+        flex: 1 1 auto;
     }
     & footer{
         display: flex;
-        background-color: @coulAccent4;
+        justify-content: flex-start;
+        align-items: center;
+        min-height: 10vh;
+        flex: 1 0 content;
+        background-color: @coulBase;
+        & p{
+            color:@coulTxtAcc4;
+        }
     }
 }
