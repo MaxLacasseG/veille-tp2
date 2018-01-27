@@ -104,17 +104,33 @@ h6 {
 #conteneurPrinc main aside {
   flex: 1 1 30%;
   padding: 2rem;
-  background-color: #f38e54;
+  background-color: #240016;
   display: flex;
   flex-direction: column;
 }
 #conteneurPrinc main aside .chatLabel {
-  flex: 1 1 10%;
-  color: #f7d6ac;
+  flex: 1 1 5%;
+  color: #aa0000;
   text-transform: uppercase;
   font-size: 15px;
   font-size: 1.5rem;
   font-family: 'Oswald', cursive;
+}
+#conteneurPrinc main aside form {
+  border: #756d61 1px solid;
+  flex: 1 1 95%;
+  display: flex;
+  flex-direction: column;
+}
+#conteneurPrinc main aside form > * {
+  border: #eea94f 1px solid;
+}
+#conteneurPrinc main aside form .chatBoiteRep {
+  flex: 1 0 60%;
+  background-color: #fdf9d0;
+}
+#conteneurPrinc main aside form .chatBoiteMsg {
+  background-color: #fdf9d0;
 }
 #conteneurPrinc footer {
   flex: 1 0 content;

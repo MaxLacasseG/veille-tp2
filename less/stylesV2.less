@@ -99,16 +99,33 @@ h6{.tailleFont(0.7)}
         & aside{
             flex: 1 1 30%;
             padding: 2rem;
-            background-color: @coulAccent2;
+            background-color: @coulTxtAcc4;
+
             display: flex;
             flex-direction: column;
             & .chatLabel{
-                flex: 1 1 10%;
-
-                color: lighten(@coulTxtAcc1, 20%);
+                flex: 1 1 5%;
+                color: lighten(@coulTxtAcc3, 20%);
                 text-transform: uppercase;
                 .tailleFont(1.5);
                 font-family: @fontAccent;
+            }
+            & form{
+                border: #756d61 1px solid;
+                flex: 1 1 95%;
+                display: flex;
+                flex-direction: column;
+                &>*{
+                    border: #eea94f 1px solid;
+                }
+                & .chatBoiteRep{
+                    flex: 1 0 60%;
+                    background-color: @coulBase;
+
+                }
+                & .chatBoiteMsg{
+                    background-color: @coulBase;
+                }
             }
 
         }
