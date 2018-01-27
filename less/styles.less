@@ -22,7 +22,7 @@ body {
 #wrapper {
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    height: 100vh;
 }
 
 //Gestion de la navigation et des listes
@@ -100,13 +100,13 @@ main {
     }
     & aside {
         background-color: @coulAccent2;
-        flex: 0 1 20vw;
+        flex: 0 1 100%;
         padding: 2%;
         margin: 0;
         display: flex;
         flex-direction: column;
         & form {
-            flex: 1 0 auto;
+            flex: 1 1 auto;
             margin: 0;
             padding: 0;
             display: flex;
@@ -114,7 +114,7 @@ main {
             justify-content: space-between;
             & .chatBoiteRep {
                 margin: 0;
-                flex: 1 0 auto;
+                flex: 1 1 100%;
                 background-color: white;
                 padding: 5%;
                 overflow-y: scroll;
@@ -124,8 +124,11 @@ main {
                     color: grey;
                     height: 100%;
                     background-color: none;
-                    & .auteur {
+                    & .auteur, & .ami{
                         color: #52346b;
+                    }
+                    & .ami{
+                        text-align: right;
                     }
                 }
             }
