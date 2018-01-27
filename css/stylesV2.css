@@ -27,7 +27,6 @@ a {
   font-size: 1rem;
   font-family: 'Ubuntu', sans-serif;
   color: #eea94f;
-  border: lightgoldenrodyellow 1px solid;
 }
 h1 {
   font-size: 80px;
@@ -64,7 +63,7 @@ h6 {
 #conteneurPrinc header {
   flex: 1 0 content;
   padding: 1rem;
-  background-color: #cf4154;
+  background: linear-gradient(to right, #cf4154, #882230), #cf4154;
   display: flex;
 }
 #conteneurPrinc header #groupeEntete {
@@ -76,7 +75,6 @@ h6 {
 }
 #conteneurPrinc header nav ul {
   flex: 1 0 100%;
-  border: teal 2px solid;
   display: flex;
   justify-content: space-around;
   align-items: flex-end;
@@ -85,19 +83,25 @@ h6 {
   font-size: 20px;
   font-size: 2rem;
   text-decoration: none;
+  transition: 400ms color;
+}
+#conteneurPrinc header nav ul li a:hover {
+  color: #fdf9d0;
 }
 #conteneurPrinc main {
   flex: 1 1 auto;
 }
 #conteneurPrinc footer {
   flex: 1 0 content;
-  min-height: 10vh;
+  min-height: 5vh;
   padding: 1rem;
-  background-color: #fdf9d0;
+  background-color: #f3d369;
   display: flex;
   justify-content: flex-start;
   align-items: center;
 }
 #conteneurPrinc footer p {
-  color: #240016;
+  font-size: 12px;
+  font-size: 1.2rem;
+  color: #8b2800;
 }

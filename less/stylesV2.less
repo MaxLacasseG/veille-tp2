@@ -37,7 +37,7 @@ p, input, label, textarea, div, li, a{
     .tailleFont(1);
     font-family: @fontBase;
     color: @coulTxtAcc1;
-    border: lightgoldenrodyellow 1px solid;
+    //border: lightgoldenrodyellow 1px solid;
 }
 h1{.tailleFont(8);}
 h2{.tailleFont(5);font-weight: 100;color: @coulAccent1;}
@@ -56,7 +56,7 @@ h6{.tailleFont(0.7)}
     & header{
         flex: 1 0 content;
         padding: 1rem;
-        background-color: @coulAccent3;
+        background:linear-gradient(to right, @coulAccent3, darken(@coulAccent3, 20%)), @coulAccent3;
 
         display: flex;
         & #groupeEntete{
@@ -68,7 +68,6 @@ h6{.tailleFont(0.7)}
             display: flex;
             & ul{
                 flex: 1 0 100%;
-                border: teal 2px solid;
 
                 display: flex;
                 justify-content: space-around;
@@ -77,6 +76,10 @@ h6{.tailleFont(0.7)}
                     & a{
                         .tailleFont(2);
                         text-decoration: none;
+                        transition: 400ms color;
+                        &:hover{
+                            color: @coulBase;
+                        }
                     }
                 }
             }
@@ -88,15 +91,16 @@ h6{.tailleFont(0.7)}
     }
     & footer{
         flex: 1 0 content;
-        min-height: 10vh;
+        min-height: 5vh;
         padding: 1rem;
-        background-color: @coulBase;
+        background-color: @coulAccent1;
 
         display: flex;
         justify-content: flex-start;
         align-items: center;
         & p{
-            color:@coulTxtAcc4;
+            .tailleFont(1.2);
+            color:@coulTxtAcc2;
         }
     }
 }
