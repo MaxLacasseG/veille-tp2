@@ -94,6 +94,27 @@ h6{.tailleFont(0.7)}
         display: flex;
         & section#principale{
             flex: 1 1 70%;
+            padding: 3rem;
+            & h3{
+                color: #240016;
+                margin-bottom: 2rem;
+            }
+            & ul{
+                & li{
+                    display: flex;
+                    padding: 1rem;
+                    & a{
+                        .tailleFont(2);
+                        text-decoration: none;
+                        &:hover{
+                            color:darken(@coulAccent2, 20%);
+                        }
+                        &.btnModif{
+                            margin-left: 2rem;
+                        }
+                    }
+                }
+            }
         }
         //Section contenant la boite de chat
         & aside{
