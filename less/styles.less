@@ -4,7 +4,7 @@
 @coulAccent2: #f38e54;
 @coulAccent3: #cf4154;
 @coulAccent4: #52346b;
-@coulTxtBase: @coulBase;
+@coulTxtBase: #b1b1b1;
 @coulTxtAcc1: @coulAccent2;
 @coulTxtAcc2: @coulAccent3;
 @coulTxtAcc3: @coulAccent4;
@@ -50,12 +50,15 @@ header {
         flex-direction: column;
         justify-content: flex-end;
         & h1 {
+            margin: 0;
             font-family: @fontAccent;
             font-size: @fontTaille*3;
             color: @coulTxtAcc2;
         }
         & h2 {
+            margin:0;
             font-family: @fontBase;
+            font-weight: 200;
             font-size: @fontTaille*1.5;
             color: @coulTxtAcc1;
         }
@@ -107,7 +110,7 @@ main {
             flex-direction: column;
             height: 100%;
             justify-content: space-between;
-            border-left: @coulTxtAcc2 solid 2px;
+
             & .chatBoiteRep {
                 margin: 0;
                 flex: 1 0 auto;
@@ -149,12 +152,12 @@ main {
 
 // Gestion du pied de page
 footer {
-    background-color: @coulAccent4;
-    min-height: 5vh;
+    background-color: @coulBase;
+    min-height: 3vh;
     display: flex;
     justify-content: center;
     align-items: center;
     font-family: @fontAccent;
     font-size: @fontTaille*0.9;
-    color: @coulTxtAcc4;
+    color: @coulTxtBase;
 }
