@@ -99,13 +99,16 @@ h6{.tailleFont(0.7)}
                 & li{
                     display: flex;
                     padding: 1rem;
+                    &:hover{
+                        border-bottom: #f38e54 1px solid;
+                    }
                     & a{
                         .tailleFont(2);
                         text-decoration: none;
                         &:hover{
                             color:darken(@coulAccent2, 20%);
                         }
-                        &.btnModif{
+                        &.btnModif, &.btnDel{
                             margin-left: 2rem;
                         }
                     }

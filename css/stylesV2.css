@@ -107,6 +107,9 @@ h6 {
   display: flex;
   padding: 1rem;
 }
+#conteneurPrinc main section#principale ul li:hover {
+  border-bottom: #f38e54 1px solid;
+}
 #conteneurPrinc main section#principale ul li a {
   font-size: 20px;
   font-size: 2rem;
@@ -115,7 +118,8 @@ h6 {
 #conteneurPrinc main section#principale ul li a:hover {
   color: #d2560f;
 }
-#conteneurPrinc main section#principale ul li a.btnModif {
+#conteneurPrinc main section#principale ul li a.btnModif,
+#conteneurPrinc main section#principale ul li a.btnDel {
   margin-left: 2rem;
 }
 #conteneurPrinc main aside {
