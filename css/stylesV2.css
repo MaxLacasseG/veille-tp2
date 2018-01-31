@@ -4,7 +4,7 @@
 }
 html {
   font-size: 62.5%;
-  color: #fdf9d0;
+  color: #000000;
 }
 h1,
 h2,
@@ -13,7 +13,7 @@ h4,
 h5,
 h6 {
   font-family: 'Oswald', cursive;
-  color: #fdf9d0;
+  color: #000000;
 }
 p,
 input,
@@ -25,7 +25,7 @@ a {
   font-size: 10px;
   font-size: 1rem;
   font-family: 'Ubuntu', sans-serif;
-  color: #eea94f;
+  color: #4fa6ee;
 }
 h1 {
   font-size: 70px;
@@ -33,13 +33,13 @@ h1 {
   font-weight: 500;
   letter-spacing: -0.15rem;
   font-family: 'Anton', sans-serif;
-  color: #4b131a;
+  color: #090024;
 }
 h2 {
   font-size: 50px;
   font-size: 5rem;
   font-weight: 100;
-  color: #f3d369;
+  color: #8378df;
 }
 h3 {
   font-size: 30px;
@@ -66,7 +66,7 @@ h6 {
 #conteneurPrinc header {
   flex: 1 0 content;
   padding: 1rem;
-  background: url(../medias/img/motifFond2.png), linear-gradient(to right, #cf4154, #882230), #cf4154;
+  background: linear-gradient(to right, #3900d6, #1e0070), #3900d6;
   display: flex;
 }
 #conteneurPrinc header #groupeEntete {
@@ -89,7 +89,7 @@ h6 {
   transition: 400ms color;
 }
 #conteneurPrinc header nav ul li a:hover {
-  color: #fdf9d0;
+  color: #000000;
 }
 #conteneurPrinc main {
   flex: 1 1 auto;
@@ -116,7 +116,7 @@ h6 {
   text-decoration: none;
 }
 #conteneurPrinc main section#principale ul li a:hover {
-  color: #d2560f;
+  color: #540fd2;
 }
 #conteneurPrinc main section#principale ul li a.btnModif,
 #conteneurPrinc main section#principale ul li a.btnDel {
@@ -125,13 +125,13 @@ h6 {
 #conteneurPrinc main aside {
   flex: 1 1 30%;
   padding: 2rem;
-  background-color: #240016;
+  background-color: #8378df;
   display: flex;
   flex-direction: column;
 }
 #conteneurPrinc main aside .chatLabel {
   flex: 1 1 5%;
-  color: #aa0000;
+  color: #fffdfe;
   text-transform: uppercase;
   font-size: 15px;
   font-size: 1.5rem;
@@ -164,7 +164,7 @@ h6 {
   letter-spacing: 0.1rem;
 }
 #conteneurPrinc main aside form .chatBoiteRep .chatRep .auteur {
-  color: #8b2800;
+  color: #f777f0;
   font-weight: 800;
   text-align: right;
 }
@@ -172,7 +172,7 @@ h6 {
   padding-left: 1rem;
 }
 #conteneurPrinc main aside form .chatBoiteRep .chatRep .ami {
-  color: #cf4154;
+  color: #3900d6;
 }
 #conteneurPrinc main aside form .chatBoiteRep .chatRep .ami + .msg {
   padding-right: 1rem;
@@ -191,7 +191,7 @@ h6 {
 }
 #conteneurPrinc main aside form .btnGroupe input {
   border: none;
-  color: #fdf9d0;
+  color: #000000;
   font-family: 'Oswald', cursive;
   font-size: 15px;
   font-size: 1.5rem;
@@ -199,27 +199,27 @@ h6 {
   transition: 400ms background-color, 400ms color;
 }
 #conteneurPrinc main aside form .btnGroupe input:hover {
-  color: #98957d;
+  color: #000000;
 }
 #conteneurPrinc main aside form .btnGroupe .chatPoke {
   flex: 1 1 20%;
-  background-color: #882230;
+  background-color: #1e0070;
 }
 #conteneurPrinc main aside form .btnGroupe .chatPoke:hover {
-  background-color: #7c2732;
+  background-color: #220080;
 }
 #conteneurPrinc main aside form .btnGroupe .chatBtnEnvoyer {
   flex: 1 1 80%;
   background-color: #52346b;
 }
 #conteneurPrinc main aside form .btnGroupe .chatBtnEnvoyer:hover {
-  background-color: #422a56;
+  background-color: #1a002f;
 }
 #conteneurPrinc footer {
   flex: 1 0 content;
   min-height: 5vh;
   padding: 1rem;
-  background: linear-gradient(to right, #882230, #5f1821), #cf4154;
+  background: linear-gradient(to right, #1e0070, #10003d), #3900d6;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -227,5 +227,5 @@ h6 {
 #conteneurPrinc footer p {
   font-size: 12px;
   font-size: 1.2rem;
-  color: #be3700;
+  color: #faa7f5;
 }
