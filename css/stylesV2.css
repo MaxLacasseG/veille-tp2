@@ -28,10 +28,9 @@ a {
   color: #4fa6ee;
 }
 h1 {
-  font-size: 70px;
-  font-size: 7rem;
+  font-size: 60px;
+  font-size: 6rem;
   font-weight: 500;
-  letter-spacing: -0.15rem;
   font-family: 'Montserrat', sans-serif;
   color: #ffffff;
 }
