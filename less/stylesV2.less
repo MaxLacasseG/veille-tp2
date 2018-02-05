@@ -2,15 +2,15 @@
 *{box-sizing: border-box;}
 @coulBase :#fdf9d0;
 @coulAccent1: #f3d369;
-@coulAccent2: #f38e54;
-@coulAccent3: #cf4154;
-@coulAccent4: #52346b;
+@coulAccent2: #fa2c2c;
+@coulAccent3: #41a2cf;
+@coulAccent4: #24317e;
 
-@coulTxtBase: #756d61;
-@coulTxtAcc1: #eea94f;
-@coulTxtAcc2: #8b2800;
-@coulTxtAcc3: #440000;
-@coulTxtAcc4: #240016;
+@coulTxtBase: #ffffff;
+@coulTxtAcc1: #c8eef3;
+@coulTxtAcc2: #8b0000;
+@coulTxtAcc3: #002944;
+@coulTxtAcc4: #0b1c49;
 
 @fontBase: 'Ubuntu',sans-serif;
 @fontAccent: 'Oswald',cursive;
@@ -36,10 +36,10 @@ h1,h2,h3,h4,h5,h6{
 p, input, label, textarea, div, li, a{
     .tailleFont(1);
     font-family: @fontBase;
-    color: @coulTxtAcc1;
+    color: @coulTxtAcc2;
 }
-h1{.tailleFont(7);font-weight: 500; letter-spacing: -0.15rem; font-family: @fontTitre; color: darken(@coulAccent3,35%)}
-h2{.tailleFont(5);font-weight: 100;color: @coulAccent1;}
+h1{.tailleFont(7);font-weight: 500; letter-spacing: -0.15rem; font-family: @fontTitre; color: @coulTxtAcc4}
+h2{.tailleFont(3);font-weight: 100;color: @coulAccent4;}
 h3{.tailleFont(3)}
 h4{.tailleFont(1)}
 h5{.tailleFont(0.8)}
@@ -55,11 +55,16 @@ h6{.tailleFont(0.7)}
     & header{
         flex: 1 0 content;
         padding: 1rem;
-        background:url(../medias/img/motifFond2.png),linear-gradient(to right, @coulAccent3, darken(@coulAccent3, 20%)), @coulAccent3;
+        background:linear-gradient(to bottom, @coulAccent2, #a10404);
 
         display: flex;
         & #groupeEntete{
+            display: flex;
+            align-items:baseline;
             flex: 1 1 60%;
+            & *{
+                padding: 0.2em;
+            }
         }
         & nav{
             flex: 1 0 40%;
