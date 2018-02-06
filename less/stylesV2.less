@@ -53,6 +53,19 @@ h6{.tailleFont(0.7)}
     flex-direction: column;
     justify-content: space-between;
     height: 100vh;
+    & .loader{
+        position: fixed;
+        z-index: 999;
+        background-color: rgba(0, 0, 0, 0.7);
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+            align-items: center;
+        & .loaderimg{
+            
+        }
+    }
     & header{
         flex: 1 0 content;
         padding: 1rem;

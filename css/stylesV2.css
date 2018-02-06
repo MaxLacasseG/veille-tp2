@@ -63,6 +63,16 @@ h6 {
   justify-content: space-between;
   height: 100vh;
 }
+#conteneurPrinc .loader {
+  position: fixed;
+  z-index: 999;
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 #conteneurPrinc header {
   flex: 1 0 content;
   padding: 1rem;
