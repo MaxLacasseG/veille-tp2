@@ -9,62 +9,14 @@
             <% include partials/nav %>
         </header>
         <main>
-            <section id="principale">
-                <h3>Mes groupes</h3>
-                <ul>
-                    <li>
-                        <a href="#"><i class="fa fa-angle-right 2x" aria-hidden="true"></i> Groupe 1 </a><a href="#" class="btnModif"> <i class="fa fa-pencil 2x" aria-hidden="true"></i> </a><a href="#" class="btnDel"> <i class="fa fa-trash 2x" aria-hidden="true"></i ></a>
-                    </li>
-                    <li>
-                        <a href="#"><i class="fa fa-angle-right 2x" aria-hidden="true"></i> Groupe 2 </a><a href="#" class="btnModif"><i class="fa fa-pencil 2x" aria-hidden="true"></i></a>
-                    </li>
-                    <li>
-                        <a href="#"><i class="fa fa-angle-right 2x" aria-hidden="true"></i> Groupe 3 </a><a href="#" class="btnModif"><i class="fa fa-pencil 2x" aria-hidden="true"></i></a>
-                    </li>
-                    <li>
-                        <a href="#"><i class="fa fa-angle-right 2x" aria-hidden="true"></i> Groupe 4 </a><a href="#" class="btnModif"><i class="fa fa-pencil 2x" aria-hidden="true"></i></a>
-                    </li>
-                    <li>
-                        <a href="#"><i class="fa fa-angle-right 2x" aria-hidden="true"></i> Groupe 5 </a><a href="#" class="btnModif"><i class="fa fa-pencil 2x" aria-hidden="true"></i></a>
-                    </li>
-                </ul>
-            </section>
-            <aside>
-                <p class="chatLabel">Conversation</p>
-                <form action="#">
-                    <div class="chatBoiteRep">
-                        <div class="chatRep gabarit">
-                            <p class="auteur">Max</p>
-                            <p class="msg">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptates, quam rerum provident doloremque
-                                temporibus quae! Saepe sunt sint iste voluptatum harum laborum mollitia sit? Soluta, ut veritatis?
-                                Assumenda, praesentium facilis?</p>
-                        </div>
-                        <div class="chatRep gabarit">
-                                <p class="auteur">Max</p>
-                                <p class="msg">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptates, quam rerum provident doloremque
-                                    temporibus quae! Saepe sunt sint iste voluptatum harum laborum mollitia sit? Soluta, ut veritatis?
-                                    Assumenda, praesentium facilis?</p>
-                            </div>
-                            <div class="chatRep gabarit">
-                                    <p class="ami">Max</p>
-                                    <p class="msg">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptates, quam rerum provident doloremque
-                                        temporibus quae! Saepe sunt sint iste voluptatum harum laborum mollitia sit? Soluta, ut veritatis?
-                                        Assumenda, praesentium facilis?</p>
-                                </div>
-                                <div class="chatRep gabarit">
-                                        <p class="ami">Max</p>
-                                        <p class="msg">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptates, quam rerum provident doloremque
-                                            temporibus quae! Saepe sunt sint iste voluptatum harum laborum mollitia sit? Soluta, ut veritatis?
-                                            Assumenda, praesentium facilis?</p>
-                                    </div>
-                    </div>
-                    <input type="text" name="chatBoiteMessage" class="chatBoiteMsg">
-                    <div class="btnGroupe">
-                        <input type="button" name="chatPoke" class="chatPoke" value="Poke">
-                        <input type="button" class="chatBtnEnvoyer" value="Envoyer">
-                    </div>
-                </form>
-            </aside>
+            <h1>Ajout d'un membre</h1>
+            <form action="/membres" method="POST">
+                <label for="prenom">Prénom</label><input type="text" name="prenom" value="" placeholder="Votre prénom" required>
+                <label for="nom">Nom</label><input type="text" name="nom" value="" placeholder="Votre nom" required>;
+                <label for="tel">Téléphone</label><input type="phone" name="tel" value="" placeholder="Votre numéro de téléphone" required>;
+                <label for="courriel">Courriel</label><input type="email" name="courriel" value="" placeholder="Votre courriel" required>;
+                <input type="submit" value="Envoyer">
+            </form>
         </main>
         <% include partials/footer %>
     </div>
