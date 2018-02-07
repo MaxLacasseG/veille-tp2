@@ -9,14 +9,16 @@
             <% include partials/nav %>
         </header>
         <main>
-            <h1>Ajout d'un membre</h1>
-            <form action="/membres" method="POST">
-                <label for="prenom">Prénom</label><input type="text" name="prenom" value="" placeholder="Votre prénom" required>
-                <label for="nom">Nom</label><input type="text" name="nom" value="" placeholder="Votre nom" required>;
-                <label for="tel">Téléphone</label><input type="phone" name="tel" value="" placeholder="Votre numéro de téléphone" required>;
-                <label for="courriel">Courriel</label><input type="email" name="courriel" value="" placeholder="Votre courriel" required>;
-                <input type="submit" value="Envoyer">
-            </form>
+            <section class="formulaire">
+                <h1>Ajout d'un membre</h1>
+                <form action="/traiter_form" method="GET">
+                    <label for="prenom">Prénom</label><input type="text" name="prenom" value="" placeholder="Votre prénom" required>
+                    <label for="nom">Nom</label><input type="text" name="nom" value="" placeholder="Votre nom" required>
+                    <label for="tel">Téléphone</label><input type="phone" name="tel" value="" placeholder="Votre numéro de téléphone" required>
+                    <label for="courriel">Courriel</label><input type="email" name="courriel" value="" placeholder="Votre courriel" required>
+                    <input type="submit" value="Envoyer">
+                </form>
+            </section>
         </main>
         <% include partials/footer %>
     </div>
