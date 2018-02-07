@@ -4,3 +4,6 @@
 css/
 
 !css/reset.css
+!css/normalize.css
+
+node_modules/
