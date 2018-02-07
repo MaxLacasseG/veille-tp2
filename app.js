@@ -15,10 +15,8 @@ app.get('/', (req, res) => {
 app.get('/membres', (req, res) => {
     fs.readFile('data/membres.json','utf8', (err,data)=> {
         if (err) throw err;
-       res.render('membres', {data:data});
+        res.render('membres', {data:JSON.parse(data)});
     });
-
-    res.render('membres');
 });
 
 app.get('/formulaire', (req, res) => {
