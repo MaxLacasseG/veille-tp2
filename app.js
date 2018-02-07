@@ -3,9 +3,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 const fs = require('fs');
-const enregistreMembres = (data)=>{
 
-}
 app.set('view engine', 'ejs');
 
 app.use(express.static(__dirname + '/assets/'));
@@ -15,6 +13,11 @@ app.get('/', (req, res) => {
 });
 
 app.get('/membres', (req, res) => {
+    fs.readFile('data/membres.json','utf8', (err,data)=> {
+        if (err) throw err;
+       res.render('membres', {data:data});
+    });
+
     res.render('membres');
 });
 
@@ -23,14 +26,24 @@ app.get('/formulaire', (req, res) => {
 });
 
 app.get('/traiter_form', (req, res) => {
-    reponse = {
+    let reponse = {
         prenom: req.query.prenom,
         nom: req.query.nom,
         tel: req.query.tel,
         courriel: req.query.courriel
     };
-    console.log(reponse);
-    res.end(JSON.stringify(reponse));
+
+    fs.readFile('data/membres.json','utf8', (err,data)=> {
+        if (err) throw err;
+        let liste = JSON.parse(data);
+        liste.push(reponse);
+
+        fs.writeFile('data/membres.json', JSON.stringify(liste), (err)=>{
+            if(err)throw err;
+        });
+    });
+
+    res.render('membres');
 });
 
 app.post('/formulaire', (req, res) => {
