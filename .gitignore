@@ -4,3 +4,5 @@
 css/
 
 !css/reset.css
+
+node_modules/
