@@ -1,9 +1,9 @@
 .vscode/settings.json
 
 #Ignore les fichiers css
-css/
+assets/css/
 
-!css/reset.css
-!css/normalize.css
+!assets/css/reset.css
+!assets/css/normalize.css
 
 node_modules/

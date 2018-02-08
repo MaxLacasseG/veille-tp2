@@ -10,19 +10,19 @@
                 <% include partials/nav %>
             </header>
             <main>
-                <section id="principale">
+                <section id="principale" class="listeMembre">
                     <table>
                         <thead>
                             <tr>
-                                Les membres
+                                <td>Les membres</td>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>Prénom</td>
-                                <td>Nom</td>
-                                <td>Téléphone</td>
-                                <td>Courriel</td>
+                                <th>Prénom</th>
+                                <th>Nom</th>
+                                <th>Téléphone</th>
+                                <th>Courriel</th>
                             </tr>
                             <% for(let elem of data){ %>
 

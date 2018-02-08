@@ -38,10 +38,10 @@ app.get('/traiter_form', (req, res) => {
 
         fs.writeFile('data/membres.json', JSON.stringify(liste), (err)=>{
             if(err)throw err;
+            res.render('membres', {data : liste});
         });
+        
     });
-
-    res.render('membres');
 });
 
 app.post('/formulaire', (req, res) => {

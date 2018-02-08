@@ -1,252 +1,327 @@
 @import 'reset.css';
-*{box-sizing: border-box;}
+* {
+    box-sizing: border-box;
+}
+
 @coulBase :#fdf9d0;
 @coulAccent1: #f3d369;
 @coulAccent2: #f38e54;
 @coulAccent3: #cf4154;
 @coulAccent4: #52346b;
-
 @coulTxtBase: #756d61;
 @coulTxtAcc1: #eea94f;
 @coulTxtAcc2: #8b2800;
 @coulTxtAcc3: #440000;
 @coulTxtAcc4: #240016;
-
-@fontBase: 'Ubuntu',sans-serif;
-@fontAccent: 'Oswald',cursive;
-@fontTitre:'Anton', sans-serif;
-.tailleFont(@taille){
+@fontBase: 'Ubuntu',
+sans-serif;
+@fontAccent: 'Oswald',
+cursive;
+@fontTitre: 'Anton',
+sans-serif;
+.tailleFont(@taille) {
     @remVal : @taille;
-    @pxVal:(@taille * 10);
-    font-size: ~"@{pxVal}px";
-    font-size: ~"@{remVal}rem";
+    @pxVal: (@taille * 10);
+    font-size:~"@{pxVal}px";
+    font-size:~"@{remVal}rem";
 }
 
 //Gestion de la typographie
-html{
+html {
     font-size: 62.5%;
     color: @coulBase;
 }
 
-h1,h2,h3,h4,h5,h6{
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: @fontAccent;
     color: @coulBase;
 }
 
-p, input, label, textarea, div, li, a{
+p,
+input,
+label,
+textarea,
+div,
+li,
+a {
     .tailleFont(1);
     font-family: @fontBase;
     color: @coulTxtAcc1;
 }
-h1{.tailleFont(7);font-weight: 500; letter-spacing: -0.15rem; font-family: @fontTitre; color: darken(@coulAccent3,35%)}
-h2{.tailleFont(5);font-weight: 100;color: @coulAccent1;}
-h3{.tailleFont(3)}
-h4{.tailleFont(1)}
-h5{.tailleFont(0.8)}
-h6{.tailleFont(0.7)}
+
+h1 {
+    .tailleFont(7);
+    font-weight: 500;
+    letter-spacing: -0.15rem;
+    font-family: @fontTitre;
+    color: darken(@coulAccent3, 35%)
+}
+
+h2 {
+    .tailleFont(5);
+    font-weight: 100;
+    color: @coulAccent1;
+}
+
+h3 {
+    .tailleFont(3)
+}
+
+h4 {
+    .tailleFont(1)
+}
+
+h5 {
+    .tailleFont(0.8)
+}
+
+h6 {
+    .tailleFont(0.7)
+}
 
 //Mise en page des sections
 //===========================================
-#conteneurPrinc{
-    display: flex; 
+#conteneurPrinc {
+    display: flex;
     flex-direction: column;
     justify-content: space-between;
     height: 100vh;
-    & header{
+    & header {
         flex: 1 0 content;
         padding: 1rem;
-        background:url(../medias/img/motifFond2.png),linear-gradient(to right, @coulAccent3, darken(@coulAccent3, 20%)), @coulAccent3;
-
+        background: url(../medias/img/motifFond2.png), linear-gradient(to right, @coulAccent3, darken(@coulAccent3, 20%)), @coulAccent3;
         display: flex;
-        & #groupeEntete{
+        & #groupeEntete {
             flex: 1 1 60%;
         }
-        & nav{
+        & nav {
             flex: 1 0 40%;
-
             display: flex;
-            & ul{
+            & ul {
                 flex: 1 0 100%;
-
                 display: flex;
                 justify-content: space-around;
                 align-items: flex-end;
-                & li{
-                    & a{
+                & li {
+                    & a {
                         .tailleFont(2);
                         text-decoration: none;
                         transition: 400ms color;
-                        &:hover{
+                        &:hover {
                             color: @coulBase;
                         }
                     }
                 }
             }
         }
-        
     }
     & main {
         flex: 1 1 auto;
         display: flex;
-        & section#principale{
+        & section#principale {
             flex: 1 1 70%;
             padding: 3rem;
-            & h3{
+            & h3 {
                 color: #240016;
                 margin-bottom: 2rem;
             }
-            & ul{
-                & li{
+            & ul {
+                & li {
                     display: flex;
                     padding: 1rem;
-                    &:hover{
+                    &:hover {
                         border-bottom: #f38e54 1px solid;
                     }
-                    & a{
+                    & a {
                         .tailleFont(2);
                         text-decoration: none;
-                        &:hover{
-                            color:darken(@coulAccent2, 20%);
+                        &:hover {
+                            color: darken(@coulAccent2, 20%);
                         }
-                        &.btnModif, &.btnDel{
+                        &.btnModif,
+                        &.btnDel {
                             margin-left: 2rem;
                         }
                     }
                 }
             }
         }
-        & .formulaire{
-            flex:1 1 auto;
+        & .listeMembre {
+            flex: 1 1 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            & table {
+                flex: 1 1 auto;
+                min-height: 80vh;
+                min-width: 80vw;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: center;
+                border-collapse: collapse;
+                & thead td {
+                    color: #8b2800;
+                    .tailleFont(3);
+                    font-family: @fontAccent;
+                    text-transform: uppercase;
+
+                }
+                & tbody {
+                    padding: 2em;
+                    & tr {
+                        transition: all;
+                        line-height: 3em;
+                        text-align: center;
+                        border-bottom: 1px solid #cf4154;
+                        &:hover {
+                            border-bottom-width: 2px;
+                        }
+                        & th {
+                            background-color: #cf4154;
+                            color: #fdf9d0;
+                        }
+                        & td {
+                            padding: 0.7em;
+                        }
+                    }
+                }
+                & td,
+                & th {
+                    .tailleFont(2);
+                }
+            }
+        }
+        & .formulaire {
+            flex: 1 1 auto;
             width: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            & form{
+            & form {
                 display: flex;
                 flex-direction: column;
                 width: 50vw;
-                & input, & label{
+                & input,
+                & label {
                     min-height: 40px;
                     .tailleFont(2);
                 }
                 & label {
-                   display: flex;
-                   align-items: center;
+                    display: flex;
+                    align-items: center;
                 }
             }
-        }
-        //Section contenant la boite de chat
-        & aside{
+        } //Section contenant la boite de chat
+        & aside {
             flex: 1 1 30%;
             padding: 2rem;
             background-color: @coulTxtAcc4;
-
             display: flex;
             flex-direction: column;
-            & .chatLabel{
+            & .chatLabel {
                 flex: 1 1 5%;
                 color: lighten(@coulTxtAcc3, 20%);
                 text-transform: uppercase;
                 .tailleFont(1.5);
                 font-family: @fontAccent;
             }
-            & form{
+            & form {
                 flex: 1 1 95%;
                 display: flex;
                 flex-direction: column;
-               
-                & .chatBoiteRep{
+                & .chatBoiteRep {
                     flex: 1 0 70%;
                     background-color: white;
                     padding: 1rem;
                     overflow-y: scroll;
-                    &::-webkit-scrollbar{
+                    &::-webkit-scrollbar {
                         width: 1rem;
                         background-color: #240016;
                     }
-                    & .chatRep{
+                    & .chatRep {
                         text-align: justify;
                         padding-bottom: 1rem;
-                        
-                        & .auteur, & .ami{
+                        & .auteur,
+                        & .ami {
                             margin-top: 0.5rem;
                             font-weight: 500;
                             text-transform: uppercase;
                             letter-spacing: 0.1rem;
                         }
-                        & .auteur{
+                        & .auteur {
                             color: @coulTxtAcc2;
                             font-weight: 800;
                             text-align: right;
-
-                            & + .msg{
+                            &+.msg {
                                 padding-left: 1rem;
                             }
                         }
-                        & .ami{
+                        & .ami {
                             color: @coulAccent3;
-                            & + .msg{
+                            &+.msg {
                                 padding-right: 1rem;
                             }
                         }
                     }
-
                 }
-                & .chatBoiteMsg{
+                & .chatBoiteMsg {
                     flex: 1 0 20%;
-                    background-color:white;
+                    background-color: white;
                     padding: 1rem;
                     .tailleFont(1.2);
                     font-family: @fontBase;
                 }
-                & .btnGroupe{
+                & .btnGroupe {
                     flex: 1 0 10%;
-
                     display: flex;
-                    & input{
+                    & input {
                         border: none;
                         color: @coulBase;
                         font-family: @fontAccent;
                         .tailleFont(1.5);
                         text-transform: uppercase;
                         transition: 400ms background-color, 400ms color;
-                       
-                        &:hover{
-                            color:shade(@coulBase, 40%);
+                        &:hover {
+                            color: shade(@coulBase, 40%);
                         }
                     }
-                    & .chatPoke{
+                    & .chatPoke {
                         flex: 1 1 20%;
-                        background-color: darken(@coulAccent3,20%);
-                        &:hover{
+                        background-color: darken(@coulAccent3, 20%);
+                        &:hover {
                             background-color: shade(@coulAccent3, 40%);
                         }
                     }
-                    & .chatBtnEnvoyer{
+                    & .chatBtnEnvoyer {
                         flex: 1 1 80%;
                         background-color: #52346b;
-                        &:hover{
+                        &:hover {
                             background-color: shade(@coulAccent4, 20%);
                         }
                     }
                 }
             }
-
         }
     }
-    & footer{
+    & footer {
         flex: 1 0 content;
         min-height: 5vh;
         padding: 1rem;
-        background:linear-gradient(to right, darken(@coulAccent3, 20%), darken(@coulAccent3, 30%)), @coulAccent3;
-
+        background: linear-gradient(to right, darken(@coulAccent3, 20%), darken(@coulAccent3, 30%)), @coulAccent3;
         display: flex;
         justify-content: flex-start;
         align-items: center;
-        & p{
+        & p {
             .tailleFont(1.2);
-            color:lighten(@coulTxtAcc2, 10%);
+            color: lighten(@coulTxtAcc2, 10%);
         }
     }
 }
