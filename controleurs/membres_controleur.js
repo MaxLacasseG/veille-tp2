@@ -1,17 +1,20 @@
 var mongoose = require('mongoose')
-var membre = require('../modeles/membres_modele');
+var Membre = require('../modeles/membres_modele');
 
 module.exports.controller = function (app) {
     app.get('/', (req, res) => {
         res.render('index');
     });
-    
+
     app.get('/membres', (req, res) => {
-        fs.readFile('data/membres.json', 'utf8', (err, data) => {
-            if (err) throw err;
-            res.render('membres', {
-                data: JSON.parse(data)
-            });
+        Membre.find((err, data) => {
+            if (err) {
+                res.status(500).send(err);
+            } else {
+                res.render('membres', {
+                    data: data
+                });
+            };
         });
     });
 
@@ -20,25 +23,27 @@ module.exports.controller = function (app) {
     });
 
     app.get('/traiter_form', (req, res) => {
-        let reponse = {
+        let nouveauMembre = new Membre({
             prenom: req.query.prenom,
             nom: req.query.nom,
             tel: req.query.tel,
             courriel: req.query.courriel
-        };
+        });
 
-        fs.readFile('data/membres.json', 'utf8', (err, data) => {
-            if (err) throw err;
-            let liste = JSON.parse(data);
-            liste.push(reponse);
-
-            fs.writeFile('data/membres.json', JSON.stringify(liste), (err) => {
-                if (err) throw err;
-                res.render('membres', {
-                    data: liste
+        nouveauMembre.save((err, enreg) => {
+            if (err) {
+                res.status(500).send(err);
+            } else {
+                Membre.find((err, data) => {
+                    if (err) {
+                        res.status(500).send(err);
+                    } else {
+                        res.render('membres', {
+                            data: data
+                        });
+                    };
                 });
-            });
-
+            };
         });
     });
 
