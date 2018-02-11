@@ -50,5 +50,4 @@ module.exports.controller = function (app) {
     app.post('/formulaire', (req, res) => {
         res.render('formulaire');
     });
-
 }
