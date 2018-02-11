@@ -4,49 +4,17 @@ const bodyParser = require('body-parser');
 const app = express();
 const fs = require('fs');
 
-app.set('view engine', 'ejs');
+//Connection à la bdd
+const bdd = require('mongoose');
+bdd.connect('mongodb://admin:veille1234@ds231228.mlab.com:31228/veille-node5');
 
+//Assignation du moteur de rendu
+app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/assets/'));
 
-app.get('/', (req, res) => {
-    res.render('index');
-});
+let route = require('./controleurs/membres_controleur');
+route.controller(app);
 
-app.get('/membres', (req, res) => {
-    fs.readFile('data/membres.json','utf8', (err,data)=> {
-        if (err) throw err;
-        res.render('membres', {data:JSON.parse(data)});
-    });
-});
-
-app.get('/formulaire', (req, res) => {
-    res.render('formulaire');
-});
-
-app.get('/traiter_form', (req, res) => {
-    let reponse = {
-        prenom: req.query.prenom,
-        nom: req.query.nom,
-        tel: req.query.tel,
-        courriel: req.query.courriel
-    };
-
-    fs.readFile('data/membres.json','utf8', (err,data)=> {
-        if (err) throw err;
-        let liste = JSON.parse(data);
-        liste.push(reponse);
-
-        fs.writeFile('data/membres.json', JSON.stringify(liste), (err)=>{
-            if(err)throw err;
-            res.render('membres', {data : liste});
-        });
-        
-    });
-});
-
-app.post('/formulaire', (req, res) => {
-    res.render('formulaire');
-});
 
 app.listen(8000, () => {
     console.log('Écoute sur port 8000');
