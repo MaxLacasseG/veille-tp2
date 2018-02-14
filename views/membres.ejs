@@ -20,18 +20,17 @@
                                     <th>Téléphone</th>
                                     <th>Courriel</th>
                                     <th></th>
-                                    <th><a href="/ajouterMembre"><i class="fas fa-plus-circle fa-2x"></i></a></th>
+                                    <th><a href="/ajouter"><i class="fas fa-plus-circle fa-2x"></i></a></th>
                                 </tr>
                                 <% for(let elem of data){ %>
-
                                     <tr>
                                         <input type="hidden" value="<%= elem._id %>">
-                                        <td><%= elem.prenom %></td>
-                                        <td><%= elem.nom %></td>
-                                        <td><%= elem.tel %></td>
-                                        <td><%= elem.courriel %></td>
-                                        <td><a href="/majMembre"><i class="fas fa-save fa-2x"></i></a></td>
-                                        <td><a href="/detruireMembre"><i class="fas fa-trash fa-2x"></i></a></td>
+                                        <td class="donnees"><%= elem.prenom %></td>
+                                        <td class="donnees"><%= elem.nom %></td>
+                                        <td class="donnees"><%= elem.tel %></td>
+                                        <td class="donnees"><%= elem.courriel %></td>
+                                        <td class="btn-mod"><a href="/ajouterMembre"><i class="fas fa-save fa-2x"></i></a></td>
+                                        <td class="btn-detr"><a href="/detruireMembre"><i class="fas fa-trash fa-2x"></i></a></td>
                                     </tr>
                                     <% }; %>
                             </tbody>

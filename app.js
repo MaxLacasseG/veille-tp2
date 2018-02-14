@@ -47,6 +47,16 @@ app.post('/ajouterMembre', (req, res) => {
     });
 });
 
+app.get('/ajouter', (req, res)=>{
+    db.collection('adresse').insert({},(err, enreg)=>{
+        if (err) {
+            res.status(500).send(err);
+        } else {
+            res.redirect('/');
+        }
+    })
+})
+
 app.post('/majMembre', (req, res) => {
   
 });
