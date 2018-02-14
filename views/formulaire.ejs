@@ -1,17 +1,11 @@
 <% include partials/head %>
 <body>
     <div id="conteneurPrinc">
-        <header>
-            <div id="groupeEntete">
-                <h1>TRI</h1>
-                <h2>Formulaire d'inscription</h2>
-            </div>
             <% include partials/nav %>
-        </header>
         <main>
             <section class="formulaire">
                 <h1>Ajout d'un membre</h1>
-                <form action="/traiter_form" method="GET">
+                <form action="/ajouterMembre" method="POST">
                     <label for="prenom">Prénom</label><input type="text" name="prenom" value="" placeholder="Votre prénom" required>
                     <label for="nom">Nom</label><input type="text" name="nom" value="" placeholder="Votre nom" required>
                     <label for="tel">Téléphone</label><input type="phone" name="tel" value="" placeholder="Votre numéro de téléphone" required>

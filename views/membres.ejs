@@ -2,51 +2,48 @@
 
     <body>
         <div id="conteneurPrinc">
-            <header>
-                <div id="groupeEntete">
-                    <h1>TRI</h1>
-                    <h2>Liste des membres</h2>
-                </div>
-                <% include partials/nav %>
-            </header>
-            <main>
-                <section id="principale" class="listeMembre">
-                    <table>
-                        <thead>
-                            <tr>
-                                <td>Les membres</td>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th>Prénom</th>
-                                <th>Nom</th>
-                                <th>Téléphone</th>
-                                <th>Courriel</th>
-                            </tr>
-                            <% for(let elem of data){ %>
 
+            <% include partials/nav %>
+
+                <main>
+                    <section id="principale" class="listeMembre">
+                        <table>
+                            <thead>
                                 <tr>
-                                    <td>
-                                        <%= elem.prenom %>
-                                    </td>
-                                    <td>
-                                        <%= elem.nom %>
-                                    </td>
-                                    <td>
-                                        <%= elem.tel %>
-                                    </td>
-                                    <td>
-                                        <%= elem.courriel %>
-                                    </td>
+                                    <td>Les membres</td>
                                 </tr>
-                                <% }; %>
-                        </tbody>
-                    </table>
-                </section>
-            </main>
-            <% include partials/footer %>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th>Prénom</th>
+                                    <th>Nom</th>
+                                    <th>Téléphone</th>
+                                    <th>Courriel</th>
+                                </tr>
+                                <% for(let elem of data){ %>
+
+                                    <tr>
+                                        <td contenteditable="true">
+                                            <%= elem.prenom %>
+                                        </td>
+                                        <td>
+                                            <%= elem.nom %>
+                                        </td>
+                                        <td>
+                                            <%= elem.tel %>
+                                        </td>
+                                        <td>
+                                            <%= elem.courriel %>
+                                        </td>
+                                    </tr>
+                                    <% }; %>
+                            </tbody>
+                        </table>
+                    </section>
+                </main>
+                <% include partials/footer %>
         </div>
+        <script src="js/listeMembres.js"></script>
     </body>
 
     </html>

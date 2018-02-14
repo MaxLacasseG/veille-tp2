@@ -8,6 +8,7 @@ const fs = require('fs');
 //const bdd = require('mongoose');
 //bdd.connect('mongodb://admin:veille1234@ds231228.mlab.com:31228/veille-node5');
 const BDD = require('mongodb').MongoClient;
+let db;
 
 //Assignation du moteur de rendu et middleware
 app.set('view engine', 'ejs');
@@ -22,15 +23,10 @@ app.get('/', (req, res) => {
 });
 
 app.get('/membres', (req, res) => {
-    Membre.find((err, data) => {
-        if (err) {
-            res.status(500).send(err);
-        } else {
-            res.render('membres', {
-                data: data
-            });
-        };
-    });
+    var cursor = db.collection('adresse').find().toArray(function(err, resultat){
+    if (err) return console.log(err);
+    res.render('membres', {data: resultat});
+    }); 
 });
 
 app.get('/formulaire', (req, res) => {
