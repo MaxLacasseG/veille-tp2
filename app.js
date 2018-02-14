@@ -20,7 +20,6 @@ app.use(express.static(__dirname + '/assets/'));
 app.get('/', (req, res) => {
     var cursor = db.collection('adresse').find().toArray(function (err, resultat) {
         if (err) return console.log(err);
-        console.log(resultat);
         res.render('membres', {
             data: resultat
         });
@@ -43,10 +42,7 @@ app.post('/ajouterMembre', (req, res) => {
         if (err) {
             res.status(500).send(err);
         } else {
-            db.collection('adresse').find().toArray(function (err, resultat) {
-                if (err) return console.log(err);
-                res.redirect('/membres');
-            });
+            res.redirect('/');
         }
     });
 });
