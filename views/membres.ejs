@@ -19,22 +19,19 @@
                                     <th>Nom</th>
                                     <th>Téléphone</th>
                                     <th>Courriel</th>
+                                    <th></th>
+                                    <th><a href="/ajouterMembre"><i class="fas fa-plus-circle fa-2x"></i></a></th>
                                 </tr>
                                 <% for(let elem of data){ %>
 
                                     <tr>
-                                        <td contenteditable="true">
-                                            <%= elem.prenom %>
-                                        </td>
-                                        <td>
-                                            <%= elem.nom %>
-                                        </td>
-                                        <td>
-                                            <%= elem.tel %>
-                                        </td>
-                                        <td>
-                                            <%= elem.courriel %>
-                                        </td>
+                                        <input type="hidden" value="<%= elem._id %>">
+                                        <td><%= elem.prenom %></td>
+                                        <td><%= elem.nom %></td>
+                                        <td><%= elem.tel %></td>
+                                        <td><%= elem.courriel %></td>
+                                        <td><a href="/majMembre"><i class="fas fa-save fa-2x"></i></a></td>
+                                        <td><a href="/detruireMembre"><i class="fas fa-trash fa-2x"></i></a></td>
                                     </tr>
                                     <% }; %>
                             </tbody>

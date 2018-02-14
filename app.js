@@ -9,7 +9,7 @@ const fs = require('fs');
 //bdd.connect('mongodb://admin:veille1234@ds231228.mlab.com:31228/veille-node5');
 const BDD = require('mongodb').MongoClient;
 let db;
-
+let Membre = require('./modeles/membres_modele');
 //Assignation du moteur de rendu et middleware
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({
@@ -17,49 +17,46 @@ app.use(bodyParser.urlencoded({
 }))
 app.use(express.static(__dirname + '/assets/'));
 
-
 app.get('/', (req, res) => {
-    res.render('index');
-});
-
-app.get('/membres', (req, res) => {
-    var cursor = db.collection('adresse').find().toArray(function(err, resultat){
-    if (err) return console.log(err);
-    res.render('membres', {data: resultat});
-    }); 
+    var cursor = db.collection('adresse').find().toArray(function (err, resultat) {
+        if (err) return console.log(err);
+        console.log(resultat);
+        res.render('membres', {
+            data: resultat
+        });
+    });
 });
 
 app.get('/formulaire', (req, res) => {
     res.render('formulaire');
 });
 
-app.get('/traiter_form', (req, res) => {
+app.post('/ajouterMembre', (req, res) => {
     let nouveauMembre = new Membre({
-        prenom: req.query.prenom,
-        nom: req.query.nom,
-        tel: req.query.tel,
-        courriel: req.query.courriel
+        prenom: req.body.prenom,
+        nom: req.body.nom,
+        tel: req.body.tel,
+        courriel: req.body.courriel
     });
 
-    nouveauMembre.save((err, enreg) => {
+    db.collection('adresse').save(nouveauMembre, (err, enreg) => {
         if (err) {
             res.status(500).send(err);
         } else {
-            Membre.find((err, data) => {
-                if (err) {
-                    res.status(500).send(err);
-                } else {
-                    res.render('membres', {
-                        data: data
-                    });
-                };
+            db.collection('adresse').find().toArray(function (err, resultat) {
+                if (err) return console.log(err);
+                res.redirect('/membres');
             });
-        };
+        }
     });
 });
 
-app.post('/formulaire', (req, res) => {
-    res.render('formulaire');
+app.post('/majMembre', (req, res) => {
+  
+});
+
+app.post('/detruireMembre', (req, res) => {
+  
 });
 
 app.use((req, res) => {
