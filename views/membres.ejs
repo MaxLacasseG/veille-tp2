@@ -24,13 +24,13 @@
                                 </tr>
                                 <% for(let elem of data){ %>
                                     <tr>
-                                        <input type="hidden" value="<%= elem._id %>">
-                                        <td class="donnees"><%= elem.prenom %></td>
-                                        <td class="donnees"><%= elem.nom %></td>
-                                        <td class="donnees"><%= elem.tel %></td>
-                                        <td class="donnees"><%= elem.courriel %></td>
-                                        <td class="btn-mod"><a href="/ajouterMembre"><i class="fas fa-save fa-2x"></i></a></td>
-                                        <td class="btn-detr"><a href="/detruireMembre"><i class="fas fa-trash fa-2x"></i></a></td>
+                                        <input type="hidden" class="id" value="<%= elem._id %>">
+                                        <td class="prenom" contenteditable="true"><%= elem.prenom %></td>
+                                        <td class="nom" contenteditable="true"><%= elem.nom %></td>
+                                        <td class="tel" contenteditable="true"><%= elem.tel %></td>
+                                        <td class="courriel" contenteditable="true"><%= elem.courriel %></td>
+                                        <td class="btn-mod"><a href="/majMembre/"><i class="fas fa-save fa-2x"></i></a></td>
+                                        <td class="btn-detr"><a href="/detruireMembre/<%= elem._id %>"><i class="fas fa-trash fa-2x"></i></a></td>
                                     </tr>
                                     <% }; %>
                             </tbody>

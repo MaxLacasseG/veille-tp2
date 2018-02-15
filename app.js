@@ -5,20 +5,18 @@ const app = express();
 const fs = require('fs');
 
 //Connection à la bdd
-//const bdd = require('mongoose');
-//bdd.connect('mongodb://admin:veille1234@ds231228.mlab.com:31228/veille-node5');
 const BDD = require('mongodb').MongoClient;
+const ObjectID = require('mongodb').ObjectID;
 let db;
-let Membre = require('./modeles/membres_modele');
 //Assignation du moteur de rendu et middleware
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({
     extended: true
-}))
+}));
 app.use(express.static(__dirname + '/assets/'));
 
 app.get('/', (req, res) => {
-    var cursor = db.collection('adresse').find().toArray(function (err, resultat) {
+    var cursor = db.collection('membre').find().toArray(function (err, resultat) {
         if (err) return console.log(err);
         res.render('membres', {
             data: resultat
@@ -30,15 +28,25 @@ app.get('/formulaire', (req, res) => {
     res.render('formulaire');
 });
 
-app.post('/ajouterMembre', (req, res) => {
-    let nouveauMembre = new Membre({
-        prenom: req.body.prenom,
-        nom: req.body.nom,
-        tel: req.body.tel,
-        courriel: req.body.courriel
-    });
+// app.post('/ajouterMembre', (req, res) => {
+//     let nouveauMembre = new Membre({
+//         prenom: req.body.prenom,
+//         nom: req.body.nom,
+//         tel: req.body.tel,
+//         courriel: req.body.courriel
+//     });
 
-    db.collection('adresse').save(nouveauMembre, (err, enreg) => {
+//     db.collection('adresse').save(nouveauMembre, (err, enreg) => {
+//         if (err) {
+//             res.status(500).send(err);
+//         } else {
+//             res.redirect('/');
+//         }
+//     });
+// });
+
+app.get('/ajouter', (req, res) => {
+    db.collection('membre').insert({}, (err, enreg) => {
         if (err) {
             res.status(500).send(err);
         } else {
@@ -47,22 +55,32 @@ app.post('/ajouterMembre', (req, res) => {
     });
 });
 
-app.get('/ajouter', (req, res)=>{
-    db.collection('adresse').insert({},(err, enreg)=>{
+app.get('/majMembre/:idMembre/:prenom/:nom/:tel/:courriel', (req, res) => {
+    let membre = {
+        "_id": ObjectID(req.params._idMembre),
+        nom: req.params.nom,
+        prenom: req.params.prenom,
+        tel: req.params.tel,
+        courriel: req.params.courriel,
+    };
+    db.collection('membre').save(membre, (err, resultat) => {
         if (err) {
             res.status(500).send(err);
         } else {
             res.redirect('/');
         }
     })
-})
-
-app.post('/majMembre', (req, res) => {
-  
 });
 
-app.post('/detruireMembre', (req, res) => {
-  
+app.get('/detruireMembre/:idMembre', (req, res) => {
+    var id = req.params.idMembre;
+    console.log(id);
+    db.collection('membre').findOneAndDelete({
+        "_id": ObjectID(req.params.idMembre)
+    }, (err, resultat) => {
+        if (err) return console.log(err);
+        res.redirect('/');
+    });
 });
 
 app.use((req, res) => {
@@ -71,9 +89,9 @@ app.use((req, res) => {
 
 BDD.connect('mongodb://127.0.0.1:27017', (err, database) => {
     if (err) return console.log(err)
-    db = database.db('carnet_adresse')
+    db = database.db('membres')
     // lancement du serveur Express sur le port 8081
     app.listen(8081, () => {
-        console.log('connexion à la BD et on écoute sur le port 8081')
-    })
-})
+        console.log('connexion à la BD et on écoute sur le port 8081');
+    });
+});
