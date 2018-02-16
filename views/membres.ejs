@@ -14,7 +14,7 @@
                                 </tr>
                             </thead>
                             <form action="#" method="POST">
-                                <input type="text" name="id" id="id">
+                                <input data-ordre ="asc" type="text" name="id" id="id">
                                 <input type="text" name="prenom" id="prenom">
                                 <input type="text" name="nom" id="nom">
                                 <input type="text" name="tel" id="tel">
@@ -23,20 +23,20 @@
                             </form>
                             <tbody>
                                 <tr>
-                                    <th>Prénom</th>
-                                    <th>Nom</th>
-                                    <th>Téléphone</th>
-                                    <th>Courriel</th>
+                                    <th><a href="/trier/prenom/asc">Prénom</a></th>
+                                    <th><a href="/trier/nom/asc">Nom</a></th>
+                                    <th><a href="/trier/tel/asc">Téléphone</a></th>
+                                    <th><a href="/trier/courriel/asc">Courriel</a></th>
                                     <th></th>
                                     <th><a href="/ajouter"><i class="fas fa-plus-circle fa-2x"></i></a></th>
                                 </tr>
                                 <% for(let elem of data){ %>
                                     <tr>
                                         <input type="hidden" class="id" value="<%= elem._id %>">
-                                        <td class="prenom" contenteditable="true"><%= elem.prenom %></td>
-                                        <td class="nom" contenteditable="true"><%= elem.nom %></td>
-                                        <td class="tel" contenteditable="true"><%= elem.tel %></td>
-                                        <td class="courriel" contenteditable="true"><%= elem.courriel %></td>
+                                        <td data-ordre ="<% if(typeof ordre == 'undefined'){ %> <%='asc'%> <%}else{%> <%= ordre%> <%}%>" class="prenom" contenteditable="true"><%= elem.prenom %></td>
+                                        <td data-ordre ="<% if(typeof ordre == 'undefined'){ %> <%='asc'%> <%}else{%> <%= ordre%> <%}%>" class="nom" contenteditable="true"><%= elem.nom %></td>
+                                        <td data-ordre ="<% if(typeof ordre == 'undefined'){ %> <%='asc'%> <%}else{%> <%= ordre%> <%}%>" class="tel" contenteditable="true"><%= elem.tel %></td>
+                                        <td data-ordre ="<% if(typeof ordre == 'undefined'){ %> <%='asc'%> <%}else{%> <%= ordre%> <%}%>" class="courriel" contenteditable="true"><%= elem.courriel %></td>
                                         <td class="btn-mod"><a href="/majMembre/"><i class="fas fa-save fa-2x"></i></a></td>
                                         <td class="btn-detr"><a href="/detruireMembre/<%= elem._id %>"><i class="fas fa-trash fa-2x"></i></a></td>
                                     </tr>

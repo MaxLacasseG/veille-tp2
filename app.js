@@ -15,8 +15,13 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(express.static(__dirname + '/assets/'));
 
+//====================================================
+// ROUTES
+//==============================================
+
+//=== ACCUEIL
 app.get('/', (req, res) => {
-    var cursor = db.collection('membre').find().toArray(function (err, resultat) {
+    db.collection('adresse').find().toArray(function (err, resultat) {
         if (err) return console.log(err);
         res.render('membres', {
             data: resultat
@@ -24,10 +29,8 @@ app.get('/', (req, res) => {
     });
 });
 
-app.get('/formulaire', (req, res) => {
-    res.render('formulaire');
-});
 
+//===================== MODIFIER PAR POST
 // app.post('/ajouterMembre', (req, res) => {
 //     let nouveauMembre = new Membre({
 //         prenom: req.body.prenom,
@@ -45,8 +48,9 @@ app.get('/formulaire', (req, res) => {
 //     });
 // });
 
+// ============ AJOUTER
 app.get('/ajouter', (req, res) => {
-    db.collection('membre').insert({}, (err, enreg) => {
+    db.collection('adresse').insert({}, (err, enreg) => {
         if (err) {
             res.status(500).send(err);
         } else {
@@ -55,15 +59,16 @@ app.get('/ajouter', (req, res) => {
     });
 });
 
+//============ 
 app.get('/majMembre/:idMembre/:prenom/:nom/:tel/:courriel', (req, res) => {
     let membre = {
-        "_id": ObjectID(req.params._idMembre),
+        _id: ObjectID(req.params._idMembre),
         nom: req.params.nom,
         prenom: req.params.prenom,
         tel: req.params.tel,
         courriel: req.params.courriel,
     };
-    db.collection('membre').save(membre, (err, resultat) => {
+    db.collection('adresse').save(membre, (err, resultat) => {
         if (err) {
             res.status(500).send(err);
         } else {
@@ -72,24 +77,43 @@ app.get('/majMembre/:idMembre/:prenom/:nom/:tel/:courriel', (req, res) => {
     })
 });
 
-app.get('/detruireMembre/:idMembre', (req, res) => {
-    var id = req.params.idMembre;
-    console.log(id);
-    db.collection('membre').findOneAndDelete({
-        "_id": ObjectID(req.params.idMembre)
-    }, (err, resultat) => {
-        if (err) return console.log(err);
+//============================
+//Detruire
+//=========================
+app.get('/detruireMembre/:id', (req, res) => {
+    let id = ObjectID(req.params.id);
+    db.collection('adresse').findOneAndDelete({_id: id}, (err, resultat) => {
         res.redirect('/');
     });
 });
 
+
+//======================
+//Trier
+//======================
+app.get('/trier/:cle/:ordre', (req, res) => {
+    let ordre = req.params.ordre == "asc" ? 1 : -1;
+    let cle = req.params.cle;
+    db.collection('adresse').find().sort(cle, ordre).toArray((err, resultat) => {
+        ordre = !ordre;
+        let direction = ordre == 1 ? "asc" : "desc";
+        res.render("membres", {
+            data: resultat,
+            ordre: direction
+        })
+    });
+});
+
+//=============
+//Page 404
+0
 app.use((req, res) => {
     res.status(404).render('404');
 });
 
 BDD.connect('mongodb://127.0.0.1:27017', (err, database) => {
     if (err) return console.log(err)
-    db = database.db('membres')
+    db = database.db('carnet_adresse')
     // lancement du serveur Express sur le port 8081
     app.listen(8081, () => {
         console.log('connexion à la BD et on écoute sur le port 8081');
