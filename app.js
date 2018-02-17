@@ -31,22 +31,23 @@ app.get('/', (req, res) => {
 
 
 //===================== MODIFIER PAR POST
-// app.post('/ajouterMembre', (req, res) => {
-//     let nouveauMembre = new Membre({
-//         prenom: req.body.prenom,
-//         nom: req.body.nom,
-//         tel: req.body.tel,
-//         courriel: req.body.courriel
-//     });
+app.post('/modifier', (req, res) => {
+    let adresse = {
+        _id : ObjectID(req.body.id),
+        prenom: req.body.prenom,
+        nom: req.body.nom,
+        tel: req.body.tel,
+        courriel: req.body.courriel
+    };
 
-//     db.collection('adresse').save(nouveauMembre, (err, enreg) => {
-//         if (err) {
-//             res.status(500).send(err);
-//         } else {
-//             res.redirect('/');
-//         }
-//     });
-// });
+    db.collection('adresse').save(adresse, (err, enreg) => {
+        if (err) {
+            res.status(500).send(err);
+        } else {
+            res.redirect('/');
+        }
+    });
+});
 
 // ============ AJOUTER
 app.get('/ajouter', (req, res) => {
