@@ -25,7 +25,9 @@ app.get('/', (req, res) => {
     db.collection('adresse').find().toArray(function (err, resultat) {
         if (err) return console.log(err);
         res.render('membres', {
-            data: resultat
+            data: resultat,
+            direction:1,
+            cle:null
         });
     });
 });
@@ -79,11 +81,11 @@ app.get('/detruireMembre/:id', (req, res) => {
 app.get('/trier/:cle/:ordre', (req, res) => {
     let ordre = req.params.ordre == "asc" ? 1 : -1;
     let cle = req.params.cle;
-    db.collection('adresse').find().sort({cle: ordre}).toArray((err, resultat) => {
-        ordre = !ordre;
-        let direction = ordre == 1 ? "asc" : "desc";
+    db.collection('adresse').find().sort(cle, ordre).toArray((err, resultat) => {
+        ordre *= -1;
+        let direction = (ordre == 1 ? "asc" : "desc");
         
-        return res.render('membres', {data:resultat})
+        return res.render('membres', {data:resultat, ordre:direction})
     });
 });
 
