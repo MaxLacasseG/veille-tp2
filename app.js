@@ -89,6 +89,36 @@ app.get('/trier/:cle/:ordre', (req, res) => {
     });
 });
 
+//=========================
+//FCT peuplement
+//==================
+
+app.get('/peuplement',(req,res)=>{
+    let peupler = require('./component/peuplement.js');
+    let nouvelleListe = peupler();
+    db.collection('adresse').insert(nouvelleListe, (err, enreg) => {
+        if (err) {
+            res.status(500).send(err);
+        } else {
+            peupler = "";
+            res.redirect('/');
+        }
+    });
+})
+
+//==========================
+//Vider liste
+//==========================
+app.get('/effacer-liste',(req,res)=>{
+    db.collection('adresse').drop((err, resultat) => {
+        if (err) {
+            res.status(500).send(err);
+        } else {
+            res.redirect('/');
+        }
+    });
+})
+
 //=============
 //Page 404
 
