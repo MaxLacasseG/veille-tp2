@@ -43,7 +43,15 @@ app.get('/', (req, res) => {
     });
 });
 
+app.get('/fr', (req,res)=>{
+    res.setLocale('fr');
+    res.cookie('langueChoisie', 'fr');
+})
 
+app.get('/en', (req,res)=>{
+    res.setLocale('en');
+    res.cookie('langueChoisie', 'en');
+})
 //===================== MODIFIER PAR POST
 app.post('/modifier', (req, res) => {
     let adresse = {
