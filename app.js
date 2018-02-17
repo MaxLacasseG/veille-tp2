@@ -1,6 +1,13 @@
 /*jshint esversion: 6 */
 const express = require('express');
 const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
+const i18n = require("i18n");
+i18n.configure({
+    locales : ['fr', 'en'],
+    cookie : 'langueChoisie',
+    directory : __dirname + '/locales'
+   });
 const app = express();
 const fs = require('fs');
 
@@ -12,6 +19,7 @@ let db;
 app.use(express.static(__dirname + '/assets/'));
 
 app.set('view engine', 'ejs');
+app.use(cookieParser());
 app.use(bodyParser.urlencoded({
     extended: true
 }));
@@ -24,6 +32,9 @@ app.use(bodyParser.urlencoded({
 app.get('/', (req, res) => {
     db.collection('adresse').find().toArray(function (err, resultat) {
         if (err) return console.log(err);
+        if(req.cookies.langueChoisie == null){
+            res.cookie('langueChoisie', 'fr ', { maxAge: 900000, httpOnly: true });
+        }
         res.render('membres', {
             data: resultat,
             direction:1,
