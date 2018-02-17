@@ -4,10 +4,10 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const i18n = require("i18n");
 i18n.configure({
-    locales : ['fr', 'en'],
-    cookie : 'langueChoisie',
-    directory : __dirname + '/locales'
-   });
+    locales: ['fr', 'en'],
+    cookie: 'langueChoisie',
+    directory: __dirname + '/locales'
+});
 const app = express();
 const fs = require('fs');
 
@@ -20,6 +20,7 @@ app.use(express.static(__dirname + '/assets/'));
 
 app.set('view engine', 'ejs');
 app.use(cookieParser());
+app.use(i18n.init);
 app.use(bodyParser.urlencoded({
     extended: true
 }));
@@ -32,30 +33,54 @@ app.use(bodyParser.urlencoded({
 app.get('/', (req, res) => {
     db.collection('adresse').find().toArray(function (err, resultat) {
         if (err) return console.log(err);
-        if(req.cookies.langueChoisie == null){
-            res.cookie('langueChoisie', 'fr ', { maxAge: 900000, httpOnly: true });
+        if (req.cookies.langueChoisie == null) {
+            res.cookie('langueChoisie', 'fr ', {
+                maxAge: 900000,
+                httpOnly: true
+            });
+            res.setLocale('fr')
         }
         res.render('membres', {
             data: resultat,
-            direction:1,
-            cle:null
+            direction: 1,
+            cle: null,
+            texte: {
+                titre:res.__("Gestionnaire d'utilisateurs"),
+                nav:{
+                    liste:res.__("Liste des membres"),
+                    vider:res.__("Vider la liste"),
+                    peupler:res.__("Peupler la liste")
+                },
+                soustitre: res.__("Les membres"),
+                entete:{
+                    nom:res.__("nom"),
+                    prenom:res.__("prénom"),
+                    tel:res.__("téléphone"),
+                    courriel:res.__("courriel"),
+                }
+            }
         });
     });
 });
 
-app.get('/fr', (req,res)=>{
-    res.setLocale('fr');
+//====================
+//lien francais
+app.get('/fr', (req, res) => {
+    res.setLocale('fr')
     res.cookie('langueChoisie', 'fr');
+    res.redirect(req.headers.referer);
+    
 })
 
-app.get('/en', (req,res)=>{
-    res.setLocale('en');
+app.get('/en', (req, res) => {
+    res.setLocale('en')
     res.cookie('langueChoisie', 'en');
+    res.redirect(req.headers.referer);
 })
 //===================== MODIFIER PAR POST
 app.post('/modifier', (req, res) => {
     let adresse = {
-        _id : ObjectID(req.body.id),
+        _id: ObjectID(req.body.id),
         prenom: req.body.prenom,
         nom: req.body.nom,
         tel: req.body.tel,
@@ -88,7 +113,9 @@ app.get('/ajouter', (req, res) => {
 //=========================
 app.get('/detruireMembre/:id', (req, res) => {
     let id = ObjectID(req.params.id);
-    db.collection('adresse').findOneAndDelete({_id: id}, (err, resultat) => {
+    db.collection('adresse').findOneAndDelete({
+        _id: id
+    }, (err, resultat) => {
         res.redirect('/');
     });
 });
@@ -103,8 +130,25 @@ app.get('/trier/:cle/:ordre', (req, res) => {
     db.collection('adresse').find().sort(cle, ordre).toArray((err, resultat) => {
         ordre *= -1;
         let direction = (ordre == 1 ? "asc" : "desc");
-        
-        return res.render('membres', {data:resultat, ordre:direction})
+        return res.render('membres', {
+            data: resultat,
+            ordre: direction,
+            texte: {
+                titre:res.__("Gestionnaire d'utilisateurs"),
+                nav:{
+                    liste:res.__("Liste des membres"),
+                    vider:res.__("Vider la liste"),
+                    peupler:res.__("Peupler la liste")
+                },
+                soustitre: res.__("Les membres"),
+                entete:{
+                    nom:res.__("nom"),
+                    prenom:res.__("prénom"),
+                    tel:res.__("téléphone"),
+                    courriel:res.__("courriel"),
+                }
+            }
+        })
     });
 });
 
@@ -112,7 +156,7 @@ app.get('/trier/:cle/:ordre', (req, res) => {
 //FCT peuplement
 //==================
 
-app.get('/peuplement',(req,res)=>{
+app.get('/peuplement', (req, res) => {
     let peupler = require('./component/peuplement.js');
     let nouvelleListe = peupler();
     db.collection('adresse').insert(nouvelleListe, (err, enreg) => {
@@ -128,7 +172,7 @@ app.get('/peuplement',(req,res)=>{
 //==========================
 //Vider liste
 //==========================
-app.get('/effacer-liste',(req,res)=>{
+app.get('/effacer-liste', (req, res) => {
     db.collection('adresse').drop((err, resultat) => {
         if (err) {
             res.status(500).send(err);

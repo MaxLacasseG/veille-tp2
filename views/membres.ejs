@@ -18,16 +18,16 @@
                         <table>
                             <thead>
                                 <tr>
-                                    <td>Les membres</td>
+                                    <td><%= texte.soustitre%></td>
                                 </tr>
                             </thead>
                             
                             <tbody>
                                 <tr>
-                                    <th><a href="/trier/prenom/<% if(typeof ordre == 'undefined'){ %><%='asc'%><%}else{%><%= ordre%><%}%>">Prénom <i class="fa <% if(typeof ordre == 'undefined'){ %><%='fa-sort-down'%><%}else if(ordre == 'asc'){%><%= 'fa-sort-up'%><%}else{%><%= 'fa-sort-down'%><%}%>"></i></a></th>
-                                    <th><a href="/trier/nom/<% if(typeof ordre == 'undefined'){ %><%='asc'%><%}else{%><%= ordre%><%}%>">Nom <i class="fa <% if(typeof ordre == 'undefined'){ %><%='fa-sort-down'%><%}else if(ordre == 'asc'){%><%= 'fa-sort-up'%><%}else{%><%= 'fa-sort-down'%><%}%>"></i></a></th>
-                                    <th><a href="/trier/tel/<% if(typeof ordre == 'undefined'){ %><%='asc'%><%}else{%><%= ordre%><%}%>">Téléphone <i class="fa <% if(typeof ordre == 'undefined'){ %><%='fa-sort-down'%><%}else if(ordre == 'asc'){%><%= 'fa-sort-up'%><%}else{%><%= 'fa-sort-down'%><%}%>"></i></a></th>
-                                    <th><a href="/trier/courriel/<% if(typeof ordre == 'undefined'){ %><%='asc'%><%}else{%><%= ordre%><%}%>">Courriel <i class="fa <% if(typeof ordre == 'undefined'){ %><%='fa-sort-down'%><%}else if(ordre == 'asc'){%><%= 'fa-sort-up'%><%}else{%><%= 'fa-sort-down'%><%}%>"></i></a></th>
+                                    <th><a href="/trier/prenom/<% if(typeof ordre == 'undefined'){ %><%='asc'%><%}else{%><%= ordre%><%}%>"><%= texte.entete.prenom%><i class="fa <% if(typeof ordre == 'undefined'){ %><%='fa-sort-down'%><%}else if(ordre == 'asc'){%><%= 'fa-sort-up'%><%}else{%><%= 'fa-sort-down'%><%}%>"></i></a></th>
+                                    <th><a href="/trier/nom/<% if(typeof ordre == 'undefined'){ %><%='asc'%><%}else{%><%= ordre%><%}%>"><%= texte.entete.nom%><i class="fa <% if(typeof ordre == 'undefined'){ %><%='fa-sort-down'%><%}else if(ordre == 'asc'){%><%= 'fa-sort-up'%><%}else{%><%= 'fa-sort-down'%><%}%>"></i></a></th>
+                                    <th><a href="/trier/tel/<% if(typeof ordre == 'undefined'){ %><%='asc'%><%}else{%><%= ordre%><%}%>"><%= texte.entete.tel%><i class="fa <% if(typeof ordre == 'undefined'){ %><%='fa-sort-down'%><%}else if(ordre == 'asc'){%><%= 'fa-sort-up'%><%}else{%><%= 'fa-sort-down'%><%}%>"></i></a></th>
+                                    <th><a href="/trier/courriel/<% if(typeof ordre == 'undefined'){ %><%='asc'%><%}else{%><%= ordre%><%}%>"><%= texte.entete.courriel%><i class="fa <% if(typeof ordre == 'undefined'){ %><%='fa-sort-down'%><%}else if(ordre == 'asc'){%><%= 'fa-sort-up'%><%}else{%><%= 'fa-sort-down'%><%}%>"></i></a></th>
                                     <th></th>
                                     <th><a href="/ajouter"><i class="fas fa-plus-circle fa-2x"></i></a></th>
                                 </tr>

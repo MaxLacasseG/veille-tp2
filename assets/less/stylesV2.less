@@ -102,26 +102,47 @@ h6 {
         & #groupeEntete {
             flex: 1 1 60%;
         }
-        & nav {
-            flex: 1 0 40%;
+        & .navConteneur{
+            flex:1 0 40%;
             display: flex;
-            & ul {
-                flex: 1 0 100%;
+            flex-direction: column;
+            & nav.princ {
+                flex: 1 0 auto;
                 display: flex;
-                justify-content: space-around;
-                align-items: flex-end;
-                & li {
-                    & a {
-                        .tailleFont(2);
-                        text-decoration: none;
-                        transition: 400ms color;
-                        &:hover {
-                            color: @coulBase;
+                & ul {
+                    flex: 1 0 100%;
+                    display: flex;
+                    justify-content: space-around;
+                    align-items: flex-end;
+                    & li {
+                        & a {
+                            .tailleFont(2);
+                            text-decoration: none;
+                            transition: 400ms color;
+                            &:hover {
+                                color: @coulBase;
+                            }
                         }
                     }
                 }
             }
+            & nav.localisation{
+                flex: 1 1 20%;
+                display: flex;
+                justify-content: flex-end;
+                padding: 1em;
+                & a{
+                    .tailleFont(1.5);
+                    padding: 0.3em;
+                    text-decoration: none;
+                    color:@coulTxtAcc4;
+                    &:hover{
+                        color: @coulTxtAcc1;
+                    }
+                }
+            }
         }
+       
     }
     & main {
         flex: 1 1 auto;

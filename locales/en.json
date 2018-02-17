@@ -1,1 +1,11 @@
-{}
+{
+	"Gestionnaire d'utilisateurs": "User manager",
+	"Liste des membres": "Member's list",
+	"Vider la liste": "Flush list",
+	"Peupler la liste": "Populate list",
+	"Les membres": "Members",
+	"nom": "last name",
+	"prénom": "first name",
+	"téléphone": "phone",
+	"courriel": "email"
+}

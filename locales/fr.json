@@ -1,1 +1,11 @@
-{}
+{
+	"Gestionnaire d'utilisateurs": "Gestionnaire d'utilisateurs",
+	"Liste des membres": "Liste des membres",
+	"Vider la liste": "Vider la liste",
+	"Peupler la liste": "Peupler la liste",
+	"Les membres": "Les membres",
+	"nom": "nom",
+	"prénom": "prénom",
+	"téléphone": "téléphone",
+	"courriel": "courriel"
+}

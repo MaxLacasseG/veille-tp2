@@ -1,19 +1,34 @@
 <header>
     <div id="groupeEntete">
         <h1>TRI</h1>
-        <h2>Gestionnaire d'utilisateurs</h2>
+        <h2>
+            <%= texte.titre %>
+        </h2>
     </div>
-    <nav>
-        <ul>
-            <li>
-                <a href="/">Liste des membres</a>
-            </li>
-            <li>
-                <a href="/peuplement">Peupler la liste</a>
-            </li>
-            <li>
-                <a href="/effacer-liste">Vider la liste</a>
-            </li>
-        </ul>
-    </nav>
+    <div class="navConteneur">
+        <nav class="localisation">
+            <a href="/fr">FR</a>
+            <a href="/en">EN</a>
+        </nav>
+        <nav class="princ">
+            <ul>
+                <li>
+                    <a href="/">
+                        <%= texte.nav.liste%>
+                    </a>
+                </li>
+                <li>
+                    <a href="/peuplement">
+                        <%= texte.nav.peupler%>
+                    </a>
+                </li>
+                <li>
+                    <a href="/effacer-liste">
+                        <%= texte.nav.vider%>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+    </div>
 </header>
