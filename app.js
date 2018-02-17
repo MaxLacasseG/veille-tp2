@@ -9,11 +9,12 @@ const BDD = require('mongodb').MongoClient;
 const ObjectID = require('mongodb').ObjectID;
 let db;
 //Assignation du moteur de rendu et middleware
+app.use(express.static(__dirname + '/assets/'));
+
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({
     extended: true
 }));
-app.use(express.static(__dirname + '/assets/'));
 
 //====================================================
 // ROUTES
@@ -60,23 +61,6 @@ app.get('/ajouter', (req, res) => {
     });
 });
 
-//============ 
-app.get('/majMembre/:idMembre/:prenom/:nom/:tel/:courriel', (req, res) => {
-    let membre = {
-        _id: ObjectID(req.params._idMembre),
-        nom: req.params.nom,
-        prenom: req.params.prenom,
-        tel: req.params.tel,
-        courriel: req.params.courriel,
-    };
-    db.collection('adresse').save(membre, (err, resultat) => {
-        if (err) {
-            res.status(500).send(err);
-        } else {
-            res.redirect('/');
-        }
-    })
-});
 
 //============================
 //Detruire
@@ -95,19 +79,17 @@ app.get('/detruireMembre/:id', (req, res) => {
 app.get('/trier/:cle/:ordre', (req, res) => {
     let ordre = req.params.ordre == "asc" ? 1 : -1;
     let cle = req.params.cle;
-    db.collection('adresse').find().sort(cle, ordre).toArray((err, resultat) => {
+    db.collection('adresse').find().sort({cle: ordre}).toArray((err, resultat) => {
         ordre = !ordre;
         let direction = ordre == 1 ? "asc" : "desc";
-        res.render("membres", {
-            data: resultat,
-            ordre: direction
-        })
+        
+        return res.render('membres', {data:resultat})
     });
 });
 
 //=============
 //Page 404
-0
+
 app.use((req, res) => {
     res.status(404).render('404');
 });
