@@ -189,10 +189,22 @@ app.get('/effacer-liste', (req, res) => {
 app.post('/rechercherMembre', (req, res) => {
     let cat = req.body.cat;
     let recherche = req.body.recherche;
+    var query = {};
+    query[cat]=recherche;
 
-    let
-    res.send();
+    db.collection('adresse').find(query).toArray((err, resultat)=>{
+        if (err) return console.log(err)
+        console.log(resultat);
+        if(resultat ==""){
+            
+        }else{
+            res.send('ok');
+        }
+       
+    });
+    
 });
+
 //=============
 //Page 404
 
@@ -215,6 +227,8 @@ app.use((req, res) => {
         }
     });
 });
+
+
 
 BDD.connect('mongodb://127.0.0.1:27017', (err, database) => {
     if (err) return console.log(err)
