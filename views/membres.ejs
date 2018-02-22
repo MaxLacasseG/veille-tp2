@@ -7,39 +7,92 @@
 
                 <main>
                     <section id="principale" class="listeMembre">
-                    <form class="formulairePost" action="/modifier" method="POST">
-                                <input type="text" name="id" id="formId">
-                                <input type="text" name="prenom" id="formPrenom">
-                                <input type="text" name="nom" id="formNom">
-                                <input type="text" name="tel" id="formTel">
-                                <input type="text" name="courriel" id="formCourriel">
-                                <input type="submit">
-                            </form>
+                        <form class="formulairePost" action="/modifier" method="POST">
+                            <input type="text" name="id" id="formId">
+                            <input type="text" name="prenom" id="formPrenom">
+                            <input type="text" name="nom" id="formNom">
+                            <input type="text" name="tel" id="formTel">
+                            <input type="text" name="courriel" id="formCourriel">
+                            <input type="submit">
+                        </form>
+                        <form class="formulaireRechercher" method="POST" onsubmit="return false">
+                            <label for="rechercheChoix">Rechercher un membre</label><br>
+                            <input id="rechercheReq" type="search">
+                            <select name="choix" id="rechercheChoix">
+                                <option value="prenom" selected>prénom</option>
+                                <option value="nom">nom</option>
+                                <option value="tel">téléphone</option>
+                                <option value="courriel">courriel</option>
+                            </select>
+                            <input type="submit">
+                        </form>
                         <table>
                             <thead>
                                 <tr>
-                                    <td><%= texte.soustitre%></td>
+                                    <td>
+                                        <%= texte.soustitre%>
+                                    </td>
                                 </tr>
                             </thead>
-                            
+
                             <tbody>
                                 <tr>
-                                    <th><a href="/trier/prenom/<% if(typeof ordre == 'undefined'){ %><%='asc'%><%}else{%><%= ordre%><%}%>"><%= texte.entete.prenom%><i class="fa <% if(typeof ordre == 'undefined'){ %><%='fa-sort-down'%><%}else if(ordre == 'asc'){%><%= 'fa-sort-up'%><%}else{%><%= 'fa-sort-down'%><%}%>"></i></a></th>
-                                    <th><a href="/trier/nom/<% if(typeof ordre == 'undefined'){ %><%='asc'%><%}else{%><%= ordre%><%}%>"><%= texte.entete.nom%><i class="fa <% if(typeof ordre == 'undefined'){ %><%='fa-sort-down'%><%}else if(ordre == 'asc'){%><%= 'fa-sort-up'%><%}else{%><%= 'fa-sort-down'%><%}%>"></i></a></th>
-                                    <th><a href="/trier/tel/<% if(typeof ordre == 'undefined'){ %><%='asc'%><%}else{%><%= ordre%><%}%>"><%= texte.entete.tel%><i class="fa <% if(typeof ordre == 'undefined'){ %><%='fa-sort-down'%><%}else if(ordre == 'asc'){%><%= 'fa-sort-up'%><%}else{%><%= 'fa-sort-down'%><%}%>"></i></a></th>
-                                    <th><a href="/trier/courriel/<% if(typeof ordre == 'undefined'){ %><%='asc'%><%}else{%><%= ordre%><%}%>"><%= texte.entete.courriel%><i class="fa <% if(typeof ordre == 'undefined'){ %><%='fa-sort-down'%><%}else if(ordre == 'asc'){%><%= 'fa-sort-up'%><%}else{%><%= 'fa-sort-down'%><%}%>"></i></a></th>
+                                    <th>
+                                        <a href="/trier/prenom/<% if(typeof ordre == 'undefined'){ %><%='asc'%><%}else{%><%= ordre%><%}%>">
+                                            <%= texte.entete.prenom%>
+                                                <i class="fa <% if(typeof ordre == 'undefined'){ %><%='fa-sort-down'%><%}else if(ordre == 'asc'){%><%= 'fa-sort-up'%><%}else{%><%= 'fa-sort-down'%><%}%>"></i>
+                                        </a>
+                                    </th>
+                                    <th>
+                                        <a href="/trier/nom/<% if(typeof ordre == 'undefined'){ %><%='asc'%><%}else{%><%= ordre%><%}%>">
+                                            <%= texte.entete.nom%>
+                                                <i class="fa <% if(typeof ordre == 'undefined'){ %><%='fa-sort-down'%><%}else if(ordre == 'asc'){%><%= 'fa-sort-up'%><%}else{%><%= 'fa-sort-down'%><%}%>"></i>
+                                        </a>
+                                    </th>
+                                    <th>
+                                        <a href="/trier/tel/<% if(typeof ordre == 'undefined'){ %><%='asc'%><%}else{%><%= ordre%><%}%>">
+                                            <%= texte.entete.tel%>
+                                                <i class="fa <% if(typeof ordre == 'undefined'){ %><%='fa-sort-down'%><%}else if(ordre == 'asc'){%><%= 'fa-sort-up'%><%}else{%><%= 'fa-sort-down'%><%}%>"></i>
+                                        </a>
+                                    </th>
+                                    <th>
+                                        <a href="/trier/courriel/<% if(typeof ordre == 'undefined'){ %><%='asc'%><%}else{%><%= ordre%><%}%>">
+                                            <%= texte.entete.courriel%>
+                                                <i class="fa <% if(typeof ordre == 'undefined'){ %><%='fa-sort-down'%><%}else if(ordre == 'asc'){%><%= 'fa-sort-up'%><%}else{%><%= 'fa-sort-down'%><%}%>"></i>
+                                        </a>
+                                    </th>
                                     <th></th>
-                                    <th><a href="/ajouter"><i class="fas fa-plus-circle fa-2x"></i></a></th>
+                                    <th>
+                                        <a href="/ajouter">
+                                            <i class="fas fa-plus-circle fa-2x"></i>
+                                        </a>
+                                    </th>
                                 </tr>
                                 <% for(let elem of data){ %>
                                     <tr>
                                         <input type="hidden" class="id" value="<%= elem._id %>">
-                                        <td class="prenom" contenteditable="true"><%= elem.prenom %></td>
-                                        <td class="nom" contenteditable="true"><%= elem.nom %></td>
-                                        <td class="tel" contenteditable="true"><%= elem.tel %></td>
-                                        <td class="courriel" contenteditable="true"><%= elem.courriel %></td>
-                                        <td class="btn-mod"><a href="/majMembre/"><i class="fas fa-save fa-2x"></i></a></td>
-                                        <td class="btn-detr"><a href="/detruireMembre/<%= elem._id %>"><i class="fas fa-trash fa-2x"></i></a></td>
+                                        <td class="prenom" contenteditable="true">
+                                            <%= elem.prenom %>
+                                        </td>
+                                        <td class="nom" contenteditable="true">
+                                            <%= elem.nom %>
+                                        </td>
+                                        <td class="tel" contenteditable="true">
+                                            <%= elem.tel %>
+                                        </td>
+                                        <td class="courriel" contenteditable="true">
+                                            <%= elem.courriel %>
+                                        </td>
+                                        <td class="btn-mod">
+                                            <a href="/majMembre/">
+                                                <i class="fas fa-save fa-2x"></i>
+                                            </a>
+                                        </td>
+                                        <td class="btn-detr">
+                                            <a href="/detruireMembre/<%= elem._id %>">
+                                                <i class="fas fa-trash fa-2x"></i>
+                                            </a>
+                                        </td>
                                     </tr>
                                     <% }; %>
                             </tbody>
@@ -48,6 +101,7 @@
                 </main>
                 <% include partials/footer %>
         </div>
+        <script src="/js/rechercheMembres.js"></script>
         <script src="/js/listeMembres.js"></script>
     </body>
 

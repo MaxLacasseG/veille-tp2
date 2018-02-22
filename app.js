@@ -21,9 +21,10 @@ app.use(express.static(__dirname + '/assets/'));
 app.set('view engine', 'ejs');
 app.use(cookieParser());
 app.use(i18n.init);
-app.use(bodyParser.urlencoded({
-    extended: true
-}));
+// //app.use(bodyParser.urlencoded({
+//     extended: true
+// }));
+app.use(bodyParser.json());
 
 //====================================================
 // ROUTES
@@ -45,18 +46,18 @@ app.get('/', (req, res) => {
             direction: 1,
             cle: null,
             texte: {
-                titre:res.__("Gestionnaire d'utilisateurs"),
-                nav:{
-                    liste:res.__("Liste des membres"),
-                    vider:res.__("Vider la liste"),
-                    peupler:res.__("Peupler la liste")
+                titre: res.__("Gestionnaire d'utilisateurs"),
+                nav: {
+                    liste: res.__("Liste des membres"),
+                    vider: res.__("Vider la liste"),
+                    peupler: res.__("Peupler la liste")
                 },
                 soustitre: res.__("Les membres"),
-                entete:{
-                    nom:res.__("nom"),
-                    prenom:res.__("prénom"),
-                    tel:res.__("téléphone"),
-                    courriel:res.__("courriel"),
+                entete: {
+                    nom: res.__("nom"),
+                    prenom: res.__("prénom"),
+                    tel: res.__("téléphone"),
+                    courriel: res.__("courriel"),
                 }
             }
         });
@@ -69,7 +70,7 @@ app.get('/fr', (req, res) => {
     res.setLocale('fr')
     res.cookie('langueChoisie', 'fr');
     res.redirect(req.headers.referer);
-    
+
 })
 
 app.get('/en', (req, res) => {
@@ -134,18 +135,18 @@ app.get('/trier/:cle/:ordre', (req, res) => {
             data: resultat,
             ordre: direction,
             texte: {
-                titre:res.__("Gestionnaire d'utilisateurs"),
-                nav:{
-                    liste:res.__("Liste des membres"),
-                    vider:res.__("Vider la liste"),
-                    peupler:res.__("Peupler la liste")
+                titre: res.__("Gestionnaire d'utilisateurs"),
+                nav: {
+                    liste: res.__("Liste des membres"),
+                    vider: res.__("Vider la liste"),
+                    peupler: res.__("Peupler la liste")
                 },
                 soustitre: res.__("Les membres"),
-                entete:{
-                    nom:res.__("nom"),
-                    prenom:res.__("prénom"),
-                    tel:res.__("téléphone"),
-                    courriel:res.__("courriel"),
+                entete: {
+                    nom: res.__("nom"),
+                    prenom: res.__("prénom"),
+                    tel: res.__("téléphone"),
+                    courriel: res.__("courriel"),
                 }
             }
         })
@@ -182,11 +183,37 @@ app.get('/effacer-liste', (req, res) => {
     });
 })
 
+//==========================
+//Rechercher membres
+//==========================
+app.post('/rechercherMembre', (req, res) => {
+    let cat = req.body.cat;
+    let recherche = req.body.recherche;
+
+    let
+    res.send();
+});
 //=============
 //Page 404
 
 app.use((req, res) => {
-    res.status(404).render('404');
+    res.status(404).render('404', {
+        texte: {
+            titre: res.__("Gestionnaire d'utilisateurs"),
+            nav: {
+                liste: res.__("Liste des membres"),
+                vider: res.__("Vider la liste"),
+                peupler: res.__("Peupler la liste")
+            },
+            soustitre: res.__("Les membres"),
+            entete: {
+                nom: res.__("nom"),
+                prenom: res.__("prénom"),
+                tel: res.__("téléphone"),
+                courriel: res.__("courriel"),
+            }
+        }
+    });
 });
 
 BDD.connect('mongodb://127.0.0.1:27017', (err, database) => {
