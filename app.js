@@ -195,10 +195,10 @@ app.post('/rechercherMembre', (req, res) => {
     db.collection('adresse').find(query).toArray((err, resultat)=>{
         if (err) return console.log(err)
         console.log(resultat);
-        if(resultat ==""){
-            
+        if(resultat.length == 0){
+            res.send("[]");
         }else{
-            res.send('ok');
+            res.send(JSON.stringify(resultat));
         }
        
     });
