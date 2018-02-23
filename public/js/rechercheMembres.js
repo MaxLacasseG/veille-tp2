@@ -15,7 +15,6 @@ input.addEventListener('click', (evt) => {
 
     let objet = {
         recherche: document.querySelector("#rechercheReq").value,
-        cat: document.querySelector("#rechercheChoix").value
     };
 
     //On lance une requête AJAX pour récupérer les membres
@@ -31,25 +30,30 @@ input.addEventListener('click', (evt) => {
 
 });
 
+//Fonction appelée après la requête AJAX
+// @param tabResultats  Le tableau des membres recherchés
 const afficherRecherche = (tabResultats) => {
     console.log(tabResultats);
     let table = document.querySelector("table tbody");
     let trs = [];
     trs = table.querySelectorAll("tr.donneesListe");
-    for (elm of trs) {
+    for (let elm of trs) {
         elm.parentNode.removeChild(elm);
     }
-    for (entree of tabResultats) {
+    for (let entree of tabResultats) {
         let tr = document.createElement("tr");
         tr.classList.add("donneesListe");
-        for (prop in entree) {
+        for (let prop in entree) {
             if (prop != "_id") {
                 let td = document.createElement("td");
+                td.classList.add(prop);
+                td.contentEditable = true;
                 let val = document.createTextNode(entree[prop].toString());
                 td.appendChild(val);
                 tr.appendChild(td);
             }
         }
+
         table.appendChild(tr);
     }
 }

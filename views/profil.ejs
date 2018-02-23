@@ -1,0 +1,25 @@
+<% include partials/head %>
+
+    <body>
+        <div id="conteneurPrinc">
+            <% include partials/nav %>
+                <main>
+                    <section id="principale" class="profilMembre">
+                        <h1>Profil</h1>
+                        <% for(let prop in membreInfos){%>
+                            <div>
+                                <h3>
+                                    <%= prop%>
+                                </h3>
+                                <h4>
+                                    <%= membreInfos[prop]%>
+                                </h4>
+                            </div>
+                            <%}%>
+                    </section>
+                </main>
+                <% include partials/footer %>
+        </div>
+    </body>
+
+    </html>

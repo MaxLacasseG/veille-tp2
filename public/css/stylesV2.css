@@ -57,9 +57,6 @@ h6 {
   font-size: 7px;
   font-size: 0.7rem;
 }
-.formulairePost {
-  display: none;
-}
 #conteneurPrinc {
   display: flex;
   flex-direction: column;
@@ -150,18 +147,24 @@ h6 {
   flex: 1 1 auto;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  align-items: stretch;
+  justify-content: flex-start;
+}
+#conteneurPrinc main .listeMembre form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+#conteneurPrinc main .listeMembre form.formulairePost {
+  display: none;
 }
 #conteneurPrinc main .listeMembre table {
-  flex: 1 1 auto;
-  min-height: 80vh;
-  min-width: 80vw;
-  width: 80vw;
+  flex: 1;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: center;
+  align-items: flex-start;
   border-collapse: collapse;
+  width: 100%;
 }
 #conteneurPrinc main .listeMembre table thead td {
   color: #8b2800;

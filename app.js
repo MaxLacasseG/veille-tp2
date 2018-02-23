@@ -26,7 +26,8 @@ app.use(express.static(__dirname + '/public/'));
 app.set('view engine', 'ejs');
 app.use(cookieParser());
 app.use(i18n.init);
-app.use(bodyParser.json());
+let jsonParser = bodyParser.json();
+let urlencodedParser = bodyParser.urlencoded({ extended: true });
 
 //====================================================
 // ROUTES
@@ -81,7 +82,7 @@ app.get('/en', (req, res) => {
     res.redirect(req.headers.referer);
 })
 //===================== MODIFIER PAR POST
-app.post('/modifier', (req, res) => {
+app.post('/modifier',urlencodedParser, (req, res) => {
     req.body._id = ObjectID(req.body._id)
     let adresse = {
         _id: ObjectID(req.body.id),
@@ -155,13 +156,7 @@ app.get('/trier/:cle/:ordre', (req, res) => {
         })
     });
 });
-//=============================
-// Profil de membre
-//============================
-app.get('/profil/:id', (req, res) => {
-    let id = req.params.id
-    db.collection('adresse').find({})
-})
+
 
 //=========================
 // Peupler
@@ -193,7 +188,7 @@ app.get('/effacer-liste', (req, res) => {
 //==========================
 //Rechercher membres
 //==========================
-app.post('/rechercherMembre', (req, res) => {
+app.post('/rechercherMembre',jsonParser, (req, res) => {
     let cat = req.body.cat;
     let recherche = req.body.recherche;
     var requete = {
@@ -222,7 +217,6 @@ app.post('/rechercherMembre', (req, res) => {
 
     db.collection('adresse').find(requete).toArray((err, resultat) => {
         if (err) return console.log(err)
-        console.log(resultat);
         if (resultat.length == 0) {
             res.send("[]");
         } else {
@@ -232,6 +226,33 @@ app.post('/rechercherMembre', (req, res) => {
     });
 
 });
+//==========================
+//SECTION PROFIL
+//==========================
+app.get('/profil/:id', (req, res) => {
+    let reqId = ObjectID(req.params.id);
+    db.collection('adresse').find({_id: reqId}).toArray((err, resultat) => {
+        if (err) return console.log(err)
+        res.render('profil', {
+            texte: {
+                titre: res.__("Gestionnaire d'utilisateurs"),
+                nav: {
+                    liste: res.__("Liste des membres"),
+                    vider: res.__("Vider la liste"),
+                    peupler: res.__("Peupler la liste")
+                },
+                soustitre: res.__("Les membres"),
+                entete: {
+                    nom: res.__("nom"),
+                    prenom: res.__("prénom"),
+                    tel: res.__("téléphone"),
+                    courriel: res.__("courriel"),
+                }
+            },
+            membreInfos: resultat[0]
+        })
+    });
+})
 
 //=============
 //Page 404

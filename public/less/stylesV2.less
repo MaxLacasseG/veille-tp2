@@ -84,9 +84,7 @@ h6 {
     .tailleFont(0.7)
 }
 
-.formulairePost {
-    display: none;
-}
+
 
 //Mise en page des sections
 //===========================================
@@ -179,17 +177,24 @@ h6 {
             flex: 1 1 auto;
             display: flex;
             flex-direction: column;
-            align-items: center;
-            justify-content: center;
+            align-items: stretch;
+            justify-content: flex-start;
+            & form{
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+               
+                &.formulairePost {
+                    display: none;
+                }
+            }
             & table {
-                flex: 1 1 auto;
-                min-height: 80vh;
-                min-width: 80vw;
-                width: 80vw;
+                flex:1;
                 flex-direction: column;
                 justify-content: flex-start;
-                align-items: center;
+                align-items: flex-start;
                 border-collapse: collapse;
+                width:100%;
                 & thead td {
                     color: #8b2800;
                     .tailleFont(3);

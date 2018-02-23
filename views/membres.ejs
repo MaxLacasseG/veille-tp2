@@ -16,15 +16,11 @@
                             <input type="submit">
                         </form>
                         <form class="formulaireRechercher" method="POST" onsubmit="return false">
-                            <label for="rechercheChoix">Rechercher un membre</label><br>
-                            <input id="rechercheReq" type="search">
-                            <select name="choix" id="rechercheChoix">
-                                <option value="prenom" selected>prénom</option>
-                                <option value="nom">nom</option>
-                                <option value="tel">téléphone</option>
-                                <option value="courriel">courriel</option>
-                            </select>
-                            <input type="submit">
+                            <h3>Rechercher un membre</h3>
+                            <div class="inputGroup">
+                                <input id="rechercheReq" type="search">
+                                <input type="submit" value="Rechercher">
+                            </div>
                         </form>
                         <table>
                             <thead>
@@ -62,6 +58,7 @@
                                         </a>
                                     </th>
                                     <th></th>
+                                    <th></th>
                                     <th>
                                         <a href="/ajouter">
                                             <i class="fas fa-plus-circle fa-2x"></i>
@@ -91,6 +88,11 @@
                                         <td class="btn-detr">
                                             <a href="/detruireMembre/<%= elem._id %>">
                                                 <i class="fas fa-trash fa-2x"></i>
+                                            </a>
+                                        </td>
+                                        <td class="btn-profil">
+                                            <a href="/profil/<%= elem._id %>">
+                                                <i class="fas fa-address-card fa-2x"></i>
                                             </a>
                                         </td>
                                     </tr>
