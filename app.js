@@ -4,6 +4,11 @@ const app = express();
 
 // Middleware
 const bodyParser = require('body-parser');
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
+
+// parse application/json
+app.use(bodyParser.json())
 const cookieParser = require('cookie-parser');
 const peupler = require('./component/peupler/index.js');
 
@@ -26,8 +31,7 @@ app.use(express.static(__dirname + '/public/'));
 app.set('view engine', 'ejs');
 app.use(cookieParser());
 app.use(i18n.init);
-let jsonParser = bodyParser.json();
-let urlencodedParser = bodyParser.urlencoded({ extended: true });
+
 
 //====================================================
 // ROUTES
@@ -82,17 +86,16 @@ app.get('/en', (req, res) => {
     res.redirect(req.headers.referer);
 })
 //===================== MODIFIER PAR POST
-app.post('/modifier',urlencodedParser, (req, res) => {
-    req.body._id = ObjectID(req.body._id)
+app.post('/modifier', (req, res) => {
     let adresse = {
-        _id: ObjectID(req.body.id),
+        _id : ObjectID(req.body.id),
         prenom: req.body.prenom,
         nom: req.body.nom,
         tel: req.body.tel,
         courriel: req.body.courriel
     };
 
-    db.collection('adresse').update(adresse, (err, enreg) => {
+    db.collection('adresse').save(adresse, (err, enreg) => {
         if (err) {
             res.status(500).send(err);
         } else {
@@ -188,8 +191,7 @@ app.get('/effacer-liste', (req, res) => {
 //==========================
 //Rechercher membres
 //==========================
-app.post('/rechercherMembre',jsonParser, (req, res) => {
-    let cat = req.body.cat;
+app.post('/rechercherMembre', (req, res) => {
     let recherche = req.body.recherche;
     var requete = {
         $or: [{

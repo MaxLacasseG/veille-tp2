@@ -116,6 +116,21 @@ h6 {
   flex: 1 1 auto;
   display: flex;
 }
+#conteneurPrinc main section#profil {
+  flex: 1 1 70%;
+  padding: 3rem;
+}
+#conteneurPrinc main section#profil h2 {
+  margin-bottom: 1rem;
+}
+#conteneurPrinc main section#profil h3 {
+  color: #240016;
+  margin-bottom: 2rem;
+}
+#conteneurPrinc main section#profil a {
+  font-size: 20px;
+  font-size: 2rem;
+}
 #conteneurPrinc main section#principale {
   flex: 1 1 70%;
   padding: 3rem;

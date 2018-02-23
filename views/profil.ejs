@@ -4,22 +4,31 @@
         <div id="conteneurPrinc">
             <% include partials/nav %>
                 <main>
-                    <section id="principale" class="profilMembre">
+                    <section id="profil" class="profilMembre">
                         <h1>Profil</h1>
-                        <% for(let prop in membreInfos){%>
-                            <div>
-                                <h3>
-                                    <%= prop%>
-                                </h3>
-                                <h4>
-                                    <%= membreInfos[prop]%>
-                                </h4>
-                            </div>
-                            <%}%>
+                        <div class="prenom">
+                            <h2>Prénom</h2>
+                            <h3><%= membreInfos.prenom%></h3>
+                        </div>
+                        <div class="nom">
+                            <h2>Nom</h2>
+                            <h3><%= membreInfos.nom%></h3>
+                        </div>
+                        <div class="tel">
+                            <h2>Téléphone</h2>
+                            <h3><%= membreInfos.tel%></h3>
+                        </div>
+                        <div class="courriel">
+                            <h2>Courriel</h2>
+                            <h3><%= membreInfos.courriel%></h3>
+                        </div>
+                        <h2><a href="/">Retour à la liste</a></h2>
                     </section>
                 </main>
+                <aside>
+                    <img src="" alt="/medias/img/avatar.png">
+                </aside>
                 <% include partials/footer %>
         </div>
     </body>
-
     </html>
