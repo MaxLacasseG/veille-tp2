@@ -84,9 +84,10 @@ h6 {
     .tailleFont(0.7)
 }
 
-.formulairePost{
+.formulairePost {
     display: none;
 }
+
 //Mise en page des sections
 //===========================================
 #conteneurPrinc {
@@ -102,8 +103,8 @@ h6 {
         & #groupeEntete {
             flex: 1 1 60%;
         }
-        & .navConteneur{
-            flex:1 0 40%;
+        & .navConteneur {
+            flex: 1 0 40%;
             display: flex;
             flex-direction: column;
             & nav.princ {
@@ -126,23 +127,22 @@ h6 {
                     }
                 }
             }
-            & nav.localisation{
+            & nav.localisation {
                 flex: 1 1 20%;
                 display: flex;
                 justify-content: flex-end;
                 padding: 1em;
-                & a{
+                & a {
                     .tailleFont(1.5);
                     padding: 0.3em;
                     text-decoration: none;
-                    color:@coulTxtAcc4;
-                    &:hover{
+                    color: @coulTxtAcc4;
+                    &:hover {
                         color: @coulTxtAcc1;
                     }
                 }
             }
         }
-       
     }
     & main {
         flex: 1 1 auto;
@@ -181,12 +181,11 @@ h6 {
             flex-direction: column;
             align-items: center;
             justify-content: center;
-          
             & table {
                 flex: 1 1 auto;
                 min-height: 80vh;
                 min-width: 80vw;
-                display: flex;
+                width: 80vw;
                 flex-direction: column;
                 justify-content: flex-start;
                 align-items: center;
@@ -196,7 +195,6 @@ h6 {
                     .tailleFont(3);
                     font-family: @fontAccent;
                     text-transform: uppercase;
-
                 }
                 & tbody {
                     padding: 2em;

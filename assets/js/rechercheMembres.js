@@ -32,26 +32,24 @@ input.addEventListener('click', (evt) => {
 });
 
 const afficherRecherche = (tabResultats) => {
-    console.log(tabResultats.length);
+    console.log(tabResultats);
     let table = document.querySelector("table tbody");
     let trs = [];
     trs = table.querySelectorAll("tr.donneesListe");
     for (elm of trs) {
         elm.parentNode.removeChild(elm);
     }
-    if (tabResultats.length =! 0) {
-        for (entree of tabResultats) {
-            let tr = document.createElement("tr");
-            tr.classList.add("donneesListe");
-            for (prop in entree) {
-                if (prop != "_id") {
-                    let td = document.createElement("td");
-                    let val = document.createTextNode(entree[prop].toString());
-                    td.appendChild(val);
-                    tr.appendChild(td);
-                }
+    for (entree of tabResultats) {
+        let tr = document.createElement("tr");
+        tr.classList.add("donneesListe");
+        for (prop in entree) {
+            if (prop != "_id") {
+                let td = document.createElement("td");
+                let val = document.createTextNode(entree[prop].toString());
+                td.appendChild(val);
+                tr.appendChild(td);
             }
-            table.appendChild(tr);
         }
+        table.appendChild(tr);
     }
 }
