@@ -1,29 +1,31 @@
 /*jshint esversion: 6 */
 const express = require('express');
+const app = express();
+
+// Middleware
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
+const peupler = require('./component/peupler/index.js');
+
+// Configuration de la traduction
 const i18n = require("i18n");
 i18n.configure({
     locales: ['fr', 'en'],
     cookie: 'langueChoisie',
     directory: __dirname + '/locales'
 });
-const app = express();
-const fs = require('fs');
+
 
 //Connection à la bdd
 const BDD = require('mongodb').MongoClient;
 const ObjectID = require('mongodb').ObjectID;
 let db;
-//Assignation du moteur de rendu et middleware
-app.use(express.static(__dirname + '/assets/'));
 
+//Assignation du moteur de rendu et middleware
+app.use(express.static(__dirname + '/public/'));
 app.set('view engine', 'ejs');
 app.use(cookieParser());
 app.use(i18n.init);
-// //app.use(bodyParser.urlencoded({
-//     extended: true
-// }));
 app.use(bodyParser.json());
 
 //====================================================
@@ -80,6 +82,7 @@ app.get('/en', (req, res) => {
 })
 //===================== MODIFIER PAR POST
 app.post('/modifier', (req, res) => {
+    req.body._id = ObjectID(req.body._id)
     let adresse = {
         _id: ObjectID(req.body.id),
         prenom: req.body.prenom,
@@ -88,7 +91,7 @@ app.post('/modifier', (req, res) => {
         courriel: req.body.courriel
     };
 
-    db.collection('adresse').save(adresse, (err, enreg) => {
+    db.collection('adresse').update(adresse, (err, enreg) => {
         if (err) {
             res.status(500).send(err);
         } else {
@@ -152,19 +155,23 @@ app.get('/trier/:cle/:ordre', (req, res) => {
         })
     });
 });
+//=============================
+// Profil de membre
+//============================
+app.get('/profil/:id', (req, res) => {
+    let id = req.params.id
+    db.collection('adresse').find({})
+})
 
 //=========================
-//FCT peuplement
+// Peupler
 //==================
-
 app.get('/peuplement', (req, res) => {
-    let peupler = require('./component/peuplement.js');
     let nouvelleListe = peupler();
     db.collection('adresse').insert(nouvelleListe, (err, enreg) => {
         if (err) {
             res.status(500).send(err);
         } else {
-            peupler = "";
             res.redirect('/');
         }
     });
@@ -189,20 +196,41 @@ app.get('/effacer-liste', (req, res) => {
 app.post('/rechercherMembre', (req, res) => {
     let cat = req.body.cat;
     let recherche = req.body.recherche;
-    var query = {};
-    query[cat]=recherche;
+    var requete = {
+        $or: [{
+            prenom: {
+                '$regex': '^' + recherche,
+                '$options': 'i'
+            }
+        }, {
+            nom: {
+                '$regex': '^' + recherche,
+                '$options': 'i'
+            }
+        }, {
+            courriel: {
+                '$regex': '^' + recherche,
+                '$options': 'i'
+            }
+        }, {
+            tel: {
+                '$regex': '^' + recherche,
+                '$options': 'i'
+            }
+        }]
+    };
 
-    db.collection('adresse').find(query).toArray((err, resultat)=>{
+    db.collection('adresse').find(requete).toArray((err, resultat) => {
         if (err) return console.log(err)
         console.log(resultat);
-        if(resultat.length == 0){
+        if (resultat.length == 0) {
             res.send("[]");
-        }else{
+        } else {
             res.send(JSON.stringify(resultat));
         }
-       
+
     });
-    
+
 });
 
 //=============

@@ -1,0 +1,326 @@
+@import 'reset.css';
+* {
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+  color: #fdf9d0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Oswald', cursive;
+  color: #fdf9d0;
+}
+p,
+input,
+label,
+textarea,
+div,
+li,
+a {
+  font-size: 10px;
+  font-size: 1rem;
+  font-family: 'Ubuntu', sans-serif;
+  color: #eea94f;
+}
+h1 {
+  font-size: 70px;
+  font-size: 7rem;
+  font-weight: 500;
+  letter-spacing: -0.15rem;
+  font-family: 'Anton', sans-serif;
+  color: #4b131a;
+}
+h2 {
+  font-size: 50px;
+  font-size: 5rem;
+  font-weight: 100;
+  color: #f3d369;
+}
+h3 {
+  font-size: 30px;
+  font-size: 3rem;
+}
+h4 {
+  font-size: 10px;
+  font-size: 1rem;
+}
+h5 {
+  font-size: 8px;
+  font-size: 0.8rem;
+}
+h6 {
+  font-size: 7px;
+  font-size: 0.7rem;
+}
+.formulairePost {
+  display: none;
+}
+#conteneurPrinc {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+}
+#conteneurPrinc header {
+  flex: 1 0 content;
+  padding: 1rem;
+  background: url(../medias/img/motifFond2.png), linear-gradient(to right, #cf4154, #882230), #cf4154;
+  display: flex;
+}
+#conteneurPrinc header #groupeEntete {
+  flex: 1 1 60%;
+}
+#conteneurPrinc header .navConteneur {
+  flex: 1 0 40%;
+  display: flex;
+  flex-direction: column;
+}
+#conteneurPrinc header .navConteneur nav.princ {
+  flex: 1 0 auto;
+  display: flex;
+}
+#conteneurPrinc header .navConteneur nav.princ ul {
+  flex: 1 0 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+}
+#conteneurPrinc header .navConteneur nav.princ ul li a {
+  font-size: 20px;
+  font-size: 2rem;
+  text-decoration: none;
+  transition: 400ms color;
+}
+#conteneurPrinc header .navConteneur nav.princ ul li a:hover {
+  color: #fdf9d0;
+}
+#conteneurPrinc header .navConteneur nav.localisation {
+  flex: 1 1 20%;
+  display: flex;
+  justify-content: flex-end;
+  padding: 1em;
+}
+#conteneurPrinc header .navConteneur nav.localisation a {
+  font-size: 15px;
+  font-size: 1.5rem;
+  padding: 0.3em;
+  text-decoration: none;
+  color: #240016;
+}
+#conteneurPrinc header .navConteneur nav.localisation a:hover {
+  color: #eea94f;
+}
+#conteneurPrinc main {
+  flex: 1 1 auto;
+  display: flex;
+}
+#conteneurPrinc main section#principale {
+  flex: 1 1 70%;
+  padding: 3rem;
+}
+#conteneurPrinc main section#principale h3 {
+  color: #240016;
+  margin-bottom: 2rem;
+}
+#conteneurPrinc main section#principale ul li {
+  display: flex;
+  padding: 1rem;
+}
+#conteneurPrinc main section#principale ul li:hover {
+  border-bottom: #f38e54 1px solid;
+}
+#conteneurPrinc main section#principale ul li a {
+  font-size: 20px;
+  font-size: 2rem;
+  text-decoration: none;
+}
+#conteneurPrinc main section#principale ul li a:hover {
+  color: #d2560f;
+}
+#conteneurPrinc main section#principale ul li a.btnModif,
+#conteneurPrinc main section#principale ul li a.btnDel {
+  margin-left: 2rem;
+}
+#conteneurPrinc main .listeMembre {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+#conteneurPrinc main .listeMembre table {
+  flex: 1 1 auto;
+  min-height: 80vh;
+  min-width: 80vw;
+  width: 80vw;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  border-collapse: collapse;
+}
+#conteneurPrinc main .listeMembre table thead td {
+  color: #8b2800;
+  font-size: 30px;
+  font-size: 3rem;
+  font-family: 'Oswald', cursive;
+  text-transform: uppercase;
+}
+#conteneurPrinc main .listeMembre table tbody {
+  padding: 2em;
+}
+#conteneurPrinc main .listeMembre table tbody tr {
+  transition: all;
+  line-height: 3em;
+  text-align: center;
+  border-bottom: 1px solid #cf4154;
+}
+#conteneurPrinc main .listeMembre table tbody tr:hover {
+  border-bottom-width: 2px;
+}
+#conteneurPrinc main .listeMembre table tbody tr th {
+  background-color: #cf4154;
+  color: #fdf9d0;
+}
+#conteneurPrinc main .listeMembre table tbody tr td {
+  padding: 0.7em;
+}
+#conteneurPrinc main .listeMembre table td,
+#conteneurPrinc main .listeMembre table th {
+  font-size: 20px;
+  font-size: 2rem;
+}
+#conteneurPrinc main .formulaire {
+  flex: 1 1 auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+#conteneurPrinc main .formulaire form {
+  display: flex;
+  flex-direction: column;
+  width: 50vw;
+}
+#conteneurPrinc main .formulaire form input,
+#conteneurPrinc main .formulaire form label {
+  min-height: 40px;
+  font-size: 20px;
+  font-size: 2rem;
+}
+#conteneurPrinc main .formulaire form label {
+  display: flex;
+  align-items: center;
+}
+#conteneurPrinc main aside {
+  flex: 1 1 30%;
+  padding: 2rem;
+  background-color: #240016;
+  display: flex;
+  flex-direction: column;
+}
+#conteneurPrinc main aside .chatLabel {
+  flex: 1 1 5%;
+  color: #aa0000;
+  text-transform: uppercase;
+  font-size: 15px;
+  font-size: 1.5rem;
+  font-family: 'Oswald', cursive;
+}
+#conteneurPrinc main aside form {
+  flex: 1 1 95%;
+  display: flex;
+  flex-direction: column;
+}
+#conteneurPrinc main aside form .chatBoiteRep {
+  flex: 1 0 70%;
+  background-color: white;
+  padding: 1rem;
+  overflow-y: scroll;
+}
+#conteneurPrinc main aside form .chatBoiteRep::-webkit-scrollbar {
+  width: 1rem;
+  background-color: #240016;
+}
+#conteneurPrinc main aside form .chatBoiteRep .chatRep {
+  text-align: justify;
+  padding-bottom: 1rem;
+}
+#conteneurPrinc main aside form .chatBoiteRep .chatRep .auteur,
+#conteneurPrinc main aside form .chatBoiteRep .chatRep .ami {
+  margin-top: 0.5rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+}
+#conteneurPrinc main aside form .chatBoiteRep .chatRep .auteur {
+  color: #8b2800;
+  font-weight: 800;
+  text-align: right;
+}
+#conteneurPrinc main aside form .chatBoiteRep .chatRep .auteur + .msg {
+  padding-left: 1rem;
+}
+#conteneurPrinc main aside form .chatBoiteRep .chatRep .ami {
+  color: #cf4154;
+}
+#conteneurPrinc main aside form .chatBoiteRep .chatRep .ami + .msg {
+  padding-right: 1rem;
+}
+#conteneurPrinc main aside form .chatBoiteMsg {
+  flex: 1 0 20%;
+  background-color: white;
+  padding: 1rem;
+  font-size: 12px;
+  font-size: 1.2rem;
+  font-family: 'Ubuntu', sans-serif;
+}
+#conteneurPrinc main aside form .btnGroupe {
+  flex: 1 0 10%;
+  display: flex;
+}
+#conteneurPrinc main aside form .btnGroupe input {
+  border: none;
+  color: #fdf9d0;
+  font-family: 'Oswald', cursive;
+  font-size: 15px;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  transition: 400ms background-color, 400ms color;
+}
+#conteneurPrinc main aside form .btnGroupe input:hover {
+  color: #98957d;
+}
+#conteneurPrinc main aside form .btnGroupe .chatPoke {
+  flex: 1 1 20%;
+  background-color: #882230;
+}
+#conteneurPrinc main aside form .btnGroupe .chatPoke:hover {
+  background-color: #7c2732;
+}
+#conteneurPrinc main aside form .btnGroupe .chatBtnEnvoyer {
+  flex: 1 1 80%;
+  background-color: #52346b;
+}
+#conteneurPrinc main aside form .btnGroupe .chatBtnEnvoyer:hover {
+  background-color: #422a56;
+}
+#conteneurPrinc footer {
+  flex: 1 0 content;
+  min-height: 5vh;
+  padding: 1rem;
+  background: linear-gradient(to right, #882230, #5f1821), #cf4154;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+#conteneurPrinc footer p {
+  font-size: 12px;
+  font-size: 1.2rem;
+  color: #be3700;
+}
