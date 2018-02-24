@@ -35,11 +35,35 @@ h1 {
   font-family: 'Anton', sans-serif;
   color: #4b131a;
 }
+@media screen and (max-width: 380px) {
+  h1 {
+    font-size: 40px;
+    font-size: 4rem;
+  }
+}
+@media screen and (max-width: 768px) {
+  h1 {
+    font-size: 50px;
+    font-size: 5rem;
+  }
+}
 h2 {
   font-size: 50px;
   font-size: 5rem;
   font-weight: 100;
   color: #f3d369;
+}
+@media screen and (max-width: 380px) {
+  h2 {
+    font-size: 20px;
+    font-size: 2rem;
+  }
+}
+@media screen and (max-width: 768px) {
+  h2 {
+    font-size: 30px;
+    font-size: 3rem;
+  }
 }
 h3 {
   font-size: 30px;
@@ -93,6 +117,18 @@ h6 {
   text-decoration: none;
   transition: 400ms color;
 }
+@media screen and (max-width: 380px) {
+  #conteneurPrinc header .navConteneur nav.princ ul li a {
+    font-size: 5px;
+    font-size: 0.5rem;
+  }
+}
+@media screen and (max-width: 768px) {
+  #conteneurPrinc header .navConteneur nav.princ ul li a {
+    font-size: 15px;
+    font-size: 1.5rem;
+  }
+}
 #conteneurPrinc header .navConteneur nav.princ ul li a:hover {
   color: #fdf9d0;
 }
@@ -114,20 +150,41 @@ h6 {
 }
 #conteneurPrinc main {
   flex: 1 1 auto;
+  flex-direction: row;
   display: flex;
+  background-color: white;
 }
 #conteneurPrinc main section#profil {
   flex: 1 1 70%;
-  padding: 3rem;
+  padding: 5rem;
+  display: flex;
 }
-#conteneurPrinc main section#profil h2 {
+#conteneurPrinc main section#profil aside {
+  flex: 1 1 30%;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+#conteneurPrinc main section#profil aside img {
+  margin-top: -2rem;
+  width: 100%;
+}
+#conteneurPrinc main section#profil div {
+  flex: 1 1 70%;
+}
+#conteneurPrinc main section#profil div h2 {
   margin-bottom: 1rem;
+  font-size: 30px;
+  font-size: 3rem;
 }
-#conteneurPrinc main section#profil h3 {
+#conteneurPrinc main section#profil div h3 {
+  font-size: 20px;
+  font-size: 2rem;
   color: #240016;
   margin-bottom: 2rem;
 }
-#conteneurPrinc main section#profil a {
+#conteneurPrinc main section#profil div a {
   font-size: 20px;
   font-size: 2rem;
 }
@@ -204,8 +261,40 @@ h6 {
   background-color: #cf4154;
   color: #fdf9d0;
 }
+@media screen and (max-width: 380px) {
+  #conteneurPrinc main .listeMembre table tbody tr th.tel,
+  #conteneurPrinc main .listeMembre table tbody tr th.courriel,
+  #conteneurPrinc main .listeMembre table tbody tr th.btn-mod,
+  #conteneurPrinc main .listeMembre table tbody tr th.btn-detr {
+    display: none;
+  }
+}
+@media screen and (max-width: 768px) {
+  #conteneurPrinc main .listeMembre table tbody tr th.tel,
+  #conteneurPrinc main .listeMembre table tbody tr th.courriel,
+  #conteneurPrinc main .listeMembre table tbody tr th.btn-mod,
+  #conteneurPrinc main .listeMembre table tbody tr th.btn-detr {
+    display: none;
+  }
+}
 #conteneurPrinc main .listeMembre table tbody tr td {
   padding: 0.7em;
+}
+@media screen and (max-width: 380px) {
+  #conteneurPrinc main .listeMembre table tbody tr td.tel,
+  #conteneurPrinc main .listeMembre table tbody tr td.courriel,
+  #conteneurPrinc main .listeMembre table tbody tr td.btn-mod,
+  #conteneurPrinc main .listeMembre table tbody tr td.btn-detr {
+    display: none;
+  }
+}
+@media screen and (max-width: 768px) {
+  #conteneurPrinc main .listeMembre table tbody tr td.tel,
+  #conteneurPrinc main .listeMembre table tbody tr td.courriel,
+  #conteneurPrinc main .listeMembre table tbody tr td.btn-mod,
+  #conteneurPrinc main .listeMembre table tbody tr td.btn-detr {
+    display: none;
+  }
 }
 #conteneurPrinc main .listeMembre table td,
 #conteneurPrinc main .listeMembre table th {

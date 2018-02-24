@@ -192,6 +192,7 @@ app.get('/effacer-liste', (req, res) => {
 //Rechercher membres
 //==========================
 app.post('/rechercherMembre', (req, res) => {
+    console.log(req.body.recherche);
     let recherche = req.body.recherche;
     var requete = {
         $or: [{
@@ -219,12 +220,27 @@ app.post('/rechercherMembre', (req, res) => {
 
     db.collection('adresse').find(requete).toArray((err, resultat) => {
         if (err) return console.log(err)
-        if (resultat.length == 0) {
-            res.send("[]");
-        } else {
-            res.send(JSON.stringify(resultat));
-        }
-
+        
+        res.render('membres', {
+            data: resultat,
+            direction: 1,
+            cle: null,
+            texte: {
+                titre: res.__("Gestionnaire d'utilisateurs"),
+                nav: {
+                    liste: res.__("Liste des membres"),
+                    vider: res.__("Vider la liste"),
+                    peupler: res.__("Peupler la liste")
+                },
+                soustitre: res.__("Les membres"),
+                entete: {
+                    nom: res.__("nom"),
+                    prenom: res.__("prénom"),
+                    tel: res.__("téléphone"),
+                    courriel: res.__("courriel"),
+                }
+            }
+        });
     });
 
 });

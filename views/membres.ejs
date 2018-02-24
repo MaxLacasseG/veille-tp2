@@ -15,10 +15,10 @@
                             <input type="text" name="courriel" id="formCourriel">
                             <input type="submit">
                         </form>
-                        <form class="formulaireRechercher" method="POST" onsubmit="return false">
+                        <form class="formulaireRechercher" action="/rechercherMembre" method="POST" >
                             <h3>Rechercher un membre</h3>
                             <div class="inputGroup">
-                                <input id="rechercheReq" type="search">
+                                <input id="rechercheReq" name="recherche" type="search">
                                 <input type="submit" value="Rechercher">
                             </div>
                         </form>
@@ -45,20 +45,20 @@
                                                 <i class="fa <% if(typeof ordre == 'undefined'){ %><%='fa-sort-down'%><%}else if(ordre == 'asc'){%><%= 'fa-sort-up'%><%}else{%><%= 'fa-sort-down'%><%}%>"></i>
                                         </a>
                                     </th>
-                                    <th>
+                                    <th class="tel">
                                         <a href="/trier/tel/<% if(typeof ordre == 'undefined'){ %><%='asc'%><%}else{%><%= ordre%><%}%>">
                                             <%= texte.entete.tel%>
                                                 <i class="fa <% if(typeof ordre == 'undefined'){ %><%='fa-sort-down'%><%}else if(ordre == 'asc'){%><%= 'fa-sort-up'%><%}else{%><%= 'fa-sort-down'%><%}%>"></i>
                                         </a>
                                     </th>
-                                    <th>
+                                    <th class="courriel">
                                         <a href="/trier/courriel/<% if(typeof ordre == 'undefined'){ %><%='asc'%><%}else{%><%= ordre%><%}%>">
                                             <%= texte.entete.courriel%>
                                                 <i class="fa <% if(typeof ordre == 'undefined'){ %><%='fa-sort-down'%><%}else if(ordre == 'asc'){%><%= 'fa-sort-up'%><%}else{%><%= 'fa-sort-down'%><%}%>"></i>
                                         </a>
                                     </th>
-                                    <th></th>
-                                    <th></th>
+                                    <th class="btn-mod"></th>
+                                    <th class="btn-detr"></th>
                                     <th>
                                         <a href="/ajouter">
                                             <i class="fas fa-plus-circle fa-2x"></i>
@@ -103,7 +103,6 @@
                 </main>
                 <% include partials/footer %>
         </div>
-        <script src="/js/rechercheMembres.js"></script>
         <script src="/js/listeMembres.js"></script>
     </body>
 
