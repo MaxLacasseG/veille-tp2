@@ -1,11 +1,14 @@
 {
-	"Gestionnaire d'utilisateurs": "Gestionnaire d'utilisateurs",
-	"Liste des membres": "Liste des membres",
-	"Vider la liste": "Vider la liste",
-	"Peupler la liste": "Peupler la liste",
-	"Les membres": "Les membres",
-	"nom": "nom",
-	"prénom": "prénom",
-	"téléphone": "téléphone",
-	"courriel": "courriel"
+	"titreSite": "Gestionnaire d'utilisateurs",
+	"navListe": "Liste des membres",
+	"navVider": "Vider la liste",
+	"navPeupler": "Peupler la liste",
+	"titreListe": "Les membres",
+	"nomEntete": "Nom",
+	"prenomEntete": "Prénom",
+	"telephoneEntete": "Téléphone",
+	"courrielEntete": "Courriel",
+	"rechercher": "Rechercher un membre",
+	"profil": "Profil",
+	"retour": "Retourner à la liste"
 }

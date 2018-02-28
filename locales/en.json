@@ -1,11 +1,14 @@
 {
-	"Gestionnaire d'utilisateurs": "User manager",
-	"Liste des membres": "Member's list",
-	"Vider la liste": "Flush list",
-	"Peupler la liste": "Populate list",
-	"Les membres": "Members",
-	"nom": "last name",
-	"prénom": "first name",
-	"téléphone": "phone",
-	"courriel": "email"
+	"titreSite": "User manager",
+	"navListe": "Member's list",
+	"navVider": "Flush list",
+	"navPeupler": "Populate list",
+	"titreListe": "Members",
+	"nomEntete": "Last Name",
+	"prenomEntete": "First Name",
+	"telephoneEntete": "Phone",
+	"courrielEntete": "Email",
+	"rechercher": "Search a member",
+	"profil": "Profile",
+	"retour": "Back to the list"
 }

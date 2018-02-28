@@ -16,17 +16,17 @@
                             <input type="submit">
                         </form>
                         <form class="formulaireRechercher" action="/rechercherMembre" method="POST" >
-                            <h3>Rechercher un membre</h3>
+                            <h3><%= __("rechercher") %></h3>
                             <div class="inputGroup">
                                 <input id="rechercheReq" name="recherche" type="search">
-                                <input type="submit" value="Rechercher">
+                                <input type="submit" value="<%= __('rechercher') %>">
                             </div>
                         </form>
                         <table>
                             <thead>
                                 <tr>
                                     <td>
-                                        <%= texte.soustitre%>
+                                        <%= __('titreListe') %>
                                     </td>
                                 </tr>
                             </thead>
@@ -35,25 +35,25 @@
                                 <tr>
                                     <th>
                                         <a href="/trier/prenom/<% if(typeof ordre == 'undefined'){ %><%='asc'%><%}else{%><%= ordre%><%}%>">
-                                            <%= texte.entete.prenom%>
+                                            <%= __('prenomEntete') %>
                                                 <i class="fa <% if(typeof ordre == 'undefined'){ %><%='fa-sort-down'%><%}else if(ordre == 'asc'){%><%= 'fa-sort-up'%><%}else{%><%= 'fa-sort-down'%><%}%>"></i>
                                         </a>
                                     </th>
                                     <th>
                                         <a href="/trier/nom/<% if(typeof ordre == 'undefined'){ %><%='asc'%><%}else{%><%= ordre%><%}%>">
-                                            <%= texte.entete.nom%>
+                                            <%= __('nomEntete') %>
                                                 <i class="fa <% if(typeof ordre == 'undefined'){ %><%='fa-sort-down'%><%}else if(ordre == 'asc'){%><%= 'fa-sort-up'%><%}else{%><%= 'fa-sort-down'%><%}%>"></i>
                                         </a>
                                     </th>
                                     <th class="tel">
                                         <a href="/trier/tel/<% if(typeof ordre == 'undefined'){ %><%='asc'%><%}else{%><%= ordre%><%}%>">
-                                            <%= texte.entete.tel%>
+                                            <%= __('telephoneEntete') %>
                                                 <i class="fa <% if(typeof ordre == 'undefined'){ %><%='fa-sort-down'%><%}else if(ordre == 'asc'){%><%= 'fa-sort-up'%><%}else{%><%= 'fa-sort-down'%><%}%>"></i>
                                         </a>
                                     </th>
                                     <th class="courriel">
                                         <a href="/trier/courriel/<% if(typeof ordre == 'undefined'){ %><%='asc'%><%}else{%><%= ordre%><%}%>">
-                                            <%= texte.entete.courriel%>
+                                            <%= __('courrielEntete') %>
                                                 <i class="fa <% if(typeof ordre == 'undefined'){ %><%='fa-sort-down'%><%}else if(ordre == 'asc'){%><%= 'fa-sort-up'%><%}else{%><%= 'fa-sort-down'%><%}%>"></i>
                                         </a>
                                     </th>
@@ -96,7 +96,7 @@
                                             </a>
                                         </td>
                                     </tr>
-                                    <% }; %>
+                                    <% } %>
                             </tbody>
                         </table>
                     </section>

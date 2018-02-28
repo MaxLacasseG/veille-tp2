@@ -5,7 +5,9 @@ const app = express();
 // Middleware
 const bodyParser = require('body-parser');
 // parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.urlencoded({
+    extended: false
+}))
 
 // parse application/json
 app.use(bodyParser.json())
@@ -42,53 +44,29 @@ app.get('/', (req, res) => {
     db.collection('adresse').find().toArray(function (err, resultat) {
         if (err) return console.log(err);
         if (req.cookies.langueChoisie == null) {
-            res.cookie('langueChoisie', 'fr ', {
-                maxAge: 900000,
-                httpOnly: true
-            });
-            res.setLocale('fr')
+            res.cookie('langueChoisie', 'fr ');
+            res.setLocale('fr');
         }
         res.render('membres', {
             data: resultat,
             direction: 1,
-            cle: null,
-            texte: {
-                titre: res.__("Gestionnaire d'utilisateurs"),
-                nav: {
-                    liste: res.__("Liste des membres"),
-                    vider: res.__("Vider la liste"),
-                    peupler: res.__("Peupler la liste")
-                },
-                soustitre: res.__("Les membres"),
-                entete: {
-                    nom: res.__("nom"),
-                    prenom: res.__("prénom"),
-                    tel: res.__("téléphone"),
-                    courriel: res.__("courriel"),
-                }
-            }
+            cle: null
         });
     });
 });
 
 //====================
 //lien francais
-app.get('/fr', (req, res) => {
-    res.setLocale('fr')
-    res.cookie('langueChoisie', 'fr');
+app.get('/:locale(fr|en)', (req, res) => {
+    res.setLocale(req.params.locale);
+    res.cookie('langueChoisie', req.params.locale);
     res.redirect(req.headers.referer);
 
-})
-
-app.get('/en', (req, res) => {
-    res.setLocale('en')
-    res.cookie('langueChoisie', 'en');
-    res.redirect(req.headers.referer);
 })
 //===================== MODIFIER PAR POST
 app.post('/modifier', (req, res) => {
     let adresse = {
-        _id : ObjectID(req.body.id),
+        _id: ObjectID(req.body.id),
         prenom: req.body.prenom,
         nom: req.body.nom,
         tel: req.body.tel,
@@ -140,23 +118,8 @@ app.get('/trier/:cle/:ordre', (req, res) => {
         let direction = (ordre == 1 ? "asc" : "desc");
         return res.render('membres', {
             data: resultat,
-            ordre: direction,
-            texte: {
-                titre: res.__("Gestionnaire d'utilisateurs"),
-                nav: {
-                    liste: res.__("Liste des membres"),
-                    vider: res.__("Vider la liste"),
-                    peupler: res.__("Peupler la liste")
-                },
-                soustitre: res.__("Les membres"),
-                entete: {
-                    nom: res.__("nom"),
-                    prenom: res.__("prénom"),
-                    tel: res.__("téléphone"),
-                    courriel: res.__("courriel"),
-                }
-            }
-        })
+            ordre: direction
+        });
     });
 });
 
@@ -220,26 +183,11 @@ app.post('/rechercherMembre', (req, res) => {
 
     db.collection('adresse').find(requete).toArray((err, resultat) => {
         if (err) return console.log(err)
-        
+
         res.render('membres', {
             data: resultat,
             direction: 1,
-            cle: null,
-            texte: {
-                titre: res.__("Gestionnaire d'utilisateurs"),
-                nav: {
-                    liste: res.__("Liste des membres"),
-                    vider: res.__("Vider la liste"),
-                    peupler: res.__("Peupler la liste")
-                },
-                soustitre: res.__("Les membres"),
-                entete: {
-                    nom: res.__("nom"),
-                    prenom: res.__("prénom"),
-                    tel: res.__("téléphone"),
-                    courriel: res.__("courriel"),
-                }
-            }
+            cle: null
         });
     });
 
@@ -249,26 +197,13 @@ app.post('/rechercherMembre', (req, res) => {
 //==========================
 app.get('/profil/:id', (req, res) => {
     let reqId = ObjectID(req.params.id);
-    db.collection('adresse').find({_id: reqId}).toArray((err, resultat) => {
+    db.collection('adresse').find({
+        _id: reqId
+    }).toArray((err, resultat) => {
         if (err) return console.log(err)
         res.render('profil', {
-            texte: {
-                titre: res.__("Gestionnaire d'utilisateurs"),
-                nav: {
-                    liste: res.__("Liste des membres"),
-                    vider: res.__("Vider la liste"),
-                    peupler: res.__("Peupler la liste")
-                },
-                soustitre: res.__("Les membres"),
-                entete: {
-                    nom: res.__("nom"),
-                    prenom: res.__("prénom"),
-                    tel: res.__("téléphone"),
-                    courriel: res.__("courriel"),
-                }
-            },
             membreInfos: resultat[0]
-        })
+        });
     });
 })
 
@@ -278,19 +213,20 @@ app.get('/profil/:id', (req, res) => {
 app.use((req, res) => {
     res.status(404).render('404', {
         texte: {
-            titre: res.__("Gestionnaire d'utilisateurs"),
+            titre: res.__("titreSite"),
             nav: {
-                liste: res.__("Liste des membres"),
-                vider: res.__("Vider la liste"),
-                peupler: res.__("Peupler la liste")
+                liste: res.__("navListe"),
+                vider: res.__("navVider"),
+                peupler: res.__("navPeupler")
             },
-            soustitre: res.__("Les membres"),
+            soustitre: res.__("titreListe"),
             entete: {
-                nom: res.__("nom"),
-                prenom: res.__("prénom"),
-                tel: res.__("téléphone"),
-                courriel: res.__("courriel"),
-            }
+                nom: res.__("nomEntete"),
+                prenom: res.__("prenomEntete"),
+                tel: res.__("telephoneEntete"),
+                courriel: res.__("courrielEntete"),
+            },
+            rechercher: res.__("rechercher")
         }
     });
 });

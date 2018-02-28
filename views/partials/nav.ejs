@@ -2,29 +2,32 @@
     <div id="groupeEntete">
         <h1>TRI</h1>
         <h2>
-            <%= texte.titre %>
+            <%= __('titreSite') %>
         </h2>
     </div>
     <div class="navConteneur">
         <nav class="localisation">
-            <a href="/fr">FR</a>
-            <a href="/en">EN</a>
+            <% if(getLocale()=='en'){ %>
+                <a href="/fr">FR</a>
+            <% }else{ %>
+                <a href="/en">EN</a>
+            <% }%>
         </nav>
         <nav class="princ">
             <ul>
                 <li>
                     <a href="/">
-                        <%= texte.nav.liste%>
+                        <%= __('navListe') %>
                     </a>
                 </li>
                 <li>
                     <a href="/peuplement">
-                        <%= texte.nav.peupler%>
+                        <%= __('navPeupler') %>
                     </a>
                 </li>
                 <li>
                     <a href="/effacer-liste">
-                        <%= texte.nav.vider%>
+                        <%= __('navVider') %>
                     </a>
                 </li>
             </ul>
