@@ -15,14 +15,16 @@
                             <input type="text" name="courriel" id="formCourriel">
                             <input type="submit">
                         </form>
-                        <form class="formulaireRechercher" action="/rechercherMembre" method="POST" >
-                            <h3><%= __("rechercher") %></h3>
+                        <form class="formulaireRechercher" action="/rechercherMembre" method="POST">
+                            <h3>
+                                <%= __("rechercher") %>
+                            </h3>
                             <div class="inputGroup">
                                 <input id="rechercheReq" name="recherche" type="search">
                                 <input type="submit" value="<%= __('rechercher') %>">
                             </div>
                         </form>
-                        <table>
+                        <table class="tableauMembre">
                             <thead>
                                 <tr>
                                     <td>
@@ -60,10 +62,32 @@
                                     <th class="btn-mod"></th>
                                     <th class="btn-detr"></th>
                                     <th>
-                                        <a href="/ajouter">
+                                        <a class="btn-ajouter" href="/ajouter">
                                             <i class="fas fa-plus-circle fa-2x"></i>
                                         </a>
                                     </th>
+                                </tr>
+                                <tr class="donneesListe gabarit">
+                                    <input type="hidden" class="id" value="">
+                                    <td class="prenom" contenteditable="true"></td>
+                                    <td class="nom" contenteditable="true"></td>
+                                    <td class="tel" contenteditable="true"></td>
+                                    <td class="courriel" contenteditable="true"></td>
+                                    <td class="btn-mod">
+                                        <a href="/majMembre/">
+                                            <i class="fas fa-save fa-2x"></i>
+                                        </a>
+                                    </td>
+                                    <td class="btn-detr">
+                                        <a href="#">
+                                            <i class="fas fa-trash fa-2x"></i>
+                                        </a>
+                                    </td>
+                                    <td class="btn-profil">
+                                        <a href="#">
+                                            <i class="fas fa-address-card fa-2x"></i>
+                                        </a>
+                                    </td>
                                 </tr>
                                 <% for(let elem of data){ %>
                                     <tr class="donneesListe">
@@ -103,7 +127,7 @@
                 </main>
                 <% include partials/footer %>
         </div>
-        <script src="/js/listeMembres.js"></script>
+        <script src="/js/fonctions.js"></script>
     </body>
 
     </html>

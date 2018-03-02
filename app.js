@@ -93,7 +93,16 @@ app.get('/ajouter', (req, res) => {
     });
 });
 
-
+app.post("/ajouter-ajax", (req,res)=>{
+    db.collection('adresse').insert({}, (err, enreg) => {
+        if (err) {
+            res.status(500).send(err);
+        } else {
+            console.log(enreg);
+           res.send(JSON.stringify(enreg.insertedIds));
+        }
+    });
+});
 //============================
 //Detruire
 //=========================
@@ -106,6 +115,14 @@ app.get('/detruireMembre/:id', (req, res) => {
     });
 });
 
+app.post('/detruire-ajax', (req,res)=>{
+    let id = ObjectID(req.body[_id]);
+    db.collection('adresse').findOneAndDelete({
+        _id: id
+    }, (err, resultat) => {
+        res.send("ok");
+    });
+});
 
 //======================
 //Trier
