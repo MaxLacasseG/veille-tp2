@@ -116,7 +116,8 @@ app.get('/detruireMembre/:id', (req, res) => {
 });
 
 app.post('/detruire-ajax', (req,res)=>{
-    let id = ObjectID(req.body[_id]);
+    let id = ObjectID(req.body.id);
+    console.log(id);
     db.collection('adresse').findOneAndDelete({
         _id: id
     }, (err, resultat) => {

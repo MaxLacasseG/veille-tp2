@@ -28,25 +28,26 @@ window.addEventListener('load', () => {
         }, false);
 
     }, false);
+
     //FONCTIONS DÉTRUIRE MEMBRE VIA AJAX
     //==================================
     for (let btn of tabBtnDetr) {
         btn.addEventListener('click', (evt) => {
             evt.preventDefault();
             let id = btn.parentNode.querySelector('input[type="hidden"]').value;
-            console.log(id);
             let data = {
-                _id : id
+                id: id
             }
             let xhr = new XMLHttpRequest();
             xhr.open('POST', "/detruire-ajax", true);
             xhr.setRequestHeader('Content-type', 'application/json');
             xhr.send(JSON.stringify(data));
+            xhr.parametre = btn;
             xhr.addEventListener("readystatechange", (evt) => {
                 if (xhr.readyState == 4 && xhr.status == 200) {
-                   console.log(xhr.responseText);
+                   xhr.parametre.parentNode.parentNode.removeChild(xhr.parametre.parentNode);
                 }
             }, false);
         }, false);
     }
-}, false);//fin load
+}, false); //fin load
