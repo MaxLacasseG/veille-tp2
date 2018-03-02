@@ -82,6 +82,23 @@ app.post('/modifier', (req, res) => {
     });
 });
 
+app.post('/modifier-ajax', (req, res) => {
+    let adresse = {
+        _id: ObjectID(req.body.id),
+        prenom: req.body.prenom,
+        nom: req.body.nom,
+        tel: req.body.tel,
+        courriel: req.body.courriel
+    };
+
+    db.collection('adresse').save(adresse, (err, enreg) => {
+        if (err) {
+            res.status(500).send(err);
+        } else {
+            res.send("Élément modifié");
+        }
+    });
+});
 // ============ AJOUTER
 app.get('/ajouter', (req, res) => {
     db.collection('adresse').insert({}, (err, enreg) => {

@@ -81,6 +81,9 @@ h6 {
   font-size: 7px;
   font-size: 0.7rem;
 }
+.gabarit {
+  display: none;
+}
 #conteneurPrinc {
   display: flex;
   flex-direction: column;
