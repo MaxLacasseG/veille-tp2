@@ -6,18 +6,18 @@
             <% include partials/nav %>
 
                 <main>
-                    <section id="principale">
-                    <ul class="listeChat">
-                        <li class="membreChat gabarit">Nom</li>
-                        <li class="membreChat gabarit">Nom</li>
-                        <li class="membreChat gabarit">Nom</li>
-                        <li class="membreChat gabarit">Nom</li>
-                    </ul>
+                    <section id="chat">
+                        <h3>Liste des utilisateurs connectés</h3>
+                        <ul class="listeChat">
+                            <li class="membreChat gabarit">Nom</li>
+                        </ul>
                     </section>
                     <aside>
                         <div class="btnConnexionConteneur">
                             <input type="text" class="nomChat">
-                            <button><i class="fas fa-power-off"></i></button>
+                            <button onclick="connexionChat">
+                                <i class="fas fa-power-off"></i>
+                            </button>
                         </div>
                         <p class="chatLabel">Conversation</p>
                         <form action="#">
@@ -28,29 +28,11 @@
                                         doloremque temporibus quae! Saepe sunt sint iste voluptatum harum laborum mollitia
                                         sit? Soluta, ut veritatis? Assumenda, praesentium facilis?</p>
                                 </div>
-                                <div class="chatRep gabarit">
-                                    <p class="auteur">Max</p>
-                                    <p class="msg">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptates, quam rerum provident
-                                        doloremque temporibus quae! Saepe sunt sint iste voluptatum harum laborum mollitia
-                                        sit? Soluta, ut veritatis? Assumenda, praesentium facilis?</p>
-                                </div>
-                                <div class="chatRep gabarit">
-                                    <p class="ami">Max</p>
-                                    <p class="msg">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptates, quam rerum provident
-                                        doloremque temporibus quae! Saepe sunt sint iste voluptatum harum laborum mollitia
-                                        sit? Soluta, ut veritatis? Assumenda, praesentium facilis?</p>
-                                </div>
-                                <div class="chatRep gabarit">
-                                    <p class="ami">Max</p>
-                                    <p class="msg">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptates, quam rerum provident
-                                        doloremque temporibus quae! Saepe sunt sint iste voluptatum harum laborum mollitia
-                                        sit? Soluta, ut veritatis? Assumenda, praesentium facilis?</p>
-                                </div>
                             </div>
                             <input type="text" name="chatBoiteMessage" class="chatBoiteMsg">
                             <div class="btnGroupe">
                                 <input type="button" name="chatPoke" class="chatPoke" value="Poke">
-                                <input type="button" class="chatBtnEnvoyer" value="Envoyer">
+                                <input type="button" class="chatBtnEnvoyer" value="Envoyer" onclick="envoyerMsg()">
                             </div>
                         </form>
                     </aside>

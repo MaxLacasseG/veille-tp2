@@ -228,6 +228,11 @@ h6 {
                         }
                     }
                 }
+                &.listeChat{
+                    & li{
+                        .tailleFont(2);
+                    }
+                }
             }
         }
         & .listeMembre {
@@ -411,6 +416,45 @@ h6 {
                         &:hover {
                             background-color: shade(@coulAccent4, 20%);
                         }
+                    }
+                }
+            }
+        }
+        & section#chat {
+            & *{
+                &.gabarit{
+                    display: none;
+                }
+            }
+            flex: 1 1 30%;
+            padding: 3rem;
+            & h3 {
+                color: #240016;
+                margin-bottom: 2rem;
+            }
+            & ul {
+                & li {
+                    display: flex;
+                    padding: 1rem;
+                    &:hover {
+                        border-bottom: #f38e54 1px solid;
+                    }
+                    & a {
+                        .tailleFont(2);
+                        text-decoration: none;
+                        &:hover {
+                            color: darken(@coulAccent2, 20%);
+                        }
+                        &.btnModif,
+                        &.btnDel {
+                            margin-left: 2rem;
+                        }
+                    }
+                }
+                &.listeChat{
+                    & li{
+                        .tailleFont(2);
+                        
                     }
                 }
             }

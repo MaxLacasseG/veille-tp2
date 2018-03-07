@@ -218,6 +218,10 @@ h6 {
 #conteneurPrinc main section#principale ul li a.btnDel {
   margin-left: 2rem;
 }
+#conteneurPrinc main section#principale ul.listeChat li {
+  font-size: 20px;
+  font-size: 2rem;
+}
 #conteneurPrinc main .listeMembre {
   flex: 1 1 auto;
   display: flex;
@@ -419,6 +423,40 @@ h6 {
 }
 #conteneurPrinc main aside form .btnGroupe .chatBtnEnvoyer:hover {
   background-color: #422a56;
+}
+#conteneurPrinc main section#chat {
+  flex: 1 1 30%;
+  padding: 3rem;
+}
+#conteneurPrinc main section#chat *.gabarit {
+  display: none;
+}
+#conteneurPrinc main section#chat h3 {
+  color: #240016;
+  margin-bottom: 2rem;
+}
+#conteneurPrinc main section#chat ul li {
+  display: flex;
+  padding: 1rem;
+}
+#conteneurPrinc main section#chat ul li:hover {
+  border-bottom: #f38e54 1px solid;
+}
+#conteneurPrinc main section#chat ul li a {
+  font-size: 20px;
+  font-size: 2rem;
+  text-decoration: none;
+}
+#conteneurPrinc main section#chat ul li a:hover {
+  color: #d2560f;
+}
+#conteneurPrinc main section#chat ul li a.btnModif,
+#conteneurPrinc main section#chat ul li a.btnDel {
+  margin-left: 2rem;
+}
+#conteneurPrinc main section#chat ul.listeChat li {
+  font-size: 20px;
+  font-size: 2rem;
 }
 #conteneurPrinc footer {
   flex: 1 0 content;
