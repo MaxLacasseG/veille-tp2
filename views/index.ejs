@@ -7,49 +7,18 @@
 
                 <main>
                     <section id="principale">
-                        <h3>Mes groupes</h3>
-                        <ul>
-                            <li>
-                                <a href="#">
-                                    <i class="fa fa-angle-right 2x" aria-hidden="true"></i> Groupe 1 </a>
-                                <a href="#" class="btnModif">
-                                    <i class="fa fa-pencil 2x" aria-hidden="true"></i>
-                                </a>
-                                <a href="#" class="btnDel">
-                                    <i class="fa fa-trash 2x" aria-hidden="true"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="fa fa-angle-right 2x" aria-hidden="true"></i> Groupe 2 </a>
-                                <a href="#" class="btnModif">
-                                    <i class="fa fa-pencil 2x" aria-hidden="true"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="fa fa-angle-right 2x" aria-hidden="true"></i> Groupe 3 </a>
-                                <a href="#" class="btnModif">
-                                    <i class="fa fa-pencil 2x" aria-hidden="true"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="fa fa-angle-right 2x" aria-hidden="true"></i> Groupe 4 </a>
-                                <a href="#" class="btnModif">
-                                    <i class="fa fa-pencil 2x" aria-hidden="true"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="fa fa-angle-right 2x" aria-hidden="true"></i> Groupe 5 </a>
-                                <a href="#" class="btnModif">
-                                    <i class="fa fa-pencil 2x" aria-hidden="true"></i>
-                                </a>
-                            </li>
-                        </ul>
+                    <ul class="listeChat">
+                        <li class="membreChat gabarit">Nom</li>
+                        <li class="membreChat gabarit">Nom</li>
+                        <li class="membreChat gabarit">Nom</li>
+                        <li class="membreChat gabarit">Nom</li>
+                    </ul>
                     </section>
                     <aside>
+                        <div class="btnConnexionConteneur">
+                            <input type="text" class="nomChat">
+                            <button><i class="fas fa-power-off"></i></button>
+                        </div>
                         <p class="chatLabel">Conversation</p>
                         <form action="#">
                             <div class="chatBoiteRep">
@@ -88,6 +57,8 @@
                 </main>
                 <% include partials/footer %>
         </div>
+        <script src="socket.io/socket.io.js"></script>
+        <script src="/js/chat.js"></script>
     </body>
 
     </html>

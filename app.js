@@ -2,13 +2,15 @@
 const express = require('express');
 const app = express();
 
+var server = require('http').Server(app);
+var io = require('./component/chatModule').listen(server);
+
 // Middleware
 const bodyParser = require('body-parser');
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({
     extended: false
 }))
-
 // parse application/json
 app.use(bodyParser.json())
 const cookieParser = require('cookie-parser');
@@ -41,6 +43,10 @@ app.use(i18n.init);
 
 //=== ACCUEIL
 app.get('/', (req, res) => {
+  res.render('index');
+});
+
+app.get('/liste', (req, res) => {
     db.collection('adresse').find().toArray(function (err, resultat) {
         if (err) return console.log(err);
         if (req.cookies.langueChoisie == null) {
@@ -77,7 +83,7 @@ app.post('/modifier', (req, res) => {
         if (err) {
             res.status(500).send(err);
         } else {
-            res.redirect('/');
+            res.redirect('/liste');
         }
     });
 });
@@ -105,7 +111,7 @@ app.get('/ajouter', (req, res) => {
         if (err) {
             res.status(500).send(err);
         } else {
-            res.redirect('/');
+            res.redirect('/liste');
         }
     });
 });
@@ -128,7 +134,7 @@ app.get('/detruireMembre/:id', (req, res) => {
     db.collection('adresse').findOneAndDelete({
         _id: id
     }, (err, resultat) => {
-        res.redirect('/');
+        res.redirect('/liste');
     });
 });
 
@@ -168,7 +174,7 @@ app.get('/peuplement', (req, res) => {
         if (err) {
             res.status(500).send(err);
         } else {
-            res.redirect('/');
+            res.redirect('/liste');
         }
     });
 })
@@ -181,7 +187,7 @@ app.get('/effacer-liste', (req, res) => {
         if (err) {
             res.status(500).send(err);
         } else {
-            res.redirect('/');
+            res.redirect('/liste');
         }
     });
 })
@@ -272,7 +278,8 @@ BDD.connect('mongodb://127.0.0.1:27017', (err, database) => {
     if (err) return console.log(err)
     db = database.db('carnet_adresse')
     // lancement du serveur Express sur le port 8081
-    app.listen(8081, () => {
+    server.listen(8081, () => {
         console.log('connexion à la BD et on écoute sur le port 8081');
     });
 });
+
