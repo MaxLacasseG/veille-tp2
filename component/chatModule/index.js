@@ -9,7 +9,13 @@ module.exports.listen = function (server) {
             data.id = socket.id;
             io.emit('nouvelUtilisateur', data);
         });
+
+        socket.on('nouveauMessage', function(data){
+            console.log(data.nom, data.message);
+            socket.broadcast.emit('recevoirMessage', data);
+        })
     });
+
 
     return io;
 };

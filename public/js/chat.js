@@ -1,32 +1,30 @@
 "use strict";
 var Client = {}
-window.addEventListener('load', (e) => {
-    console.log('ok');
+
+const connexionChat= ()=>{
     let btnConnexionChat = document.querySelector(".btnConnexionConteneur button");
-    //Objet client enregistré en global
+    btnConnexionChat.parentNode.style.display = "none";
+    //CONNEXION
+    Client = io.connect();
+    Client.on('connect', () => {
+        connecterUtil(Client.id);
+    });
 
-    //AU CLIC, CONNEXION
-    btnConnexionChat.addEventListener('click', (evt) => {
-        btnConnexionChat.parentNode.style.display = "none";
+    // =================================
+    //      Écouteurs d'événements
+    // ==================================
+    
+    //RÉCEPTION D'UN NOUVEL UTILISATEUR
+    Client.on('nouvelUtilisateur', (data) => {
+        afficherNom(data.nom, data.id)
+    });
 
-        //CONNEXION
-        Client = io.connect();
-        Client.on('connect', () => {
-            connecterUtil(Client.id);
-        });
+    //RÉCEPTION D'UN NOUVEAU MESSAGE
+    Client.on('recevoirMessage', (data) => {
+        recevoirMsg(data)
+    });
+};
 
-
-        //RÉCEPTION D'UN NOUVEL UTILISATEUR
-        Client.on('nouvelUtilisateur', (data) => {
-            afficherNom(data.nom, data.id)
-        });
-
-        //RÉCEPTION D'UN NOUVEL UTILISATEUR
-        Client.on('recevoirMessage', (data) => {
-            afficherNom(data.nom, data.id)
-        });
-    }, false);
-}, false);
 
 const connecterUtil = () => {
     Client.nom = document.querySelector('input.nomChat').value;
@@ -45,10 +43,28 @@ const afficherNom = (nom, id) => {
     liste.appendChild(nouvelUtil);
 }
 const envoyerMsg = () => {
-    console.log("ok");
+    console.log("ok")
     let message = document.querySelector(".chatBoiteMsg").value;
-    Client.on('envoyerMessage', {
+    let msgGabarit = document.querySelector('.chatBoiteRep .chatRep.auteur');
+    let msgClone = msgGabarit.cloneNode(true);
+
+    msgClone.classList.remove("gabarit");
+    msgClone.querySelector('.msg').innerText = message;
+    msgClone.querySelector('.auteur').innerText = Client.nom;
+    msgGabarit.parentNode.appendChild(msgClone);
+
+    Client.emit('nouveauMessage', {
         nom: Client.nom,
         message: message
     });
+}
+
+const recevoirMsg = (data)=>{
+    let msgGabarit = document.querySelector('.chatBoiteRep .chatRep.ami');
+    let msgClone = msgGabarit.cloneNode(true);
+
+    msgClone.classList.remove("gabarit");
+    msgClone.querySelector('.msg').innerText = data.message;
+    msgClone.querySelector('.ami').innerText = data.nom;
+    msgGabarit.parentNode.appendChild(msgClone);
 }
