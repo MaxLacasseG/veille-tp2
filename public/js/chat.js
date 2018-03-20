@@ -38,7 +38,8 @@ const connecterUtil = () => {
     
     document.querySelector(".btnConnexionConteneur").style.display = "none";
     let btnDeconnexion = document.querySelector(".btnDeconnexionConteneur").style.display = "block";
-    document.getElementsByTagName('span')[0].innerText = Client.nom;
+    document.getElementsByTagName('span')[0].innerText = "Connecté en tant que " + Client.nom;
+    document.querySelector('.formChat').style.display = "flex";
 
     Client.emit('enregistrement', {
         nom: Client.nom
@@ -102,6 +103,7 @@ const deconnexionChat = ()=>{
     document.getElementsByTagName('span')[0].innerText = "";
     document.querySelector('input.nomChat').value = "";
     document.querySelector(".btnConnexionConteneur").style.display = "block";
+    document.querySelector('.formChat').style.display = "none";
 
 }
 

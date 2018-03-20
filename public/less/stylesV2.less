@@ -1,6 +1,7 @@
 @import 'reset.css';
 * {
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
 }
 
 @coulBase :#fdf9d0;
@@ -105,34 +106,67 @@ h6 {
 //Mise en page des sections
 //===========================================
 #conteneurPrinc {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
     min-height: 100vh;
     & header {
-        flex: 1 0 content;
+        -webkit-box-flex: 1;
+            -ms-flex: 1 0 content;
+                flex: 1 0 content;
         padding: 1rem;
+        background: url(../medias/img/motifFond2.png), -webkit-gradient(linear, left top, right top, from(@coulAccent3), to(darken(@coulAccent3, 20%))), @coulAccent3;
         background: url(../medias/img/motifFond2.png), linear-gradient(to right, @coulAccent3, darken(@coulAccent3, 20%)), @coulAccent3;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
         & #groupeEntete {
-            flex: 1 1 60%;
+            -webkit-box-flex: 1;
+                -ms-flex: 1 1 60%;
+                    flex: 1 1 60%;
         }
         & .navConteneur {
-            flex: 1 0 40%;
+            -webkit-box-flex: 1;
+                -ms-flex: 1 0 40%;
+                    flex: 1 0 40%;
+            display: -webkit-box;
+            display: -ms-flexbox;
             display: flex;
-            flex-direction: column;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+                -ms-flex-direction: column;
+                    flex-direction: column;
             & nav.princ {
-                flex: 1 0 auto;
+                -webkit-box-flex: 1;
+                    -ms-flex: 1 0 auto;
+                        flex: 1 0 auto;
+                display: -webkit-box;
+                display: -ms-flexbox;
                 display: flex;
                 & ul {
-                    flex: 1 0 100%;
+                    -webkit-box-flex: 1;
+                        -ms-flex: 1 0 100%;
+                            flex: 1 0 100%;
+                    display: -webkit-box;
+                    display: -ms-flexbox;
                     display: flex;
-                    justify-content: space-around;
-                    align-items: flex-end;
+                    -ms-flex-pack: distribute;
+                        justify-content: space-around;
+                    -webkit-box-align: end;
+                        -ms-flex-align: end;
+                            align-items: flex-end;
                     & li {
                         & a {
                             .tailleFont(2);
                             text-decoration: none;
+                            -webkit-transition: 400ms color;
                             transition: 400ms color;
                             @media @cell {
                                 .tailleFont(0.5);
@@ -148,9 +182,15 @@ h6 {
                 }
             }
             & nav.localisation {
-                flex: 1 1 20%;
+                -webkit-box-flex: 1;
+                    -ms-flex: 1 1 20%;
+                        flex: 1 1 20%;
+                display: -webkit-box;
+                display: -ms-flexbox;
                 display: flex;
-                justify-content: flex-end;
+                -webkit-box-pack: end;
+                    -ms-flex-pack: end;
+                        justify-content: flex-end;
                 padding: 1em;
                 & a {
                     .tailleFont(1.5);
@@ -165,28 +205,50 @@ h6 {
         }
     }
     & main {
-        flex: 1 1 auto;
-        flex-direction: row;
+        -webkit-box-flex: 1;
+            -ms-flex: 1 1 auto;
+                flex: 1 1 auto;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: row;
+                flex-direction: row;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
         background-color: white;
         
         & section#profil{
-            flex: 1 1 70%;
+            -webkit-box-flex: 1;
+                -ms-flex: 1 1 70%;
+                    flex: 1 1 70%;
             padding: 5rem;
+            display: -webkit-box;
+            display: -ms-flexbox;
             display: flex;
             & aside{
-                flex: 1 1 30%;
+                -webkit-box-flex: 1;
+                    -ms-flex: 1 1 30%;
+                        flex: 1 1 30%;
                 background-color: white;
+                display: -webkit-box;
+                display: -ms-flexbox;
                 display: flex;
-                flex-direction: column;
-                justify-content: flex-start;
+                -webkit-box-orient: vertical;
+                -webkit-box-direction: normal;
+                    -ms-flex-direction: column;
+                        flex-direction: column;
+                -webkit-box-pack: start;
+                    -ms-flex-pack: start;
+                        justify-content: flex-start;
                 & img{
                     margin-top: -2rem;
                     width: 100%;
                 }
             }
             & div{
-                flex: 1 1 70%;
+                -webkit-box-flex: 1;
+                    -ms-flex: 1 1 70%;
+                        flex: 1 1 70%;
                 & h2 {
                     margin-bottom: 1rem;
                     .tailleFont(3)
@@ -203,7 +265,9 @@ h6 {
            
         }
         & section#principale {
-            flex: 1 1 70%;
+            -webkit-box-flex: 1;
+                -ms-flex: 1 1 70%;
+                    flex: 1 1 70%;
             padding: 3rem;
             & h3 {
                 color: #240016;
@@ -211,6 +275,8 @@ h6 {
             }
             & ul {
                 & li {
+                    display: -webkit-box;
+                    display: -ms-flexbox;
                     display: flex;
                     padding: 1rem;
                     &:hover {
@@ -236,25 +302,52 @@ h6 {
             }
         }
         & .listeMembre {
-            flex: 1 1 auto;
+            -webkit-box-flex: 1;
+                -ms-flex: 1 1 auto;
+                    flex: 1 1 auto;
+            display: -webkit-box;
+            display: -ms-flexbox;
             display: flex;
-            flex-direction: column;
-            align-items: stretch;
-            justify-content: flex-start;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+                -ms-flex-direction: column;
+                    flex-direction: column;
+            -webkit-box-align: stretch;
+                -ms-flex-align: stretch;
+                    align-items: stretch;
+            -webkit-box-pack: start;
+                -ms-flex-pack: start;
+                    justify-content: flex-start;
             & form{
+                display: -webkit-box;
+                display: -ms-flexbox;
                 display: flex;
-                flex-direction: column;
-                align-items: flex-end;
+                -webkit-box-orient: vertical;
+                -webkit-box-direction: normal;
+                    -ms-flex-direction: column;
+                        flex-direction: column;
+                -webkit-box-align: end;
+                    -ms-flex-align: end;
+                        align-items: flex-end;
                
                 &.formulairePost {
                     display: none;
                 }
             }
             & table {
-                flex:1;
-                flex-direction: column;
-                justify-content: flex-start;
-                align-items: flex-start;
+                -webkit-box-flex:1;
+                    -ms-flex:1;
+                        flex:1;
+                -webkit-box-orient: vertical;
+                -webkit-box-direction: normal;
+                    -ms-flex-direction: column;
+                        flex-direction: column;
+                -webkit-box-pack: start;
+                    -ms-flex-pack: start;
+                        justify-content: flex-start;
+                -webkit-box-align: start;
+                    -ms-flex-align: start;
+                        align-items: flex-start;
                 border-collapse: collapse;
                 width:100%;
                 & thead td {
@@ -266,6 +359,7 @@ h6 {
                 & tbody {
                     padding: 2em;
                     & tr {
+                        -webkit-transition: all;
                         transition: all;
                         line-height: 3em;
                         text-align: center;
@@ -309,15 +403,31 @@ h6 {
             }
         }
         & .formulaire {
-            flex: 1 1 auto;
+            -webkit-box-flex: 1;
+                -ms-flex: 1 1 auto;
+                    flex: 1 1 auto;
             width: 100%;
+            display: -webkit-box;
+            display: -ms-flexbox;
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+                -ms-flex-direction: column;
+                    flex-direction: column;
+            -webkit-box-align: center;
+                -ms-flex-align: center;
+                    align-items: center;
+            -webkit-box-pack: center;
+                -ms-flex-pack: center;
+                    justify-content: center;
             & form {
+                display: -webkit-box;
+                display: -ms-flexbox;
                 display: flex;
-                flex-direction: column;
+                -webkit-box-orient: vertical;
+                -webkit-box-direction: normal;
+                    -ms-flex-direction: column;
+                        flex-direction: column;
                 width: 50vw;
                 & input,
                 & label {
@@ -325,33 +435,53 @@ h6 {
                     .tailleFont(2);
                 }
                 & label {
+                    display: -webkit-box;
+                    display: -ms-flexbox;
                     display: flex;
-                    align-items: center;
+                    -webkit-box-align: center;
+                        -ms-flex-align: center;
+                            align-items: center;
                 }
             }
         } //Section contenant la boite de chat
         & aside {
-            flex: 1 1 30%;
+            -webkit-box-flex: 1;
+                -ms-flex: 1 1 30%;
+                    flex: 1 1 30%;
             padding: 2rem;
             background-color: @coulTxtAcc4;
+            display: -webkit-box;
+            display: -ms-flexbox;
             display: flex;
-            flex-direction: column;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+                -ms-flex-direction: column;
+                    flex-direction: column;
             & .btnDeconnexionConteneur{
                 display: none;
             }
             & .chatLabel {
-                flex: 1 1 5%;
+                -webkit-box-flex: 1;
+                    -ms-flex: 1 1 5%;
+                        flex: 1 1 5%;
                 color: lighten(@coulTxtAcc3, 20%);
                 text-transform: uppercase;
                 .tailleFont(1.5);
                 font-family: @fontAccent;
             }
             & form {
-                flex: 1 1 95%;
-                display: flex;
-                flex-direction: column;
+                -webkit-box-flex: 1;
+                    -ms-flex: 1 1 95%;
+                        flex: 1 1 95%;
+                display: none;
+                -webkit-box-orient: vertical;
+                -webkit-box-direction: normal;
+                    -ms-flex-direction: column;
+                        flex-direction: column;
                 & .chatBoiteRep {
-                    flex: 1 0 70%;
+                    -webkit-box-flex: 1;
+                        -ms-flex: 1 0 70%;
+                            flex: 1 0 70%;
                     background-color: white;
                     padding: 1rem;
                     overflow-y: scroll;
@@ -386,14 +516,20 @@ h6 {
                     }
                 }
                 & .chatBoiteMsg {
-                    flex: 1 0 20%;
+                    -webkit-box-flex: 1;
+                        -ms-flex: 1 0 20%;
+                            flex: 1 0 20%;
                     background-color: white;
                     padding: 1rem;
                     .tailleFont(1.2);
                     font-family: @fontBase;
                 }
                 & .btnGroupe {
-                    flex: 1 0 10%;
+                    -webkit-box-flex: 1;
+                        -ms-flex: 1 0 10%;
+                            flex: 1 0 10%;
+                    display: -webkit-box;
+                    display: -ms-flexbox;
                     display: flex;
                     & input {
                         border: none;
@@ -401,20 +537,25 @@ h6 {
                         font-family: @fontAccent;
                         .tailleFont(1.5);
                         text-transform: uppercase;
+                        -webkit-transition: 400ms background-color, 400ms color;
                         transition: 400ms background-color, 400ms color;
                         &:hover {
                             color: shade(@coulBase, 40%);
                         }
                     }
                     & .chatPoke {
-                        flex: 1 1 20%;
+                        -webkit-box-flex: 1;
+                            -ms-flex: 1 1 20%;
+                                flex: 1 1 20%;
                         background-color: darken(@coulAccent3, 20%);
                         &:hover {
                             background-color: shade(@coulAccent3, 40%);
                         }
                     }
                     & .chatBtnEnvoyer {
-                        flex: 1 1 80%;
+                        -webkit-box-flex: 1;
+                            -ms-flex: 1 1 80%;
+                                flex: 1 1 80%;
                         background-color: #52346b;
                         &:hover {
                             background-color: shade(@coulAccent4, 20%);
@@ -429,7 +570,9 @@ h6 {
                     display: none;
                 }
             }
-            flex: 1 1 30%;
+            -webkit-box-flex: 1;
+                -ms-flex: 1 1 30%;
+                    flex: 1 1 30%;
             padding: 3rem;
             & h3 {
                 color: #240016;
@@ -437,6 +580,8 @@ h6 {
             }
             & ul {
                 & li {
+                    display: -webkit-box;
+                    display: -ms-flexbox;
                     display: flex;
                     padding: 1rem;
                     &:hover {
@@ -464,13 +609,22 @@ h6 {
         }
     }
     & footer {
-        flex: 1 0 content;
+        -webkit-box-flex: 1;
+            -ms-flex: 1 0 content;
+                flex: 1 0 content;
         min-height: 5vh;
         padding: 1rem;
+        background: -webkit-gradient(linear, left top, right top, from(darken(@coulAccent3, 20%)), to(darken(@coulAccent3, 30%))), @coulAccent3;
         background: linear-gradient(to right, darken(@coulAccent3, 20%), darken(@coulAccent3, 30%)), @coulAccent3;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        justify-content: flex-start;
-        align-items: center;
+        -webkit-box-pack: start;
+            -ms-flex-pack: start;
+                justify-content: flex-start;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
         & p {
             .tailleFont(1.2);
             color: lighten(@coulTxtAcc2, 10%);

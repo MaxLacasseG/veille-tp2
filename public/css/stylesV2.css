@@ -1,5 +1,6 @@
 @import 'reset.css';
 * {
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 html {
@@ -85,39 +86,72 @@ h6 {
   display: none;
 }
 #conteneurPrinc {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
   justify-content: space-between;
   min-height: 100vh;
 }
 #conteneurPrinc header {
+  -webkit-box-flex: 1;
+  -ms-flex: 1 0 content;
   flex: 1 0 content;
   padding: 1rem;
+  background: url(../medias/img/motifFond2.png), -webkit-gradient(linear, left top, right top, from(#cf4154), to(#882230)), #cf4154;
   background: url(../medias/img/motifFond2.png), linear-gradient(to right, #cf4154, #882230), #cf4154;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 #conteneurPrinc header #groupeEntete {
+  -webkit-box-flex: 1;
+  -ms-flex: 1 1 60%;
   flex: 1 1 60%;
 }
 #conteneurPrinc header .navConteneur {
+  -webkit-box-flex: 1;
+  -ms-flex: 1 0 40%;
   flex: 1 0 40%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
 }
 #conteneurPrinc header .navConteneur nav.princ {
+  -webkit-box-flex: 1;
+  -ms-flex: 1 0 auto;
   flex: 1 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 #conteneurPrinc header .navConteneur nav.princ ul {
+  -webkit-box-flex: 1;
+  -ms-flex: 1 0 100%;
   flex: 1 0 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -ms-flex-pack: distribute;
   justify-content: space-around;
+  -webkit-box-align: end;
+  -ms-flex-align: end;
   align-items: flex-end;
 }
 #conteneurPrinc header .navConteneur nav.princ ul li a {
   font-size: 20px;
   font-size: 2rem;
   text-decoration: none;
+  -webkit-transition: 400ms color;
   transition: 400ms color;
 }
 @media screen and (max-width: 380px) {
@@ -136,8 +170,14 @@ h6 {
   color: #fdf9d0;
 }
 #conteneurPrinc header .navConteneur nav.localisation {
+  -webkit-box-flex: 1;
+  -ms-flex: 1 1 20%;
   flex: 1 1 20%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
   justify-content: flex-end;
   padding: 1em;
 }
@@ -152,21 +192,41 @@ h6 {
   color: #eea94f;
 }
 #conteneurPrinc main {
+  -webkit-box-flex: 1;
+  -ms-flex: 1 1 auto;
   flex: 1 1 auto;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
   flex-direction: row;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   background-color: white;
 }
 #conteneurPrinc main section#profil {
+  -webkit-box-flex: 1;
+  -ms-flex: 1 1 70%;
   flex: 1 1 70%;
   padding: 5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 #conteneurPrinc main section#profil aside {
+  -webkit-box-flex: 1;
+  -ms-flex: 1 1 30%;
   flex: 1 1 30%;
   background-color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
   justify-content: flex-start;
 }
 #conteneurPrinc main section#profil aside img {
@@ -174,6 +234,8 @@ h6 {
   width: 100%;
 }
 #conteneurPrinc main section#profil div {
+  -webkit-box-flex: 1;
+  -ms-flex: 1 1 70%;
   flex: 1 1 70%;
 }
 #conteneurPrinc main section#profil div h2 {
@@ -192,6 +254,8 @@ h6 {
   font-size: 2rem;
 }
 #conteneurPrinc main section#principale {
+  -webkit-box-flex: 1;
+  -ms-flex: 1 1 70%;
   flex: 1 1 70%;
   padding: 3rem;
 }
@@ -200,6 +264,8 @@ h6 {
   margin-bottom: 2rem;
 }
 #conteneurPrinc main section#principale ul li {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   padding: 1rem;
 }
@@ -223,24 +289,51 @@ h6 {
   font-size: 2rem;
 }
 #conteneurPrinc main .listeMembre {
+  -webkit-box-flex: 1;
+  -ms-flex: 1 1 auto;
   flex: 1 1 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
+  -webkit-box-align: stretch;
+  -ms-flex-align: stretch;
   align-items: stretch;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
   justify-content: flex-start;
 }
 #conteneurPrinc main .listeMembre form {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
+  -webkit-box-align: end;
+  -ms-flex-align: end;
   align-items: flex-end;
 }
 #conteneurPrinc main .listeMembre form.formulairePost {
   display: none;
 }
 #conteneurPrinc main .listeMembre table {
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
   flex: 1;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
   justify-content: flex-start;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
   align-items: flex-start;
   border-collapse: collapse;
   width: 100%;
@@ -256,6 +349,7 @@ h6 {
   padding: 2em;
 }
 #conteneurPrinc main .listeMembre table tbody tr {
+  -webkit-transition: all;
   transition: all;
   line-height: 3em;
   text-align: center;
@@ -309,15 +403,31 @@ h6 {
   font-size: 2rem;
 }
 #conteneurPrinc main .formulaire {
+  -webkit-box-flex: 1;
+  -ms-flex: 1 1 auto;
   flex: 1 1 auto;
   width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
 }
 #conteneurPrinc main .formulaire form {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
   width: 50vw;
 }
@@ -328,20 +438,33 @@ h6 {
   font-size: 2rem;
 }
 #conteneurPrinc main .formulaire form label {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
 }
 #conteneurPrinc main aside {
+  -webkit-box-flex: 1;
+  -ms-flex: 1 1 30%;
   flex: 1 1 30%;
   padding: 2rem;
   background-color: #240016;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
 }
 #conteneurPrinc main aside .btnDeconnexionConteneur {
   display: none;
 }
 #conteneurPrinc main aside .chatLabel {
+  -webkit-box-flex: 1;
+  -ms-flex: 1 1 5%;
   flex: 1 1 5%;
   color: #aa0000;
   text-transform: uppercase;
@@ -350,11 +473,18 @@ h6 {
   font-family: 'Oswald', cursive;
 }
 #conteneurPrinc main aside form {
+  -webkit-box-flex: 1;
+  -ms-flex: 1 1 95%;
   flex: 1 1 95%;
-  display: flex;
+  display: none;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
 }
 #conteneurPrinc main aside form .chatBoiteRep {
+  -webkit-box-flex: 1;
+  -ms-flex: 1 0 70%;
   flex: 1 0 70%;
   background-color: white;
   padding: 1rem;
@@ -390,6 +520,8 @@ h6 {
   padding-right: 1rem;
 }
 #conteneurPrinc main aside form .chatBoiteMsg {
+  -webkit-box-flex: 1;
+  -ms-flex: 1 0 20%;
   flex: 1 0 20%;
   background-color: white;
   padding: 1rem;
@@ -398,7 +530,11 @@ h6 {
   font-family: 'Ubuntu', sans-serif;
 }
 #conteneurPrinc main aside form .btnGroupe {
+  -webkit-box-flex: 1;
+  -ms-flex: 1 0 10%;
   flex: 1 0 10%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 #conteneurPrinc main aside form .btnGroupe input {
@@ -408,12 +544,15 @@ h6 {
   font-size: 15px;
   font-size: 1.5rem;
   text-transform: uppercase;
+  -webkit-transition: 400ms background-color, 400ms color;
   transition: 400ms background-color, 400ms color;
 }
 #conteneurPrinc main aside form .btnGroupe input:hover {
   color: #98957d;
 }
 #conteneurPrinc main aside form .btnGroupe .chatPoke {
+  -webkit-box-flex: 1;
+  -ms-flex: 1 1 20%;
   flex: 1 1 20%;
   background-color: #882230;
 }
@@ -421,6 +560,8 @@ h6 {
   background-color: #7c2732;
 }
 #conteneurPrinc main aside form .btnGroupe .chatBtnEnvoyer {
+  -webkit-box-flex: 1;
+  -ms-flex: 1 1 80%;
   flex: 1 1 80%;
   background-color: #52346b;
 }
@@ -428,6 +569,8 @@ h6 {
   background-color: #422a56;
 }
 #conteneurPrinc main section#chat {
+  -webkit-box-flex: 1;
+  -ms-flex: 1 1 30%;
   flex: 1 1 30%;
   padding: 3rem;
 }
@@ -439,6 +582,8 @@ h6 {
   margin-bottom: 2rem;
 }
 #conteneurPrinc main section#chat ul li {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   padding: 1rem;
 }
@@ -462,12 +607,21 @@ h6 {
   font-size: 2rem;
 }
 #conteneurPrinc footer {
+  -webkit-box-flex: 1;
+  -ms-flex: 1 0 content;
   flex: 1 0 content;
   min-height: 5vh;
   padding: 1rem;
+  background: -webkit-gradient(linear, left top, right top, from(#882230), to(#5f1821)), #cf4154;
   background: linear-gradient(to right, #882230, #5f1821), #cf4154;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
   justify-content: flex-start;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
 }
 #conteneurPrinc footer p {

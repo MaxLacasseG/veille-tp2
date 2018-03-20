@@ -10,5 +10,10 @@
 	"courrielEntete": "Courriel",
 	"rechercher": "Rechercher un membre",
 	"profil": "Profil",
-	"retour": "Retourner à la liste"
+	"retour": "Retourner à la liste",
+	"listeUtilConnectes": "Liste des utilisateurs connectés",
+	"Conversation": "Conversation",
+	"Envoyer": "Envoyer",
+	"ConnexionAuChat": "Veuillez vous connecter à la conversation",
+	"navChat": "Conversation"
 }

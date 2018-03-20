@@ -7,13 +7,14 @@
 
                 <main>
                     <section id="chat">
-                        <h3>Liste des utilisateurs connectés</h3>
+                        <h3><%=__('listeUtilConnectes')%></h3>
                         <ul class="listeChat">
                             <li class="membreChat gabarit">Nom</li>
                         </ul>
                     </section>
                     <aside>
                         <div class="btnConnexionConteneur">
+                            <h3><%=__('ConnexionAuChat')%></h3>
                             <input type="text" class="nomChat">
                             <button onclick="connexionChat()">
                                 <i class="fas fa-power-off"></i>
@@ -25,8 +26,8 @@
                                 <i class="fas fa-power-off"></i>
                             </button>
                         </div>
-                        <p class="chatLabel">Conversation</p>
-                        <form action="#">
+                        <form class="formChat" action="#">
+                            <p class="chatLabel"><%=__('Conversation')%></p>
                             <div class="chatBoiteRep">
                                 <div class="chatRep auteur gabarit">
                                     <p class="auteur">Max</p>
@@ -44,7 +45,7 @@
                             <input type="text" name="chatBoiteMessage" class="chatBoiteMsg">
                             <div class="btnGroupe">
                                 <input type="button" name="chatPoke" class="chatPoke" value="Poke">
-                                <input type="button" class="chatBtnEnvoyer" value="Envoyer" onclick="envoyerMsg()">
+                                <input type="button" class="chatBtnEnvoyer" value="<%=__('Envoyer')%>" onclick="envoyerMsg()">
                             </div>
                         </form>
                     </aside>

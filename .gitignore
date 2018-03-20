@@ -7,3 +7,4 @@ assets/css/*
 !assets/css/normalize.css
 
 node_modules/
+data/
